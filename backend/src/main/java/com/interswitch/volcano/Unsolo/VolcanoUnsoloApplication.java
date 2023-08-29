@@ -5,9 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VolcanoUnsolo {
+public class VolcanoUnsoloApplication {
     public static void main(String[] args) {
 
-        SpringApplication.run(VolcanoUnsolo.class, args);
+        SpringApplication.run(VolcanoUnsoloApplication.class, args);
     }
 }
