@@ -22,7 +22,7 @@ const Navbar = () => {
             height={30} // Set the desired height
             className="cursor-pointer"
           />
-          <div className={`sm:block ${showNav ? "hidden" : ""}`}>
+          <div className={`sm:block ${showNav ? "hidden" : " mt-4"}`}>
             <ul className="flex flex-row gap-7">
               <li
                 onClick={() => {
@@ -72,7 +72,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className={`sm:block ${showNav ? "hidden" : ""}`}>
+          <div className={`sm:block ${showNav ? "hidden" : " mt-4"}`}>
             <ul className="flex flex-row gap-5">
               <li
                 onClick={() => {

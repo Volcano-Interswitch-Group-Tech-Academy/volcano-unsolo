@@ -3,8 +3,11 @@ import Gap from "@/components/common/Gap";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/input";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const LoginForm = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +20,6 @@ const LoginForm = () => {
   };
 
   const handleLogin = () => {
-    // Implement your authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
   };
@@ -43,7 +45,10 @@ const LoginForm = () => {
               value={password}
               onChange={handlePasswordChange}
             />
+
           </div>
+
+
 
           <div className="flex flex-col justify-center items-center">
             <Button
@@ -54,7 +59,7 @@ const LoginForm = () => {
             <Gap v={2} />
             <p>
               Don't have an account?{" "}
-              <span className="cocoa_yellow">Sign Up</span>
+              <span className="cocoa_yellow cursor-pointer" onClick={() => {router.push("/Signup")}}>Sign Up</span>
             </p>
           </div>
         </div>
