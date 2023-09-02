@@ -3,8 +3,10 @@ import Gap from "@/components/common/Gap";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/input";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const SignupForm = () => {
+  const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -94,13 +96,15 @@ const SignupForm = () => {
             />
           </div>
 
-          <div className="flex gap-2 lg:flex-row flex-col w-1/2">
+          <div className="flex gap-2 lg:flex-row flex-col">
             <Input
               placeholder={"Confirm Password"}
               styling={""}
               value={firstName}
               onChange={handleConfirmPasswordChange}
-            />{" "}
+            />
+            <div className="w-full mr-9">
+            </div>
           </div>
         </div>
         <Gap v={2} />
@@ -111,7 +115,17 @@ const SignupForm = () => {
             className="button_bg text-white font-semibold p-9 w-1/2  border-radius"
           />
           <Gap v={2} />
-          <p>Already have an account? <span className="cocoa_yellow">Login</span></p>
+          <p>
+            Already have an account?{" "}
+            <span
+              className="cocoa_yellow cursor-pointer"
+              onClick={() => {
+                router.push("/Login");
+              }}
+            >
+              Login
+            </span>
+          </p>
         </div>
       </div>
     </Container>

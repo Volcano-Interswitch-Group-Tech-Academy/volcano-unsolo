@@ -4,6 +4,7 @@ import Container from "./Container";
 import { GiHamburger } from "react-icons/gi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Image from "next/image";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const router = useRouter();
@@ -12,23 +13,14 @@ const Navbar = () => {
     <Container>
       <div>
         <div className="flex flex-row  py-7 justify-between ">
-           {/* Replace <h1> with <Image> */}
-         <Image
-            onClick={() => {
-              router.push("/");
-            }}
-            src="/Unsolo-logo-black-01.png" // Set the path to your logo image
-            alt="Unsolo Logo" // Provide an alt text for accessibility
-            width={120} // Set the desired width
-            height={30} // Set the desired height
-            className="cursor-pointer"
-          />
+         <div><Logo/></div>
           <div className="z-10">
-            <div className="flex flex-row">
+            <div>
               {showNav ? (
                 <AiOutlineCloseCircle
                   onClick={() => setShowNav(false)}
                   style={{
+                    marginLeft:"8rem",
                     fontSize: "2rem",
                     cursor: "pointer",
                     fontWeight: "bolder",
