@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Container from "./Container";
 import { GiHamburger } from "react-icons/gi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import Image from "next/image";
 
 const Navbar = () => {
   const router = useRouter();
@@ -11,14 +12,17 @@ const Navbar = () => {
     <Container>
       <div>
         <div className="flex flex-row  py-7 justify-between ">
-          <h1
+           {/* Replace <h1> with <Image> */}
+         <Image
             onClick={() => {
               router.push("/");
             }}
-            className="font_bold secondary_text_color text-3xl cursor-pointer"
-          >
-            Unsolo
-          </h1>
+            src="/Unsolo-logo-black-01.png" // Set the path to your logo image
+            alt="Unsolo Logo" // Provide an alt text for accessibility
+            width={120} // Set the desired width
+            height={30} // Set the desired height
+            className="cursor-pointer"
+          />
           <div className="z-10">
             <div className="flex flex-row">
               {showNav ? (
@@ -94,7 +98,7 @@ const Navbar = () => {
                 <li
                   onClick={() => {
                     setShowNav(false);
-                    router.push("");
+                    router.push("/Login");
                   }}
                   className="orange-border-bottom cursor-pointer "
                 >
@@ -103,7 +107,7 @@ const Navbar = () => {
                 <li
                   onClick={() => {
                     setShowNav(false);
-                    router.push("");
+                    router.push("/Signup");
                   }}
                   className=" orange-border-bottom cursor-pointer "
                 >
