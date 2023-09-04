@@ -59,7 +59,7 @@ const LoginForm = () => {
             <Gap v={2} />
             <p>
               Don't have an account?{" "}
-              <span className="cocoa_yellow cursor-pointer" onClick={() => {router.push("/signup")}}>Sign Up</span>
+              <span className="cocoa_yellow cursor-pointer" onClick={() => {router.push("/Signup")}}>Sign Up</span>
             </p>
           </div>
         </div>

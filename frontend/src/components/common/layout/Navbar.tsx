@@ -77,7 +77,7 @@ const Navbar = () => {
               <li
                 onClick={() => {
                   setShowNav(false);
-                  router.push("/login");
+                  router.push("/Login");
                 }}
                 className="orange-border-bottom cursor-pointer "
               >
@@ -86,7 +86,7 @@ const Navbar = () => {
               <li
                 onClick={() => {
                   setShowNav(false);
-                  router.push("/signup");
+                  router.push("/Signup");
                 }}
                 className=" orange-border-bottom cursor-pointer"
               >
