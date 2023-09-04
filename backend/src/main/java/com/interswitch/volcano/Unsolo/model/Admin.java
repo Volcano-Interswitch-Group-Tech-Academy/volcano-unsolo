@@ -9,10 +9,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-<<<<<<< HEAD
 @Builder
-=======
->>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
 @Entity
 @Table(name = "admin")
 public class Admin extends Person {

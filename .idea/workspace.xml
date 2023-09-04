@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/dtos/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/dtos/SignUpRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties.example" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sign-up",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "C:/Users/Adedolapo.Olutuyo/Documents/volcano-unsolo",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",

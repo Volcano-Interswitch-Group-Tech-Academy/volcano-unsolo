@@ -54,3 +54,4 @@ build/
 ### VS Code ###
 .vscode/
 >>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
+env.properties

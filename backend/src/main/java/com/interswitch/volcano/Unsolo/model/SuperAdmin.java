@@ -10,15 +10,8 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-<<<<<<< HEAD
 @Builder
 @Table(name = "super_admin")
 public class SuperAdmin extends Person{
     private Long walletId;
-}
-=======
-@Table(name = "super_admin")
-public class SuperAdmin extends Person{
-    private Long walletId;
  }
->>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
