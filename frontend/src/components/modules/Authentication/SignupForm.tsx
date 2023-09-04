@@ -120,7 +120,7 @@ const SignupForm = () => {
             <span
               className="cocoa_yellow cursor-pointer"
               onClick={() => {
-                router.push("/Login");
+                router.push("/login");
               }}
             >
               Login
