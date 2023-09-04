@@ -13,7 +13,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+<<<<<<< HEAD
 @Builder
+=======
+>>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
 @Data
 @ToString
 public class SignUpRequestDto {
@@ -54,6 +57,9 @@ public class SignUpRequestDto {
     @NotNull(message = "Role is mandatory")
     private Role role;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
 }

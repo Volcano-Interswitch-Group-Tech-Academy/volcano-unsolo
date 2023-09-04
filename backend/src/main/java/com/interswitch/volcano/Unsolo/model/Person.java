@@ -7,6 +7,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+<<<<<<< HEAD
+=======
+import org.springframework.security.core.userdetails.UserDetails;
+>>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
 
 import java.util.Date;
 
@@ -17,7 +21,11 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
+<<<<<<< HEAD
 public abstract class Person {
+=======
+public abstract class Person  {
+>>>>>>> 09962f6096cd5af2aea02cf4da75b722f29d775e
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
