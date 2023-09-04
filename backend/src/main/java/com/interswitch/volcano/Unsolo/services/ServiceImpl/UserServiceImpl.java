@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
 
     @Override
     public SignUpResponseDto registerUser(SignUpRequestDto signUpRequestDto) {
@@ -23,7 +22,10 @@ public class UserServiceImpl implements UserService {
         if (existsByEmail)
             throw new AlreadyExistException("This email already exists");
 
-       User newUser = modelMapper.map(signUpRequestDto, User.class);
+        User newUser= new User();
+
+        BeanUtils.copyProperties(signUpRequestDto,newUser);
+
        userRepository.save(newUser);
        String subject = "Verify email address";
        String message=
