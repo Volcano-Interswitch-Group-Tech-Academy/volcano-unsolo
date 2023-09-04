@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/dtos/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/dtos/SignUpRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties.example" beforeDir="false" />
-    </list>
+    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
