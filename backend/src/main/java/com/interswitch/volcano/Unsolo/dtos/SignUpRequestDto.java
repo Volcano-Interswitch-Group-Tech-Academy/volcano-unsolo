@@ -54,6 +54,4 @@ public class SignUpRequestDto {
     @NotNull(message = "Role is mandatory")
     private Role role;
 
-
-
 }

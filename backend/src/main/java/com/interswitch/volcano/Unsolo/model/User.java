@@ -8,9 +8,8 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User extends Person {
 
     private String dateOfBirth;

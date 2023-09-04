@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class SignUpResponse {
+public class SignUpResponseDto {
     private String firstName;
     private String lastName;
     private String email;
