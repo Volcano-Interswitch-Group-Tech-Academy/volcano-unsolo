@@ -9,12 +9,13 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
+
 @Builder
 @Data
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class SignUpRequestDto {
 
     @Column(nullable = false, length = 50)
