@@ -10,8 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "currentDest")
-public class CurrentDestinations {
+@Table(name = "bookedTrip")
+public class TripBookByUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,5 +27,6 @@ public class CurrentDestinations {
     private String endDate;
     private String duration;
     private TripStatus tripStatus;
-
+    private Long userId;
+    private Long currentDestinationId;
 }
