@@ -1,21 +1,16 @@
-package com.interswitch.volcano.Unsolo.model;
+package com.interswitch.volcano.Unsolo.dtos;
+
 
 import com.interswitch.volcano.Unsolo.enums.TripStatus;
-import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "currentDest")
-public class CurrentDestinations {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class TripBookByUserDto {
+
     private String country;
     private String city;
     private String tripDescription;
@@ -27,5 +22,6 @@ public class CurrentDestinations {
     private String endDate;
     private String duration;
     private TripStatus tripStatus;
-
+    private Long userId;
+    private Long currentDestinationId;
 }

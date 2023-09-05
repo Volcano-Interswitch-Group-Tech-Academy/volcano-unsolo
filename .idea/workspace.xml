@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/untitled/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/untitled.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="authentication configuration and login" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,7 +36,7 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2UkutMzlNCIfq3YTRbpy7aIFXoc" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -49,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/Adedolapo.Olutuyo/Documents/volcano-unsolo",
+    "last_opened_file_path": "C:/Users/olivia.nwachukwu/Documents/JAVA/volcano-unsolo/backend/src/main/java/com/interswitch/volcano/Unsolo/configurations",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -57,12 +57,24 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\java\com\interswitch\volcano\Unsolo\configurations" />
+      <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\java\com\interswitch\volcano\Unsolo\enums" />
+      <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Adedolapo.Olutuyo\Documents\volcano-unsolo" />
       <recent name="C:\Users\Adedolapo.Olutuyo\Documents\volcano-unsolo\backend" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.interswitch.volcano.Unsolo.service" />
+      <recent name="com.interswitch.volcano.Unsolo.controller" />
+      <recent name="com.interswitch.volcano.Unsolo.repository" />
+      <recent name="com.interswitch.volcano.Unsolo.services.ServiceImpl" />
+      <recent name="com.interswitch.volcano.Unsolo.services" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AuthenticationServiceImplTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -93,6 +105,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthenticationServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Unsolo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.service.AuthenticationServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.signUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Unsolo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="signUp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AuthenticationServiceImplTest" />
+        <item itemvalue="JUnit.UserServiceTest.signUp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,10 +152,28 @@
       <option name="presentableId" value="Default" />
       <updated>1693496117092</updated>
     </task>
+    <task id="LOCAL-00001" summary="authentication configuration and login">
+      <option name="closed" value="true" />
+      <created>1693872923700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693872923700</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.tsx" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="authentication configuration and login" />
+    <option name="LAST_COMMIT_MESSAGE" value="authentication configuration and login" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/volcano_unsolo$AuthenticationServiceImplTest.ic" NAME="AuthenticationServiceImplTest Coverage Results" MODIFIED="1693872626655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.interswitch.volcano.Unsolo.service.*</FILTER>
+    </SUITE>
   </component>
 </project>
