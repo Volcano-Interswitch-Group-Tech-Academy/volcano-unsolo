@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableConfigurationProperties(RSAKeyProperties.class)
-@EnableSwagger2
 @CrossOrigin(origins = "http://localhost:3000")
 public class VolcanoUnsoloApplication {
     public static void main(String[] args) {
