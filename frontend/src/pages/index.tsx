@@ -1,4 +1,5 @@
 import PageHead from "@/components/common/PageHead";
+import AppLayout from "@/components/common/layout/AppLayout";
 import Footer from "@/components/common/layout/Footer";
 import MobileNav from "@/components/common/layout/MobileNav";
 import Navbar from "@/components/common/layout/Navbar";
@@ -12,16 +13,11 @@ const Home: NextPage = () => {
   <PageHead title="Home" description="Landing Page" />;
 
   return (
-    <div className="primary_bg full-height">
-      <div className=" secondary_bg full-height">
+    <AppLayout className="">
+      <div>
 
-        <div> {isDesktop ? <Navbar /> : <MobileNav />}</div>
-        
       </div>
-      <div className="flex-end bg-transparent">
-          <Footer/>
-        </div>
-    </div>
+    </AppLayout>
   );
 };
 

@@ -12,10 +12,10 @@ const Navbar = () => {
   return (
     <Container>
       <div>
-        <div className="flex flex-row  py-7 justify-between ">
+        <div className="flex flex-row py-7 justify-between relative ">
          <div><Logo/></div>
-          <div className="z-10">
-            <div>
+          <div className="mobile-nav">
+            <div className="flex justify-end mt-8">
               {showNav ? (
                 <AiOutlineCloseCircle
                   onClick={() => setShowNav(false)}

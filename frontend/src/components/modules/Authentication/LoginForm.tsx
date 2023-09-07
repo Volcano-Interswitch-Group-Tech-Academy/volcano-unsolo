@@ -32,21 +32,25 @@ const LoginForm = () => {
           <div className="flex gap-2 lg:flex-row flex-col">
             <Input
               placeholder={"Email"}
+              type={"text"}
               styling={""}
               value={email}
               onChange={handleEmailChange}
             />
           </div>
+          <Gap h={3} />
 
           <div className="flex gap-2 lg:flex-row flex-col">
             <Input
               placeholder={"Password"}
+              type={"password"}
               styling={""}
               value={password}
               onChange={handlePasswordChange}
             />
 
           </div>
+          <Gap h={3} />
 
 
 

@@ -1,29 +1,21 @@
 import React from "react";
 import PageHead from "@/components/common/PageHead";
-import MobileNav from "@/components/common/layout/MobileNav";
-import Navbar from "@/components/common/layout/Navbar";
-import useMediaQuery from "@/components/common/layout/useMediaQuey";
 import { NextPage } from "next";
 import SignupForm from "@/components/modules/Authentication/SignupForm";
-import Footer from "@/components/common/layout/Footer";
+import AppLayout from "@/components/common/layout/AppLayout";
 
 const Signup: NextPage = () => {
-  <PageHead title="Home" description="Landing Page" />;
-  const isDesktop = useMediaQuery("(min-width: 960px)");
+  <PageHead title="Home" description="Sign up Page" />;
 
   return (
     <>
-      <div className="primary_bg full-height">
-        {isDesktop ? <Navbar /> : <MobileNav />}
+      <AppLayout className={"primary_bg"}>
         <div className="authentication-glass">
           <div className="app-inner">
             <SignupForm />
           </div>
         </div>
-      </div>
-      <div className="primary_bg">
-        <Footer />
-      </div>
+      </AppLayout>
     </>
   );
 };
