@@ -9,16 +9,15 @@ const Footer = () => {
   return (
     <div className="flex flex-row justify-between p-7 mx-3 bg-transparent ">
       <div>
-        {/* Replace <h1> with <Image> */}
         <Image
             onClick={() => {
               router.push("/");
             }}
-            src="/Unsolo-logo-black-01.png" // Set the path to your logo image
-            alt="Unsolo Logo" // Provide an alt text for accessibility
-            width={120} // Set the desired width
-            height={30} // Set the desired height
-            className="cursor-pointer"
+            src="/Unsolo-logo-black-01.png" 
+            alt="Unsolo Logo" 
+            width={50} 
+            height={30} 
+            className="cursor-pointer mt-2"
           />
       </div>
       <div className="flex flex-row justify-between gap-5">

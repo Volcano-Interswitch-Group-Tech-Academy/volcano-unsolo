@@ -1,22 +1,28 @@
 import { InputProps } from "@/helpers/types/ui";
-import React, { useState } from "react";
+import React from "react";
 
-const Input: React.FC<InputProps> = ({ placeholder, onChange, styling }) => {
-  const [value, setValue] = useState("");
-
+const Input: React.FC<InputProps> = ({
+  placeholder,
+  onChange,
+  styling,
+  type,
+  onBlur,
+  error,
+  value,
+}) => {
   return (
-    <>
+    <div className="flex flex-col w-full">
       <input
-        type="text"
+        type={type}
         value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-          onChange(e.target.value);
-        }}
+        onChange={onChange}
+        onBlur={onBlur}
         placeholder={placeholder}
-        className={` input ${styling}`}
+        className={`input ${styling}`}
       />
-    </>
+
+      {error && <span className="text-red-500 error mt-3">{error}</span>}
+    </div>
   );
 };
 

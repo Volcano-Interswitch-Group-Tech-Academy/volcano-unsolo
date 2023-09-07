@@ -143,7 +143,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #5adbff;
 }
 
-.border-top{
+.border-top {
   border-top: 2px solid #dad8d5;
 }
 
@@ -170,10 +170,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .authentication-glass {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+
+}
+.app-inner {
+  padding: 2rem;
   border-radius: 18px;
   background: linear-gradient(
     135deg,
@@ -182,16 +187,17 @@ body::-webkit-scrollbar-thumb {
   );
   backdrop-filter: blur(15px);
   width: 60%;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
   box-shadow: 0 0 0.25rem 0.1rem rgba(116, 73, 37, 0.4);
-
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
   @media only screen and (max-width: 600px) {
     width: 90%;
-
   }
 }
-
-.app-inner {
-  padding: 2rem 0;
+.app-inner::-webkit-scrollbar {
+  display: none;
 }
 
 .input {
@@ -214,4 +220,31 @@ body::-webkit-scrollbar-thumb {
 .mobile-nav {
   position: sticky;
   top: 0;
+}
+.destination_bg {
+  background-color: rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1);
+}
+
+.error {
+  font-size: 0.6rem;
+  font-weight: lighter;
+}
+
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+ 
+
+.mobile-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
