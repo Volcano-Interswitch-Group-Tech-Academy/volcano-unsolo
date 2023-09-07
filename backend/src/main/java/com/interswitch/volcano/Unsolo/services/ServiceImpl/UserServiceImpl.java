@@ -1,12 +1,16 @@
 package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 
 import com.interswitch.volcano.Unsolo.configurations.token.TokenService;
+import com.interswitch.volcano.Unsolo.enums.Role;
 import com.interswitch.volcano.Unsolo.enums.TokenStatus;
+import com.interswitch.volcano.Unsolo.exceptions.InvalidTokenException;
 import com.interswitch.volcano.Unsolo.exceptions.UserAlreadyExistException;
+import com.interswitch.volcano.Unsolo.exceptions.UserNotFoundException;
 import com.interswitch.volcano.Unsolo.model.Token;
 import com.interswitch.volcano.Unsolo.repository.TokenRepository;
 import com.interswitch.volcano.Unsolo.services.MailService;
 import com.interswitch.volcano.Unsolo.services.UserService;
+import com.interswitch.volcano.Unsolo.utils.ApiCustomResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import com.interswitch.volcano.Unsolo.dtos.SignUpRequestDto;
@@ -14,9 +18,14 @@ import com.interswitch.volcano.Unsolo.dtos.SignUpResponseDto;
 import com.interswitch.volcano.Unsolo.model.User;
 import com.interswitch.volcano.Unsolo.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+
+import static com.interswitch.volcano.Unsolo.enums.TokenStatus.ACTIVE;
+import static com.interswitch.volcano.Unsolo.enums.TokenStatus.EXPIRED;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +35,7 @@ public class UserServiceImpl implements UserService {
     private final TokenRepository tokenRepository;
     private final MailService mailService;
     private final HttpServletRequest request;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -35,6 +45,9 @@ public class UserServiceImpl implements UserService {
             throw new UserAlreadyExistException("User with this email already exists");
         User newUser= new User();
         BeanUtils.copyProperties(signUpRequestDto,newUser);
+        newUser.setRole(Role.USER);
+        newUser.setVerificationStatus(false);
+        newUser.setPassword(passwordEncoder.encode(signUpRequestDto.getPassword()));
         userRepository.save(newUser);
         String registrationToken = generateAndSaveToken(newUser.getId(), newUser.getEmail());
         sendMail(signUpRequestDto.getEmail(), newUser, registrationToken);
@@ -49,7 +62,7 @@ public class UserServiceImpl implements UserService {
                 "Hi " + user.getFirstName() + " " + user.getLastName() + ",  Welcome to UNSOLO!." +
                         " We have received a registration request with your email. " +
                         "To complete your registration, kindly click on the link to verify your email address \n" + "http://" +
-                        request.getServerName() + ":8060" + "/api/verifyRegistration?token=" + registrationToken);
+                        request.getServerName() + ":8060" + "/api/users/verifyRegistration?token=" + registrationToken);
     }
 
     private String generateAndSaveToken(Long userId, String userEmail) {
@@ -61,4 +74,23 @@ public class UserServiceImpl implements UserService {
         tokenRepository.save(token);
         return registrationToken;
     }
+
+    // token verification
+
+    @Override
+    public ApiCustomResponse<String> verifyRegistration(String token) {
+        Token verifyToken = tokenRepository.findByToken(token).orElseThrow(()
+                -> new InvalidTokenException("Token Not Found"));
+        if(verifyToken.getTokenStatus().equals(EXPIRED))
+            throw new InvalidTokenException("Token expired or already used");
+        User user = userRepository.findById(verifyToken.getUserId()).orElseThrow(()->
+                new UserNotFoundException("This user does not exists"));
+        user.setVerificationStatus(true);
+        verifyToken.setTokenStatus(EXPIRED);
+        tokenRepository.save(verifyToken);
+        return new ApiCustomResponse<String>("Congratulations!, your Account has been successfully verified", null, HttpStatus.OK);
+    }
+
+
+
 }

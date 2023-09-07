@@ -1,5 +1,6 @@
 package com.interswitch.volcano.Unsolo.model;
 
+import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
 import com.interswitch.volcano.Unsolo.enums.RoomType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,4 +29,5 @@ public class CreateYourTrip {
     @Column(nullable = false)
     private RoomType roomType;
     private Long userId;
+    private ApprovalStatus approvalStatus;
 }

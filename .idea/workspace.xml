@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="authentication configuration and login" />
+    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="verify registration" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -49,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/olivia.nwachukwu/Documents/JAVA/volcano-unsolo/backend/src/main/java/com/interswitch/volcano/Unsolo/configurations",
+    "last_opened_file_path": "C:/Users/olayinka.olaitan/Desktop/volcano-unsolo",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -74,7 +74,7 @@
       <recent name="com.interswitch.volcano.Unsolo.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AuthenticationServiceImplTest">
+  <component name="RunManager" selected="JUnit.AuthenticationControllerTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -101,6 +101,37 @@
       <option name="resourceGroup" />
       <option name="stagingFolder" />
       <option name="subscription" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Unsolo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.controller.AuthenticationControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationControllerTest.userLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Unsolo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.controller.AuthenticationControllerTest" />
+      <option name="METHOD_NAME" value="userLogin" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,6 +169,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthenticationControllerTest.userLogin" />
+        <item itemvalue="JUnit.AuthenticationControllerTest" />
         <item itemvalue="JUnit.AuthenticationServiceImplTest" />
         <item itemvalue="JUnit.UserServiceTest.signUp" />
       </list>
@@ -160,16 +193,35 @@
       <option name="project" value="LOCAL" />
       <updated>1693872923700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="verify registration">
+      <created>1694106243385</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694106243386</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.tsx" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="authentication configuration and login" />
-    <option name="LAST_COMMIT_MESSAGE" value="authentication configuration and login" />
+    <MESSAGE value="verify registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="verify registration" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/volcano_unsolo$AuthenticationServiceImplTest.ic" NAME="AuthenticationServiceImplTest Coverage Results" MODIFIED="1693872626655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
