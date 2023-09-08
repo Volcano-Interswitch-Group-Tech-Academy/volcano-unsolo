@@ -18,6 +18,7 @@ public class CurrentDestinations {
     private Long id;
     private String country;
     private String city;
+    private String destinationName;
     private String tripDescription;
     private int maxNoOfPersons;
     private int noOfRegisterPersons;

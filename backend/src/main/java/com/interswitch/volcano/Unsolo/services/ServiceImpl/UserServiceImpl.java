@@ -6,6 +6,7 @@ import com.interswitch.volcano.Unsolo.enums.TokenStatus;
 import com.interswitch.volcano.Unsolo.exceptions.InvalidTokenException;
 import com.interswitch.volcano.Unsolo.exceptions.UserAlreadyExistException;
 import com.interswitch.volcano.Unsolo.exceptions.UserNotFoundException;
+import com.interswitch.volcano.Unsolo.model.CurrentDestinations;
 import com.interswitch.volcano.Unsolo.model.Token;
 import com.interswitch.volcano.Unsolo.repository.TokenRepository;
 import com.interswitch.volcano.Unsolo.services.MailService;
@@ -23,6 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
 
 import static com.interswitch.volcano.Unsolo.enums.TokenStatus.ACTIVE;
 import static com.interswitch.volcano.Unsolo.enums.TokenStatus.EXPIRED;
@@ -90,7 +92,6 @@ public class UserServiceImpl implements UserService {
         tokenRepository.save(verifyToken);
         return new ApiCustomResponse<String>("Congratulations!, your Account has been successfully verified", null, HttpStatus.OK);
     }
-
 
 
 }
