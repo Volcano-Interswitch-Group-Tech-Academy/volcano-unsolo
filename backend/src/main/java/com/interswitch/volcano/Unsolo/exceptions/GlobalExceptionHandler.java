@@ -57,4 +57,10 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(apiErrorResponse, HttpStatus.UNAUTHORIZED);
     }
 
+    @ExceptionHandler(TripNotFoundException.class)
+    public ResponseEntity<ApiErrorResponse> handlePersonAlreadyExist(TripNotFoundException xe){
+        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(404, xe.getMessage() , new Date());
+        return new ResponseEntity<>(apiErrorResponse, HttpStatus.NOT_FOUND);
+    }
+
 }
