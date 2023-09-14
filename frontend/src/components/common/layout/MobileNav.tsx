@@ -54,7 +54,7 @@ const Navbar = () => {
                 <li
                   onClick={() => {
                     setShowNav(false);
-                    router.push("");
+                    router.push("/destinations");
                   }}
                   className="orange-border-bottom cursor-pointer "
                 >

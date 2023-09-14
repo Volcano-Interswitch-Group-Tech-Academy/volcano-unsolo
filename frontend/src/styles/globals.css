@@ -3,12 +3,6 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* :root {
-  --skyblue:'#5ADBFF';
-  --m-skyblue:'hsla(193, 100%, 68%, 1)';
-  --munsell: '#3587A4';
-  --cocoa-yellow: '#E2711D'
-} */
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -147,6 +141,13 @@ body::-webkit-scrollbar-thumb {
   border-top: 2px solid #dad8d5;
 }
 
+.primary_text_color{
+  color: #3587a4;
+}
+
+.secondary_text_color{
+  color: #5adbff;
+}
 .cocoa_yellow {
   color: #e2711d;
 }
@@ -174,8 +175,6 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   height: 100%;
-
-
 }
 .app-inner {
   padding: 2rem;
@@ -239,7 +238,6 @@ body::-webkit-scrollbar-thumb {
 main {
   flex: 1;
 }
- 
 
 .mobile-nav {
   position: absolute;
@@ -248,3 +246,24 @@ main {
   width: 100%;
   z-index: 10;
 }
+
+.light-font{
+  font-weight: 100;
+  font-size: .7rem;
+  color: #adaaaa;
+}
+
+.average-font{
+  color: #000000a0;
+  font-size: .8rem;
+
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
