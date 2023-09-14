@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="verify registration">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/exceptions/TripNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/CurrentDestinationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/CurrentDestinationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/CurrentDestinations.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/model/CurrentDestinations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/repository/CurrentDestinationsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/repository/CurrentDestinationsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/CurrentDestinationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/CurrentDestinationsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/ServiceImpl/CurrentDestinationsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/ServiceImpl/CurrentDestinationsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/ServiceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/ServiceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/CreateYourTripController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/CreateYourTripController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/repository/CreateYourTripRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/repository/CreateYourTripRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/CreateYourTripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/CreateYourTripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/ServiceImpl/CreateYourTripServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/services/ServiceImpl/CreateYourTripServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +22,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -53,19 +56,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/naomi.willie/IdeaProjects/volcano-unsolo",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature__admin-endpoint-view-dest-pending-approval&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/naomi.willie/IdeaProjects/volcano-unsolo&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\java\com\interswitch\volcano\Unsolo\configurations" />
@@ -84,7 +87,7 @@
       <recent name="com.interswitch.volcano.Unsolo.services" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AuthenticationControllerTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
