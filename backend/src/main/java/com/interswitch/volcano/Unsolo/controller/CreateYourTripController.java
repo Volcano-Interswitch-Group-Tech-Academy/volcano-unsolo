@@ -26,7 +26,7 @@ public class CreateYourTripController {
         return new ApiCustomResponse<>("Success!", response, HttpStatus.OK) ;
     }
 
-    @GetMapping("/all-trip-with-approval-status-of-pending")
+    @GetMapping("/all-trip-with-approval-status-of-pending/{destName}")
     public ApiCustomResponse<CreateYourTrip> getTripWithPendingApprovalStatusByDestName(@RequestParam("destName") String destName) {
         CreateYourTrip res = createYourTripService.getTripByDestNameWithApprovalStatusOfPending(destName);
         return new ApiCustomResponse<>("Success!", res, HttpStatus.OK);
