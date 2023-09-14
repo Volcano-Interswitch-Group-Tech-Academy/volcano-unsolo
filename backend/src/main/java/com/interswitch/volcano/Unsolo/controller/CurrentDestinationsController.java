@@ -1,7 +1,10 @@
 package com.interswitch.volcano.Unsolo.controller;
 
 
+import com.interswitch.volcano.Unsolo.dtos.CurrentDestinationsDto;
 import com.interswitch.volcano.Unsolo.services.CurrentDestinationsService;
+import com.interswitch.volcano.Unsolo.utils.ApiCustomResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,5 +24,9 @@ public class CurrentDestinationsController {
     @GetMapping
     public ResponseEntity<?> getAllDestination() {
         return new ResponseEntity<>(currentDestinationsService.getAllDestinations(), HttpStatus.OK);
+    }
+    @PostMapping("/newDest")
+    ResponseEntity<ApiCustomResponse<CurrentDestinationsDto>> createCurrentDestination(@Valid @RequestBody CurrentDestinationsDto currentDestinationsDto){
+        return new ResponseEntity<>(currentDestinationsService.createCurrentDestination(currentDestinationsDto),HttpStatus.CREATED);
     }
 }
