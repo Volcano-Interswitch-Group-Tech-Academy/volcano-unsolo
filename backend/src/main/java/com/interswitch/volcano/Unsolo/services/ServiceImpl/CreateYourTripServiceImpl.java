@@ -3,9 +3,6 @@ package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 import com.interswitch.volcano.Unsolo.dtos.TripBookByUserDto;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
-import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
-import com.interswitch.volcano.Unsolo.repository.CreateYourTripRepo;
-import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
 import com.interswitch.volcano.Unsolo.exceptions.TripNotFoundException;
 import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
 import com.interswitch.volcano.Unsolo.repository.CreateYourTripRepo;
@@ -15,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,15 +32,14 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
             TripBookByUserDto tripBookByUserDto = new TripBookByUserDto();
             BeanUtils.copyProperties(savedTrip, tripBookByUserDto);
             return tripBookByUserDto;
-        }
-        else {
+        } else {
             throw new Exception("can only update pending trip");
         }
     }
 
 
     public List<TripBookByUserDto> getUserTrips(long userId) {
-       List<CreateYourTrip> createYourTrips = createYourTripRepo.findByUserId(userId);
+        List<CreateYourTrip> createYourTrips = createYourTripRepo.findByUserId(userId);
 
         return createYourTrips.stream().map(createYourTrip -> {
             TripBookByUserDto tripBookByUserDto = new TripBookByUserDto();
@@ -52,7 +47,6 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
             return tripBookByUserDto;
         }).collect(Collectors.toList());
     }
-
 
 
     @Override
@@ -65,7 +59,6 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
         }).collect(Collectors.toList());
     }
 
-    private CreateYourTripRepo createYourTripRepo;
     @Override
     public List<CreateYourTrip> getAllTripWithApprovalStatusOfPending() {
         return createYourTripRepo.findAll()
@@ -77,9 +70,9 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
     @Override
     public CreateYourTrip getTripByDestNameWithApprovalStatusOfPending(String destinationName) {
         CreateYourTrip res = createYourTripRepo.findByDestinationName(destinationName);
-        if(res != null && res.getApprovalStatus().equals(ApprovalStatus.PENDING)){
+        if (res != null && res.getApprovalStatus().equals(ApprovalStatus.PENDING)) {
             return res;
-        }else{
+        } else {
             throw new TripNotFoundException("No pending trip with the destination name " + destinationName + " exist!");
         }
     }

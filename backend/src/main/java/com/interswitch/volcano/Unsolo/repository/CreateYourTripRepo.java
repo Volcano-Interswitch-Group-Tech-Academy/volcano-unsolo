@@ -10,10 +10,11 @@ import java.util.List;
 public interface CreateYourTripRepo extends JpaRepository<CreateYourTrip, Long> {
 
 
-        CreateYourTrip findByIdAndUserId(Long tripId, Long userId);
+    CreateYourTrip findByIdAndUserId(Long tripId, Long userId);
 
-        List<CreateYourTrip> findByUserId(long userId);
+    List<CreateYourTrip> findByUserId(long userId);
 
-        List<CreateYourTrip> findByUserIdAndDestinationNameIgnoreCase(Long userId, String destinationName);
+    List<CreateYourTrip> findByUserIdAndDestinationNameIgnoreCase(Long userId, String destinationName);
+
     CreateYourTrip findByDestinationName(String destinationName);
 }
