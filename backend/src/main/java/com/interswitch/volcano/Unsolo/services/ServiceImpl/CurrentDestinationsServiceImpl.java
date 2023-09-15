@@ -2,6 +2,7 @@ package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 
 import com.interswitch.volcano.Unsolo.dtos.CurrentDestinationsDto;
 import com.interswitch.volcano.Unsolo.exceptions.AlreadyExistException;
+import com.interswitch.volcano.Unsolo.exceptions.ResourceNotFoundException;
 import com.interswitch.volcano.Unsolo.model.CurrentDestinations;
 import com.interswitch.volcano.Unsolo.repository.CurrentDestinationsRepo;
 import com.interswitch.volcano.Unsolo.services.CurrentDestinationsService;
@@ -46,4 +47,18 @@ public class CurrentDestinationsServiceImpl implements CurrentDestinationsServic
         currentDestinationsRepo.save(newCurrentDestination);
         return new ApiCustomResponse<>("Happy Travelling! Destination Created Successfully ", modelMapper.map(newCurrentDestination, CurrentDestinationsDto.class), HttpStatus.CREATED);
     }
+
+    @Override
+    public ApiCustomResponse<CurrentDestinations> editCurrentDestination(CurrentDestinationsDto currentDestinationsDto, Long currentDestinations_id) {
+        CurrentDestinations currentDestinations = currentDestinationsRepo.findById(currentDestinations_id).orElseThrow(() -> new ResourceNotFoundException("Oops! This Destination does not exist"));
+        currentDestinations.setDestinationName(currentDestinations.getDestinationName());
+        currentDestinations.setCountry(currentDestinationsDto.getCountry());
+        currentDestinations.setCity(currentDestinationsDto.getCity());
+        currentDestinations.setTripDescription(currentDestinationsDto.getTripDescription());
+        currentDestinations.setStartDate(currentDestinationsDto.getStartDate());
+        CurrentDestinations editCurrentDest = currentDestinationsRepo.save(currentDestinations);
+
+        return new ApiCustomResponse<>("Destination Successfully Updated",editCurrentDest,HttpStatus.OK);
+    }
+
 }
