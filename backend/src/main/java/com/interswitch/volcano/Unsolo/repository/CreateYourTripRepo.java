@@ -15,4 +15,5 @@ public interface CreateYourTripRepo extends JpaRepository<CreateYourTrip, Long> 
         List<CreateYourTrip> findByUserId(long userId);
 
         List<CreateYourTrip> findByUserIdAndDestinationNameIgnoreCase(Long userId, String destinationName);
+    CreateYourTrip findByDestinationName(String destinationName);
 }
