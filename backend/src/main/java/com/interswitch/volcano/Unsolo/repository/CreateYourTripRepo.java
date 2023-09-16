@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CreateYourTripRepo extends JpaRepository<CreateYourTrip, Long> {
+    CreateYourTrip findByDestinationName(String destinationName);
 }

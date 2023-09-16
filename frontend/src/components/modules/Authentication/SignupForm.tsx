@@ -127,7 +127,7 @@ const SignupForm = () => {
               type={"text"}
               styling={""}
               value={lastName}
-              onChange={(e) => handleChange(e, "lastName", setFirstName)}
+              onChange={(e) => handleChange(e, "lastName", setLastName)}
               onBlur={() => handleBlur("lastName")}
               error={touched.lastName ? formErrors.lastName : ""}
             />
