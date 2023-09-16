@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="CRUD for current Destination">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/configurations/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/configurations/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +208,7 @@
       <updated>1693496117092</updated>
       <workItem from="1694611115112" duration="9421000" />
       <workItem from="1694680454934" duration="33379000" />
-      <workItem from="1694877992173" duration="1387000" />
+      <workItem from="1694877992173" duration="2282000" />
     </task>
     <task id="LOCAL-00001" summary="authentication configuration and login">
       <option name="closed" value="true" />
