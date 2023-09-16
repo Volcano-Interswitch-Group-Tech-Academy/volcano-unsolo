@@ -12,5 +12,7 @@ public interface CurrentDestinationsService {
     ApiCustomResponse<CurrentDestinationsDto> createCurrentDestination (CurrentDestinationsDto currentDestinationsDto);
     ApiCustomResponse<CurrentDestinations> editCurrentDestination(CurrentDestinationsDto currentDestinationsDto,Long currentDestinations_id);
 
+    void deleteCurrentDestination(Long currentDestinations_id);
+
 
 }

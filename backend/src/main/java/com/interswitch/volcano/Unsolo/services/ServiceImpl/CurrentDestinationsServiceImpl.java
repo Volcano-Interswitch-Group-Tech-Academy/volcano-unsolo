@@ -57,8 +57,15 @@ public class CurrentDestinationsServiceImpl implements CurrentDestinationsServic
         currentDestinations.setTripDescription(currentDestinationsDto.getTripDescription());
         currentDestinations.setStartDate(currentDestinationsDto.getStartDate());
         CurrentDestinations editCurrentDest = currentDestinationsRepo.save(currentDestinations);
-
         return new ApiCustomResponse<>("Destination Successfully Updated",editCurrentDest,HttpStatus.OK);
     }
+
+    @Override
+    public void deleteCurrentDestination(Long currentDestinations_id) {
+        CurrentDestinations currentDestinations = currentDestinationsRepo.findById(currentDestinations_id).orElseThrow(() -> new ResourceNotFoundException("Oops! This Destination does not exist"));
+        currentDestinationsRepo.delete(currentDestinations);
+
+    }
+
 
 }
