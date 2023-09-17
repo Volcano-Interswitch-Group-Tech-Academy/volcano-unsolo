@@ -27,7 +27,7 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
         CreateYourTrip createYourTrip = createYourTripRepo.findByIdAndUserId(tripId, userId);
         if (createYourTrip == null) throw new Exception("Trip does not exist");
         if (createYourTrip.getApprovalStatus() == ApprovalStatus.PENDING) {
-            BeanUtilsWithNullHandler.copyPropertiesIgnoreNull(updateTripRequest, createYourTrip);
+            BeanUtilsWithNullHandler.copyPropertiesIgnoreNull(createYourTrip, updateTripRequest);
             CreateYourTrip savedTrip = createYourTripRepo.save(createYourTrip);
             TripBookByUserDto tripBookByUserDto = new TripBookByUserDto();
             BeanUtils.copyProperties(savedTrip, tripBookByUserDto);
