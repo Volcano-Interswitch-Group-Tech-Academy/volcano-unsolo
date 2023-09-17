@@ -21,26 +21,30 @@ public class CurrentDestinationsController {
 
     @GetMapping("/{destName}")
     public ResponseEntity<?> getDestinationByCountry(@PathVariable("destName") String  destinationName) {
-        return new ResponseEntity<>(currentDestinationsService.getCurrentDestinations(destinationName), HttpStatus.OK);
+        return new ResponseEntity<>(currentDestinationsService.getACurrentDestinations(destinationName), HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity<?> getAllDestination() {
         return new ResponseEntity<>(currentDestinationsService.getAllDestinations(), HttpStatus.OK);
     }
-    @PostMapping("/newDest")
+    @PostMapping("/admin/newDest")
     ResponseEntity<ApiCustomResponse<CurrentDestinationsDto>> createCurrentDestination(@Valid @RequestBody CurrentDestinationsDto currentDestinationsDto){
         return new ResponseEntity<>(currentDestinationsService.createCurrentDestination(currentDestinationsDto),HttpStatus.CREATED);
     }
-    @PutMapping("/update/{currentDest_id}")
-    ResponseEntity<ApiCustomResponse<CurrentDestinations>>editCurrentDest(@PathVariable("currentDest_id") Long currentDest_id,@Valid @RequestBody CurrentDestinationsDto currentDestinationsDto){
+    @PatchMapping("/admin/update/{currentDest_id}")
+    ResponseEntity<ApiCustomResponse<CurrentDestinations>>editCurrentDest(@PathVariable("currentDest_id") long currentDest_id,@Valid @RequestBody CurrentDestinationsDto currentDestinationsDto){
         return new ResponseEntity<>(currentDestinationsService.editCurrentDestination(currentDestinationsDto,currentDest_id),HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{currentDest_id}")
+    @DeleteMapping("/admin/{currentDest_id}")
     ResponseEntity<String> deleteCurrentDest(@Valid @PathVariable("currentDest_id") Long currentDest_id){
         currentDestinationsService.deleteCurrentDestination(currentDest_id);
         return new ResponseEntity<>("Destination Deleted Successfully",HttpStatus.NO_CONTENT);
+    }
+    @PostMapping("/admin/approve/{tripId}")
+    public ResponseEntity<?> approveTrip(@PathVariable("currentDest_id") Long currentDest_id) {
+        return new ResponseEntity<>(currentDestinationsService.changeTripStatus(currentDest_id),HttpStatus.OK);
     }
 }
 
