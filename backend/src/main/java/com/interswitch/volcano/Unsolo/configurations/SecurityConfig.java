@@ -60,10 +60,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                         .authorizeHttpRequests(auth -> {
                             auth.requestMatchers(WHITE_LISTED_URLS).permitAll();
-                            //auth.requestMatchers("/api/destinations/**").permitAll();
                             auth.requestMatchers("/api/super-admin/**").hasAnyRole(SUPERADMIN.name());
-                            auth.requestMatchers("/api/admins/**").hasAnyRole(ADMIN.name());
-                            auth.requestMatchers("/api/users/**").hasAnyRole(USER.name());
+                            auth.requestMatchers("/api/admins/**", "/api/trips/admin/**", "/api/destinations/admin/**").hasAnyRole(ADMIN.name());
+                            auth.requestMatchers("/api/users/**", "/api/trips/**", "/api/destinations/**").hasAnyRole(USER.name());
                             auth.anyRequest().authenticated();
                         })
                         .oauth2ResourceServer(oauth2 -> oauth2

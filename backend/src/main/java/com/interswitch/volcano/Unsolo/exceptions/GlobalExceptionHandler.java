@@ -63,4 +63,9 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(apiErrorResponse, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(InvalidApprovalOperationException.class)
+    public ResponseEntity<ApiErrorResponse> handleInvalidApprovalOperation(InvalidApprovalOperationException xe){
+        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(401, xe.getMessage() , new Date());
+        return new ResponseEntity<>(apiErrorResponse, HttpStatus.UNAUTHORIZED);
+    }
 }
