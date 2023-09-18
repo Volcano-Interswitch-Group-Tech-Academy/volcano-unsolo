@@ -12,18 +12,14 @@ const SuccessfulSignup: React.FC = () => {
         <p className="font-bold text-lg">
           You have successfully signed up on Unsolo
         </p>
-        <div className="flex justify-center w-full">
-          <Link href="/login" className="w-1/3">
-            <Button
-              className="button_bg w-full text-white rounded-sm font-semibold"
-              onClick={() => {
-                router.push("/login");
-              }}
-            >
-              Login
-            </Button>
-          </Link>
-        </div>
+        <Button
+          className="button_bg text-white rounded-sm font-semibold w-1/3"
+          onClick={() => {
+            router.push("/login");
+          }}
+        >
+          Login
+        </Button>
       </div>
     </div>
   );
