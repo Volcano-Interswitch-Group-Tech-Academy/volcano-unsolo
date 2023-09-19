@@ -1,5 +1,6 @@
 package com.interswitch.volcano.Unsolo.dtos;
 
+import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
 import com.interswitch.volcano.Unsolo.enums.RoomType;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
@@ -45,4 +46,7 @@ public class CreateYourTripDto {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private RoomType roomType;
+
+    private ApprovalStatus approvalStatus;
+
 }

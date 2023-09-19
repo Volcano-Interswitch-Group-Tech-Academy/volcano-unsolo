@@ -29,5 +29,7 @@ public class CreateYourTrip {
     @Column(nullable = false)
     private RoomType roomType;
     private Long userId;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ApprovalStatus approvalStatus;
 }

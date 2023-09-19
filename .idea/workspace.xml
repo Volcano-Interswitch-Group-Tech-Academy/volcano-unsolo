@@ -4,90 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="verify registration">
+    <list default="true" id="f4788a88-f22d-4b12-a215-248d22060ef9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/CreateYourTripController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/controller/CreateYourTripController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2UkutMzlNCIfq3YTRbpy7aIFXoc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/naomi.willie/IdeaProjects/volcano-unsolo&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "dev"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\java\com\interswitch\volcano\Unsolo\configurations" />
-      <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\java\com\interswitch\volcano\Unsolo\enums" />
-      <recent name="C:\Users\olivia.nwachukwu\Documents\JAVA\volcano-unsolo\backend\src\main\resources" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Adedolapo.Olutuyo\Documents\volcano-unsolo" />
-      <recent name="C:\Users\Adedolapo.Olutuyo\Documents\volcano-unsolo\backend" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.interswitch.volcano.Unsolo.service" />
-      <recent name="com.interswitch.volcano.Unsolo.controller" />
-      <recent name="com.interswitch.volcano.Unsolo.repository" />
-      <recent name="com.interswitch.volcano.Unsolo.services.ServiceImpl" />
-      <recent name="com.interswitch.volcano.Unsolo.services" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
       <option name="appServicePlanResourceGroup" />
-      <option name="appSettingsKey" value="3aa293f6-6ba2-4bb0-9549-00cf4e9c7503" />
+      <option name="appSettingsKey" value="4f0203d9-c248-4247-a8b9-0f8b0ece989c" />
       <option name="artifact" />
       <option name="debugOptions" />
       <option name="deployment" />
@@ -113,123 +51,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthenticationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Unsolo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.controller.AuthenticationControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthenticationControllerTest.userLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Unsolo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.controller.AuthenticationControllerTest" />
-      <option name="METHOD_NAME" value="userLogin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthenticationServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Unsolo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.service" />
-      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.service.AuthenticationServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.signUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Unsolo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.interswitch.volcano.Unsolo.service" />
-      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="signUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.AuthenticationControllerTest.userLogin" />
-        <item itemvalue="JUnit.AuthenticationControllerTest" />
-        <item itemvalue="JUnit.AuthenticationServiceImplTest" />
-        <item itemvalue="JUnit.UserServiceTest.signUp" />
-      </list>
-    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="13881b87-05e5-4604-b460-c3168daf8597" name="Changes" comment="" />
-      <created>1693496117092</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1693496117092</updated>
-    </task>
-    <task id="LOCAL-00001" summary="authentication configuration and login">
-      <option name="closed" value="true" />
-      <created>1693872923700</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1693872923700</updated>
-    </task>
-    <task id="LOCAL-00002" summary="verify registration">
-      <created>1694106243385</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1694106243386</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.tsx" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="authentication configuration and login" />
-    <MESSAGE value="verify registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="verify registration" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/volcano_unsolo$AuthenticationServiceImplTest.ic" NAME="AuthenticationServiceImplTest Coverage Results" MODIFIED="1693872626655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
