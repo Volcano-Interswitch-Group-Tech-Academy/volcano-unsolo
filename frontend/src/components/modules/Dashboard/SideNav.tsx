@@ -11,8 +11,8 @@ export default function SideNav({
   const router = useRouter();
 
   return (
-    <div className="w-64 h-screen bg-white  shadow-md relative overflow-hidden">
-      <div className="fixed w-64 h-screen overflow-y-auto no-scrollbar">
+    <div className="w-64  bg-white  shadow-md relative overflow-hidden">
+      <div className="fixed w-64 h-full overflow-y-auto no-scrollbar">
         {" "}
         <NavHeader />
         <div className="p-5">

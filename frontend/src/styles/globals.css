@@ -31,7 +31,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
+  background-color: #5adbff;
   outline: 1px solid slategrey;
 }
 
@@ -230,9 +230,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .appLayout {
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 main {
@@ -267,3 +267,14 @@ main {
   display: none;
 }
 
+.hero-height{
+  height: 26rem;
+  width: 100%;
+  object-fit: cover;
+  
+}
+
+
+.z-negative {
+  z-index: -1;
+}

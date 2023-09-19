@@ -1,9 +1,7 @@
 import PageHead from "@/components/common/PageHead";
 import AppLayout from "@/components/common/layout/AppLayout";
-import Footer from "@/components/common/layout/Footer";
-import MobileNav from "@/components/common/layout/MobileNav";
-import Navbar from "@/components/common/layout/Navbar";
 import useMediaQuery from "@/components/common/layout/useMediaQuey";
+import Hero from "@/components/modules/LnadingPage/Hero";
 import { NextPage } from "next";
 import React from "react";
 
@@ -14,9 +12,7 @@ const Home: NextPage = () => {
 
   return (
     <AppLayout className="">
-      <div>
-
-      </div>
+        <Hero/>
     </AppLayout>
   );
 };
