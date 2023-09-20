@@ -15,6 +15,8 @@ export type ButtonProps = {
     isLoading?: boolean;
     disabled?: boolean;
     className?: string;
+    icon?: React.ReactNode;
+    iconPosition?: 'start' | 'end';
     onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
@@ -27,3 +29,11 @@ export interface SearchBarProps {
     onClose:any;
 
   }
+
+ export type DropdownFilterProps = {
+    defaultOption: string
+    styling:string
+    options: Array<{ value: string, label: string }>;
+    onchange: (value: string) => void;
+    defaultValue:string;
+}

@@ -42,7 +42,7 @@ const Navbar = () => {
             </div>
             {showNav ? (
               <ul className="flex flex-col gap-7 mt-5 bg-white border-radius p-10">
-                <li
+                {/* <li
                   onClick={() => {
                     setShowNav(false);
                     router.push("");
@@ -50,7 +50,7 @@ const Navbar = () => {
                   className="orange-border-bottom cursor-pointer "
                 >
                   Packages
-                </li>
+                </li> */}
                 <li
                   onClick={() => {
                     setShowNav(false);
@@ -60,7 +60,7 @@ const Navbar = () => {
                 >
                   Destinations
                 </li>
-                <li
+                {/* <li
                   onClick={() => {
                     setShowNav(false);
                     router.push("");
@@ -68,7 +68,7 @@ const Navbar = () => {
                   className="orange-border-bottom cursor-pointer "
                 >
                   Gallery
-                </li>
+                </li> */}
                 <li
                   onClick={() => {
                     setShowNav(false);
