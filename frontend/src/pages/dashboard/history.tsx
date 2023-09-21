@@ -59,7 +59,10 @@ const history = () => {
   ];
   return (
     <DashboardLayout>
-      <Table caption={caption} tableHead={THEAD} tableBody={TBODY} />
+      <div className="mt-7 font-bold">
+        Go down memory lane
+      </div>
+      <Table tableHead={THEAD} tableBody={TBODY} />
     </DashboardLayout>
   );
 };

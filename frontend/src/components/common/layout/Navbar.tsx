@@ -24,7 +24,7 @@ const Navbar = () => {
           />
           <div className={`sm:block ${showNav ? "hidden" : " mt-4"}`}>
             <ul className="flex flex-row gap-7">
-              <li
+              {/* <li
                 onClick={() => {
                   setShowNav(false);
                   router.push("");
@@ -32,7 +32,7 @@ const Navbar = () => {
                 className=" cursor-pointer"
               >
                 Packages
-              </li>
+              </li> */}
               <li
                 onClick={() => {
                   setShowNav(false);
@@ -42,7 +42,7 @@ const Navbar = () => {
               >
                 Destinations
               </li>
-              <li
+              {/* <li
                 onClick={() => {
                   setShowNav(false);
                   router.push("");
@@ -50,7 +50,7 @@ const Navbar = () => {
                 className="cursor-pointer "
               >
                 Gallery
-              </li>
+              </li> */}
               <li
                 onClick={() => {
                   setShowNav(false);

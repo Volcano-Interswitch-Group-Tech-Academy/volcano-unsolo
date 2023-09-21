@@ -25,21 +25,21 @@ const Card: React.FC<CardProps> = ({
   const sliderSettings = {
     dots: false,
     infinite: true,
-    speed: 200,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
   };
 
   return (
-    <div className=" w-[320px] rounded-lg border border-gray-400 bg-white shadow-md">
-      <h1 className="p-5 font-bold text-2xl">Morocco</h1>
+    <div className=" w-[370px] rounded-lg border border-gray-400 bg-white shadow-md">
+      <h1 className="p-5 font-bold text-2xl">{countryName}</h1>
       <div className="w-full">
         <Slider {...sliderSettings}>
           {images?.map((imgSrc, index) => (
             <div key={index}>
               <Image
-                width={320}
+                width={370}
                 height={70}
                 src={imgSrc}
                 alt={`slide-${index}`}
