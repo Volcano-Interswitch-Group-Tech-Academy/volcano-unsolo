@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="03c1457e-5c8c-431c-aa67-b1971a03d9f1" name="Changes" comment="my features">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/configurations/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/interswitch/volcano/Unsolo/configurations/SecurityConfig.java" afterDir="false" />
     <list default="true" id="f4788a88-f22d-4b12-a215-248d22060ef9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -12,11 +15,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="VolcanoUnsoloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.interswitch.volcano.Unsolo.VolcanoUnsoloApplication" />
+      <module name="Unsolo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.interswitch.volcano.Unsolo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     "git-widget-placeholder": "dev"
   }
 }]]></component>
@@ -51,6 +70,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.VolcanoUnsoloApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="my features">
+      <option name="closed" value="true" />
+      <created>1694808786023</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694808786023</updated>
+    </task>
+    <task id="LOCAL-00002" summary="my features">
+      <option name="closed" value="true" />
+      <created>1694951297713</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694951297713</updated>
+    </task>
+    <task id="LOCAL-00003" summary="my features">
+      <option name="closed" value="true" />
+      <created>1694951326531</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694951326531</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="my features" />
+    <option name="LAST_COMMIT_MESSAGE" value="my features" />
+  </component>
   </component>
   <component name="TaskManager">
     <servers />
