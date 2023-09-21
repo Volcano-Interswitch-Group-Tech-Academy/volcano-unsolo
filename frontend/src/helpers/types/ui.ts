@@ -30,6 +30,12 @@ export interface SearchBarProps {
 
   }
 
+  export type JoinDestinationModalProps = {
+    onOpen:boolean;
+    close:any;
+
+  }
+
  export type DropdownFilterProps = {
     defaultOption: string
     styling:string

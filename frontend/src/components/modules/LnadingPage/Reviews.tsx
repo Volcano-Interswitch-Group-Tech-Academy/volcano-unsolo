@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import useMediaQuery from "@/components/common/layout/useMediaQuey";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import Container from "@/components/common/layout/Container";
 
 const Reviews = () => {
   const isDesktop = useMediaQuery("(min-width: 960px)");
@@ -56,7 +57,8 @@ const Reviews = () => {
   }
 
   return (
-    <div className="lg:mt-14 lg:ml-32 mx-10">
+    <Container>
+      <div className="lg:mt-14 lg:ml-32 mx-10">
       <div className="flex lg:flex-row flex-col justify-between ">
         <div className="lg:w-2/4 mt-5 mb-5">
           <h1 className="font-bold text-3xl">Travelers Really</h1>
@@ -115,6 +117,8 @@ const Reviews = () => {
         </div>
       </div>
     </div>
+    </Container>
+    
   );
 };
 

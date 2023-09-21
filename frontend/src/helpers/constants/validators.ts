@@ -45,11 +45,12 @@ export const validateLoginForm = (data: any) => {
   };
 
   export const validateDropdownSelection = (value: string, defaultValue: string): string | null => {
-    if (value === defaultValue) {
+    if (value === defaultValue || value === "") {
         return "Please select a valid option.";
     }
     return null;
 };
+
 
 
   
@@ -75,8 +76,22 @@ export const validateCreateDestinationForm = (data: {
   if (!data.shareRoom.trim()) errors.shareRoom = "Room sharing option is required";
   if (!data.hotel.trim()) errors.hotel = "Hotel is required";
 
-  const countryError = validateDropdownSelection(data.country, "Choose a desired country");
-  if (countryError) errors.country = countryError;
 
   return errors;
 };
+
+type JoinDestinationFormData = {
+  getHotel: string;
+  shareRoom?: string;
+  hotel?: string;
+};
+export const validateJoinDestinationForm = (data: JoinDestinationFormData) => {
+  let errors: Partial<JoinDestinationFormData> = {};
+
+  if (!data.getHotel?.trim()) errors.getHotel = "Hotel option is required";
+  if (!data.shareRoom?.trim()) errors.shareRoom = "Room sharing option is required";
+  if (!data.hotel?.trim()) errors.hotel = "Hotel is required";
+
+  return errors;
+};
+

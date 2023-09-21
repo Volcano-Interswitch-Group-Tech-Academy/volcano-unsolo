@@ -7,19 +7,30 @@ import SearchBar from "@/components/ui/Searchbar";
 import { useMediaQuery } from "@mui/material";
 import { NextPage } from "next/types";
 import React from "react";
+import JoinDestinationModal from './../components/modals/JoinDestinationModal';
 
 const Destination: NextPage = () => {
   const handlesearch = () => {};
   <PageHead title="Destinations" description="List of destinations" />;
 
   const [open, setOpen] = React.useState(false);
+  const [openJoin, setOpenJoin] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  const handlOpenJoinClick = () => {
+    setOpenJoin(true);
+  };
+
   const handleClose = () => {
     setOpen(false);
+  };
+
+  
+  const handleCloseJoin = () => {
+    setOpenJoin(false);
   };
 
   const destinations = [
@@ -40,7 +51,7 @@ const Destination: NextPage = () => {
       totalParticipant: "10",
       slot: "3",
       des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum",
-      price: "₦3,000,000",
+      price: "3,000,000",
     },
 
     {
@@ -60,7 +71,7 @@ const Destination: NextPage = () => {
       totalParticipant: "10",
       slot: "3",
       des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum",
-      price: "₦3,000,000",
+      price: "3,000,000",
     },
     {
       photos: [
@@ -79,7 +90,7 @@ const Destination: NextPage = () => {
       totalParticipant: "10",
       slot: "3",
       des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum",
-      price: "₦3,000,000",
+      price: "3,000,000",
     },
     {
       photos: [
@@ -98,7 +109,7 @@ const Destination: NextPage = () => {
       totalParticipant: "10",
       slot: "3",
       des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum",
-      price: "₦3,000,000",
+      price: "3,000,000",
     },
     {
       photos: [
@@ -117,29 +128,29 @@ const Destination: NextPage = () => {
       totalParticipant: "10",
       slot: "3",
       des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  aliquip ex ea commodo consequat. Duis aute irure dolor in  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum",
-      price: "₦3,000,000",
+      price: "3,000,000",
     },
   ];
   return (
     <AppLayout className={""}>
-      <div className="px-10 mt-7">
-        <div className=" flex flex-col lg:flex-row w-full justify-between">
+      <div className="lg:px-10 mt-7">
+        <div className=" px-10 flex flex-col lg:flex-row w-full justify-between">
           <div className="w-full">
             <SearchBar onSearch={handlesearch} />
           </div>
           <div className="flex lg:flex-row w-full flex-col  justify-end lg:gap-10 gap-2">
             <p className="mt-2 ">No desired destination?</p>
             <Button
-              children={"Create Destination"}
+              children={"Create a Trip"}
               className="button_bg text-white font-semibold p-3  border-radius"
               onClick={handleClickOpen}
             />
           </div>
         </div>
-        <div className="flex lg:flex-row flex-col gap-10 flex-wrap mt-10 content-between">
+        <div className="flex lg:flex-row flex-col flex-wrap mt-10">
           {destinations.map((data, index) => (
             // <Link to={data.route} key={index}>
-            <div className="">
+            <div className="mt-10">
               {" "}
               <Card
                 images={data.photos}
@@ -153,6 +164,7 @@ const Destination: NextPage = () => {
                 availableSlots={data.slot}
                 price={data.price}
                 description={data.des}
+                onClick={handlOpenJoinClick}
               />
             </div>
 
@@ -160,6 +172,7 @@ const Destination: NextPage = () => {
           ))}
         </div>
         <CreateDestinationModal open={open} onClose={handleClose} />
+        <JoinDestinationModal onOpen = {openJoin} close={handleCloseJoin}/>
       </div>
     </AppLayout>
   );

@@ -205,6 +205,8 @@ body::-webkit-scrollbar-thumb {
   padding: 10px;
   width: 100%;
 }
+
+
 .input::placeholder {
   font-weight: lighter;
   font-size: small;
@@ -296,4 +298,11 @@ main {
 
 .z-negative {
   z-index: -1;
+}
+
+
+select.light-font {
+  font-weight: lighter;
+  font-size: small;
+  color: #a09e9e;
 }
