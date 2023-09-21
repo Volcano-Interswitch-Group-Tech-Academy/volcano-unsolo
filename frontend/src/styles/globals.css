@@ -137,6 +137,10 @@ body::-webkit-scrollbar-thumb {
   background-color: #5adbff;
 }
 
+.customBorder{
+  border: 1px solid #dad8d5;
+}
+
 .border-top {
   border-top: 2px solid #dad8d5;
 }
