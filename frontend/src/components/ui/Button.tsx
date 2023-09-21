@@ -4,7 +4,8 @@ import { ButtonProps } from '@/helpers/types/ui';
 
 
 
-const Button: React.FC<ButtonProps> = ({  children,  isLoading = false,  disabled = false,  className,  onClick,  ...otherProps
+const Button: React.FC<ButtonProps> = ({  children,  isLoading = false,  disabled = false,  className,  onClick,   icon,
+  iconPosition = 'start',  ...otherProps
 }) => {
   const defaultStyle: React.CSSProperties = {
     padding: '8px 16px',
@@ -20,7 +21,15 @@ const Button: React.FC<ButtonProps> = ({  children,  isLoading = false,  disable
       disabled={disabled || isLoading}
       {...otherProps}
     >
-      {isLoading ? <Spinner /> : children}
+        {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          {icon && iconPosition === 'start' && icon}
+          {children}
+          {icon && iconPosition === 'end' && icon}
+        </>
+      )}
     </button>
   );
 };

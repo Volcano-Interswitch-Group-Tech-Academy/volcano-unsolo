@@ -108,7 +108,7 @@ const Destination: NextPage = () => {
         "/three.jpg",
         "/four.jpg",
       ],
-      country: "Morocco",
+      country: "Maldives",
       city: "Casablanca",
       depature: "21-Dec-2023",
       return: "28-Dec-2023",
@@ -136,7 +136,7 @@ const Destination: NextPage = () => {
             />
           </div>
         </div>
-        <div className="flex lg:flex-row flex-col gap-16 flex-wrap mt-10 lg:mx-10">
+        <div className="flex lg:flex-row flex-col gap-10 flex-wrap mt-10 content-between">
           {destinations.map((data, index) => (
             // <Link to={data.route} key={index}>
             <div className="">

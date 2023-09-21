@@ -1,5 +1,4 @@
 export type TableProps = {
-  caption: string;
   tableHead: string[];
   tableBody: {
     country: string;

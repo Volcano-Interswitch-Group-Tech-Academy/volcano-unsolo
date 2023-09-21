@@ -10,7 +10,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, className }) => {
   return (
     <div className= {` appLayout ${className}`}>
       {isDesktop ? <Navbar /> : <MobileNav />}
-      <main>{children}</main>
+      <div>{children}</div>
       <Footer />
     </div>
   );
