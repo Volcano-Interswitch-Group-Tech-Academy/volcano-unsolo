@@ -51,7 +51,7 @@ public class SecurityConfig {
     private static final String CLAIM_ROLES = "roles";
     private final String[] WHITE_LISTED_URLS = { "/", "/home", "index", "/css/*", "/js/*","/v2/api-docs/**",
             "/v3/api-docs/**","/configuration/**", "/swagger*/**","/swagger-ui/**","/webjars/**", "/api/auth/login",
-            "/swagger-ui.html", "/api/users/sign-up", "/api/users/verifyRegistration"
+            "/swagger-ui.html", "/api/users/sign-up", "/api/users/verifyRegistration", "/api/trips/trip/**", "/api/trips/user/**","/api/trips/update/**"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
