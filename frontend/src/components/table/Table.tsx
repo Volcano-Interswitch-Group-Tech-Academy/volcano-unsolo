@@ -27,7 +27,9 @@ const Table: React.FC<TableProps> = ({
               <td className={td_style}>{elem.country}</td>
               <td className={td_style}>{elem.city}</td>
               <td className={td_style}>{elem.dob}</td>
-              <td className={td_style}>&#8358;{elem.price}</td>
+              <td className={td_style}>
+                {elem.price ? `₦${elem.price}` : null}
+              </td>
               <td className={td_style}>{elem.days}</td>
               <td className={td_style}>{elem.blank}</td>
             </tr>
