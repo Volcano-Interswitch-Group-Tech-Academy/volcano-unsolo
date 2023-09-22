@@ -15,7 +15,7 @@ const wallet = () => {
       message: "Flex account debited",
       time: "6 Hours ago",
       amount: 3_000_000,
-    }
+    },
   ];
   return (
     <DashboardLayout>
