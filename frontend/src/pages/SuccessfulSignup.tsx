@@ -8,12 +8,12 @@ const SuccessfulSignup: React.FC = () => {
   const router = useRouter();
   return (
     <div className="flex justify-center h-screen items-center w-full">
-      <div className="flex flex-col items-center p-5 w-1/2 gap-5">
-        <p className="font-bold text-lg">
+      <div className="flex flex-col items-center p-5 w-3/4 md:w-1/2 gap-5">
+        <p className="font-bold text-lg text-center">
           You have successfully signed up on Unsolo
         </p>
         <Button
-          className="button_bg text-white rounded-sm font-semibold w-1/3"
+          className="button_bg text-white rounded-sm font-semibold w-1/2 md:w-1/3"
           onClick={() => {
             router.push("/login");
           }}
