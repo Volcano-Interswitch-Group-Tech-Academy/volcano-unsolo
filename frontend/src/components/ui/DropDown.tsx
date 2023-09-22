@@ -30,6 +30,7 @@ const Dropdown: React.FC<DropdownFilterProps> = ({
         className={`input ${styling} ${!isValid ? "border-red-500" : ""}`}
         value={selectedValue}
         onChange={handleOnChange}
+        onClick={(e) => e.stopPropagation()}
       >
         <option className="light-font" value={defaultValue}>{defaultOption}</option>
         {options.map((option, index) => (

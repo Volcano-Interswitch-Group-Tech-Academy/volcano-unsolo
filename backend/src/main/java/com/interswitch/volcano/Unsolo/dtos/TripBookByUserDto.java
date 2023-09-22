@@ -24,4 +24,6 @@ public class TripBookByUserDto {
     private TripStatus tripStatus;
     private Long userId;
     private Long currentDestinationId;
+    private String destinationName;
+
 }

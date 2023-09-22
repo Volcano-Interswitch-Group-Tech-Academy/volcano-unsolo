@@ -52,8 +52,7 @@ export const validateLoginForm = (data: any) => {
 };
 
 
-
-  
+type FormErrorKeys = "country" | "city" | "duration" | "startDate" | "endDate" | "participants" | "getHotel" | "shareRoom" | "hotel";
 export const validateCreateDestinationForm = (data: {
   country: string;
   city: string;
@@ -64,19 +63,38 @@ export const validateCreateDestinationForm = (data: {
   getHotel: string;
   shareRoom: string;
   hotel: string;
-}): { [key: string]: string } => {
-  let errors: { [key: string]: string } = {};
-
+}): Record<FormErrorKeys, string | undefined> => {
+  let errors: Record<FormErrorKeys, string | undefined> = {
+    country: undefined,
+    city: undefined,
+    duration: undefined,
+    startDate: undefined,
+    endDate: undefined,
+    participants: undefined,
+    getHotel: undefined,
+    shareRoom: undefined,
+    hotel: undefined
+  };
   if (!data.city.trim()) errors.city = "City is required";
   if (!data.duration.trim()) errors.duration = "Duration is required";
   if (!data.startDate.trim()) errors.startDate = "Start Date is required";
   if (!data.endDate.trim()) errors.endDate = "End Date is required";
+  if (new Date(data.startDate) > new Date(data.endDate)) {
+    errors.startDate = "Start date should be before the end date.";
+    errors.endDate = "End date should be after the start date.";
+  }
   if (!data.participants.trim()) errors.participants = "Participants are required";
-  if (!data.getHotel.trim()) errors.getHotel = "Hotel option is required";
-  if (!data.shareRoom.trim()) errors.shareRoom = "Room sharing option is required";
+  if (data.getHotel === "yes") {
+    if (!data.shareRoom.trim()) errors.shareRoom = "Room sharing option is required";
+    if (!data.hotel.trim()) errors.hotel = "Hotel is required";
+}  if (!data.shareRoom.trim()) errors.shareRoom = "Room sharing option is required";
   if (!data.hotel.trim()) errors.hotel = "Hotel is required";
 
-
+  Object.keys(errors).forEach((key) => {
+    if (!errors[key as FormErrorKeys]) {
+      delete errors[key as FormErrorKeys];
+    }
+  });
   return errors;
 };
 

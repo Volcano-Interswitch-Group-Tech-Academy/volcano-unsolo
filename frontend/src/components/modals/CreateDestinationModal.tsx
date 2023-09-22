@@ -3,14 +3,11 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { ModalProps } from "@/helpers/types/ui";
-import Dropdown from "../ui/DropDown";
-import { useState, useEffect } from "react";
-import Input from "@/components/ui/input";
-import {
-  validateCreateDestinationForm,
-  validateDropdownSelection,
-} from "@/helpers/constants/validators";
+import { useState } from "react";
+import { validateCreateDestinationForm } from "@/helpers/constants/validators";
 import Gap from "../common/Gap";
+import Dropdown from "../ui/DropDown";
+import Input from "../ui/input";
 import Button from "../ui/Button";
 
 const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
@@ -25,7 +22,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const [hotel, setHotel] = useState("");
   const [hotelQuestions, setHotelQuestions] = useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (getHotel === "yes") {
       setHotelQuestions(true);
     } else {
@@ -33,18 +30,45 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
     }
   }, [getHotel]);
 
-  const [formErrors, setFormErrors] = useState<{
-    country?: string;
-    city?: string;
-    duration?: string;
-    startDate?: string;
-    endDate?: string;
-    participants?: string;
-    getHotel?: string;
-    shareRoom?: string;
-    hotel?: string;
-  }>({});
+  
 
+  type FormErrorKeys =
+    | "country"
+    | "city"
+    | "duration"
+    | "startDate"
+    | "endDate"
+    | "participants"
+    | "getHotel"
+    | "shareRoom"
+    | "hotel";
+
+  const [formErrors, setFormErrors] = useState<
+    Record<FormErrorKeys, string | undefined>
+  >({
+    country: undefined,
+    city: undefined,
+    duration: undefined,
+    startDate: undefined,
+    endDate: undefined,
+    participants: undefined,
+    getHotel: undefined,
+    shareRoom: undefined,
+    hotel: undefined,
+  });
+
+  React.useEffect(() => {
+    console.log('country:', country, 'Error:', formErrors.country);
+    console.log('city:', city, 'Error:', formErrors.city);
+    console.log('duration:', duration, 'Error:', formErrors.duration);
+    console.log('startDate:', startDate, 'Error:', formErrors.startDate);
+    console.log('endDate:', endDate, 'Error:', formErrors.endDate);
+    console.log('participants:', participants, 'Error:', formErrors.participants);
+    console.log('getHotel:', getHotel, 'Error:', formErrors.getHotel);
+    console.log('shareRoom:', shareRoom, 'Error:', formErrors.shareRoom);
+    console.log('hotel:', hotel, 'Error:', formErrors.hotel);
+  }, [country, city, duration, startDate, endDate, participants, getHotel, shareRoom, hotel, formErrors]);
+  
   const [touched, setTouched] = useState<{
     country?: string;
     city?: string;
@@ -69,7 +93,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
     }));
   };
 
-  const handleBlur = (field: keyof typeof touched) => {
+  const handleBlur = (field: FormErrorKeys) => {
     setTouched((prevTouched) => ({ ...prevTouched, [field]: true }));
     const errors = validateCreateDestinationForm({
       country,
@@ -85,34 +109,60 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
     setFormErrors(errors);
   };
 
-  const isFormValid =
-    Object.keys(formErrors).length === 0 &&
-    country &&
-    city &&
-    duration &&
-    startDate &&
-    endDate &&
-    participants 
-
-    if (hotelQuestions && (!shareRoom || !hotel)) {
+  const isFormValid = () => {
+    console.log("Errors:", formErrors);
+    console.log("Fields:", {
+      country,
+      city,
+      duration,
+      startDate,
+      endDate,
+      participants,
+      getHotel,
+      shareRoom,
+      hotel,
+    });
+  
+    if (
+      Object.keys(formErrors).some((key) => {formErrors[key as FormErrorKeys]
+        console.log("formerrors arrays", formErrors)
+        return formErrors[key as FormErrorKeys]
+        
+      })
+    )
+    {
       return false;
     }
+    if (
+      !country ||
+      !city ||
+      !duration ||
+      !startDate ||
+      !endDate ||
+      !participants
+    ) {
+      return false;
+    }
+  
+    if (getHotel === "yes" && (!shareRoom || !hotel)) {
+      return false;
+    }
+  
+    return true;
+  };
 
   return (
     <div>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle>Creeat Your Desired Desitnation</DialogTitle>
+        <DialogTitle>Create Your Desired Destination</DialogTitle>
         <DialogContent>
-          <div className="p-5">
+          <div>
             <Dropdown
               defaultOption={"Choose a desired country"}
               styling={""}
               options={[
                 { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
+                { value: "uk", label: "UK" },
               ]}
               onchange={(value) => setCountry(value)}
               defaultValue={""}
@@ -123,12 +173,9 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               styling={""}
               options={[
                 { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
-                { value: "canada", label: "Canada" },
+                { value: "uk", label: "UK" },
               ]}
-              onchange={(value) => setCountry(value)}
+              onchange={(value) => setCity(value)}
               defaultValue={""}
             />
             <Gap v={1} />
@@ -143,6 +190,17 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               error={touched.duration ? formErrors.duration : ""}
             />
             <Gap v={1} />
+
+            <Input
+              placeholder={"How many participants would you like?"}
+              type={"text"}
+              styling={""}
+              value={participants}
+              onChange={(e) => handleChange(e, "participants", setParticipants)}
+              onBlur={() => handleBlur("participants")}
+              error={touched.participants ? formErrors.participants : ""}
+            />
+            <Gap v={1} /> 
 
             <Input
               placeholder={"Start Date"}
@@ -183,10 +241,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   styling={""}
                   options={[
                     { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
+                    { value: "uk", label: "UK" },
                   ]}
                   onchange={(value) => setHotel(value)}
                   defaultValue={""}
@@ -197,11 +252,8 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   defaultOption={"Do you want to share your hotel room?"}
                   styling={""}
                   options={[
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
+                    { value: "yes", label: "Yes" },
+                    { value: "no", label: "No" },
                   ]}
                   onchange={(value) => setShareRoom(value)}
                   defaultValue={""}
@@ -214,7 +266,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
           <Button
             children={"Create trip"}
-            disabled={!isFormValid}
+            disabled={!isFormValid()}
             className="button_bg text-white font-bold lg:ml-20 ml-12 w-2/3 text-center"
           />
 
