@@ -1,5 +1,6 @@
 package com.interswitch.volcano.Unsolo.controller;
 
+import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.dtos.CreateYourTripDto;
 import com.interswitch.volcano.Unsolo.exceptions.TripNotFoundException;
 import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
@@ -18,8 +19,26 @@ import java.util.List;
 @RequestMapping("/api/trips")
 public class CreateYourTripController {
 
-    private CreateYourTripService createYourTripService;
 
+    private final CreateYourTripService createYourTripService;
+
+
+    @PutMapping("/update/{userId}/{tripId}")
+    public ResponseEntity<?> updateCreateYourTrip(@PathVariable Long userId, @PathVariable Long tripId, @RequestBody UpdateTripRequest updateTripRequest) throws Exception {
+        return new ResponseEntity<>(createYourTripService.updateNotApprovedTrip(userId, tripId, updateTripRequest), HttpStatus.OK);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<?> getUserTrips(@PathVariable Long userId) {
+        return new ResponseEntity<>(createYourTripService.getUserTrips(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("/all-trip-with-approval-status-of-pending")
+    public ApiCustomResponse<List<CreateYourTrip>> getAllTripWithApprovalStatusOfPending() {
+        List<CreateYourTrip> response = createYourTripService.getAllTripWithApprovalStatusOfPending();
+        return new ApiCustomResponse<>("Success!", response, HttpStatus.OK);
+    }
+    
     @PostMapping("/create")
     public ResponseEntity<ApiCustomResponse<CreateYourTripDto>> createYourTripByUser(
             @Valid @RequestBody CreateYourTripDto createYourTripDto){
@@ -46,4 +65,17 @@ public class CreateYourTripController {
         CreateYourTrip res = createYourTripService.getTripByDestNameWithApprovalStatusOfPending(destName);
         return new ApiCustomResponse<>("Success!", res, HttpStatus.OK);
     }
+
+    @GetMapping("/trip/{userId}")
+    public ResponseEntity<?> getTripByDestination(@PathVariable Long userId, @RequestParam String destination) {
+        return new ResponseEntity<>(createYourTripService.getTripByUserIdAndDestinationName(userId, destination), HttpStatus.OK);
+    }
 }
+
+
+
+
+
+
+
+
