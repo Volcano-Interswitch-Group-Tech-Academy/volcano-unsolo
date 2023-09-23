@@ -1,5 +1,7 @@
-import DashboardLayout from "@/components/common/layout/DashboardLayout";
 import React from "react";
+import DashboardLayout from "@/components/common/layout/DashboardLayout";
+import Image from "next/image";
+import EllipsisBtn from "../../../../public/ellipsis-vertical-svgrepo-com.svg";
 
 const Target = () => {
   const td_style = "text-center h-5 py-5 light-font";
@@ -18,7 +20,7 @@ const Target = () => {
       targetDate: "12/7/23",
       total: 3_000_000,
       currentAmt: 1_000_000,
-      blank: "⋮",
+      blank: "",
     },
     {
       country: "Morocco",
@@ -35,7 +37,7 @@ const Target = () => {
       total: 3_000_000,
       currentAmt: 1_000_000,
       blank: "⋮",
-    }
+    },
   ];
   return (
     <DashboardLayout>
@@ -66,7 +68,13 @@ const Target = () => {
                 <td className={td_style}>
                   {elem.currentAmt ? `₦${elem.currentAmt}` : null}
                 </td>
-                <td className={`${td_style} font-medium text-lg text-black`}>{elem.blank}</td>
+                <td className={`${td_style} font-medium text-lg text-black`}>
+                    <Image
+                      src={EllipsisBtn}
+                      alt="view more"
+                      className="h-4 cursor-pointer"
+                    />
+                </td>
               </tr>
             ))}
           </tbody>
