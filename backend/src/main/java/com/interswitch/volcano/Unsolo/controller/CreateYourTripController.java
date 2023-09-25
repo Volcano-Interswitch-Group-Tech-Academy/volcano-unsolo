@@ -1,5 +1,6 @@
 package com.interswitch.volcano.Unsolo.controller;
 
+//import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.dtos.CreateYourTripDto;
 import com.interswitch.volcano.Unsolo.exceptions.TripNotFoundException;
@@ -38,7 +39,7 @@ public class CreateYourTripController {
         List<CreateYourTrip> response = createYourTripService.getAllTripWithApprovalStatusOfPending();
         return new ApiCustomResponse<>("Success!", response, HttpStatus.OK);
     }
-    
+
     @PostMapping("/create")
     public ResponseEntity<ApiCustomResponse<CreateYourTripDto>> createYourTripByUser(
             @Valid @RequestBody CreateYourTripDto createYourTripDto){
@@ -70,7 +71,16 @@ public class CreateYourTripController {
     public ResponseEntity<?> getTripByDestination(@PathVariable Long userId, @RequestParam String destination) {
         return new ResponseEntity<>(createYourTripService.getTripByUserIdAndDestinationName(userId, destination), HttpStatus.OK);
     }
+
+
+//        @GetMapping("/total-users/{tripId}")
+//        public ResponseEntity<TotalUsersResponse> getTotalUsersByTripId(@PathVariable Long tripId) {
+//            TotalUsersResponse response = createYourTripService.getTotalUsersByTripId(tripId);
+//            return ResponseEntity.ok(response);
+//        }
 }
+
+
 
 
 
