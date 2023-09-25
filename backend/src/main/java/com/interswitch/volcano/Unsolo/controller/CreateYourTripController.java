@@ -1,9 +1,11 @@
 package com.interswitch.volcano.Unsolo.controller;
 
 //import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
+import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.dtos.CreateYourTripDto;
 import com.interswitch.volcano.Unsolo.exceptions.TripNotFoundException;
+import com.interswitch.volcano.Unsolo.exceptions.UserNotFoundException;
 import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
 import com.interswitch.volcano.Unsolo.services.CreateYourTripService;
 import com.interswitch.volcano.Unsolo.utils.ApiCustomResponse;
@@ -11,6 +13,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -73,11 +76,13 @@ public class CreateYourTripController {
     }
 
 
-//        @GetMapping("/total-users/{tripId}")
-//        public ResponseEntity<TotalUsersResponse> getTotalUsersByTripId(@PathVariable Long tripId) {
-//            TotalUsersResponse response = createYourTripService.getTotalUsersByTripId(tripId);
-//            return ResponseEntity.ok(response);
-//        }
+
+
+        @GetMapping("/total-users/{tripId}")
+        public ResponseEntity<TotalUsersResponse> getTotalNumberUsersByTripId(@PathVariable Long tripId) {
+            TotalUsersResponse response = createYourTripService.getTotalNumberOfUsersByTripId(tripId);
+            return ResponseEntity.ok(response);
+        }
 }
 
 
