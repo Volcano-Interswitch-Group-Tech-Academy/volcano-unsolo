@@ -22,6 +22,16 @@ a {
   box-sizing: border-box;
 }
 
+.bgwalletCard1{
+  background-color: #3587A4;
+}
+.bgwalletCard2{
+  background-color: #3587A4;
+}
+.bgwalletCard3{
+  background-color: #000000;
+}
+
 body::-webkit-scrollbar {
   width: 0.3em;
 }
@@ -135,6 +145,10 @@ body::-webkit-scrollbar-thumb {
 
 .primary_bg {
   background-color: #5adbff;
+}
+
+.customBorder{
+  border: 1px solid #dad8d5;
 }
 
 .border-top {
