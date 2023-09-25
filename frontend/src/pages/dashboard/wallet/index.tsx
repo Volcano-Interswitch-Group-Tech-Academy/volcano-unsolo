@@ -1,6 +1,8 @@
 import React from "react";
 import WalletCard from "@/components/card/WalletCard";
 import DashboardLayout from "@/components/common/layout/DashboardLayout";
+import OutlineHistory from "../../../../public/outline_history.png";
+import Image from "next/image";
 
 const wallet = () => {
   const transaction = [
@@ -32,8 +34,8 @@ const wallet = () => {
           >
             <div className="flex items-center pr-2">
               <div className="px-2">
-                <img
-                  src="../../../outline_history.png"
+                <Image
+                  src={OutlineHistory}
                   alt="outline history icon"
                   className="h-8 w-8"
                 />
