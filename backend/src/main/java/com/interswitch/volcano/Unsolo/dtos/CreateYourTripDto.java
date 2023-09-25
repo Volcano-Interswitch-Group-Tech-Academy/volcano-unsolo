@@ -46,7 +46,4 @@ public class CreateYourTripDto {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private RoomType roomType;
-
-    private ApprovalStatus approvalStatus;
-
 }
