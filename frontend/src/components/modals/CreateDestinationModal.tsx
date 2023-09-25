@@ -9,147 +9,61 @@ import Gap from "../common/Gap";
 import Dropdown from "../ui/DropDown";
 import Input from "../ui/input";
 import Button from "../ui/Button";
+import { useForm, Controller } from "react-hook-form";
+
+
+const defaultValues = {
+  country: '',
+  city: '',
+  duration: '',
+  startDate: '',
+  endDate: '',
+  participants: '',
+  shareRoom: '',
+  hotel: '',
+  getHotel: '',
+
+}
 
 const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
-  const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
-  const [duration, setDuration] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [participants, setParticipants] = useState("");
-  const [getHotel, setGetHotel] = useState("");
-  const [shareRoom, setShareRoom] = useState("");
-  const [hotel, setHotel] = useState("");
-  const [hotelQuestions, setHotelQuestions] = useState(false);
 
-  React.useEffect(() => {
-    if (getHotel === "yes") {
-      setHotelQuestions(true);
-    } else {
-      setHotelQuestions(false);
-    }
-  }, [getHotel]);
 
-  
-
-  type FormErrorKeys =
-    | "country"
-    | "city"
-    | "duration"
-    | "startDate"
-    | "endDate"
-    | "participants"
-    | "getHotel"
-    | "shareRoom"
-    | "hotel";
-
-  const [formErrors, setFormErrors] = useState<
-    Record<FormErrorKeys, string | undefined>
-  >({
-    country: undefined,
-    city: undefined,
-    duration: undefined,
-    startDate: undefined,
-    endDate: undefined,
-    participants: undefined,
-    getHotel: undefined,
-    shareRoom: undefined,
-    hotel: undefined,
+  const {
+    handleSubmit,
+    control,
+    register,
+    watch,
+    formState: { errors ,isValid},
+  } = useForm({
+    defaultValues,
   });
 
-  React.useEffect(() => {
-    console.log('country:', country, 'Error:', formErrors.country);
-    console.log('city:', city, 'Error:', formErrors.city);
-    console.log('duration:', duration, 'Error:', formErrors.duration);
-    console.log('startDate:', startDate, 'Error:', formErrors.startDate);
-    console.log('endDate:', endDate, 'Error:', formErrors.endDate);
-    console.log('participants:', participants, 'Error:', formErrors.participants);
-    console.log('getHotel:', getHotel, 'Error:', formErrors.getHotel);
-    console.log('shareRoom:', shareRoom, 'Error:', formErrors.shareRoom);
-    console.log('hotel:', hotel, 'Error:', formErrors.hotel);
-  }, [country, city, duration, startDate, endDate, participants, getHotel, shareRoom, hotel, formErrors]);
-  
-  const [touched, setTouched] = useState<{
-    country?: string;
-    city?: string;
-    duration?: string;
-    startDate?: string;
-    endDate?: string;
-    participants?: string;
-    getHotel?: string;
-    shareRoom?: string;
-    hotel?: string;
-  }>({});
+  const values = watch()
+  const getHotelValue = values.getHotel
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    field: keyof typeof formErrors,
-    setStateFunction: React.Dispatch<React.SetStateAction<string>>
-  ) => {
-    setStateFunction(e.target.value);
-    setFormErrors((prevErrors) => ({
-      ...prevErrors,
-      [field]: undefined,
-    }));
-  };
 
-  const handleBlur = (field: FormErrorKeys) => {
-    setTouched((prevTouched) => ({ ...prevTouched, [field]: true }));
-    const errors = validateCreateDestinationForm({
-      country,
-      city,
-      duration,
-      startDate,
-      endDate,
-      participants,
-      getHotel,
-      shareRoom,
-      hotel,
-    });
-    setFormErrors(errors);
-  };
+ 
 
-  const isFormValid = () => {
-    console.log("Errors:", formErrors);
-    console.log("Fields:", {
-      country,
-      city,
-      duration,
-      startDate,
-      endDate,
-      participants,
-      getHotel,
-      shareRoom,
-      hotel,
-    });
-  
-    if (
-      Object.keys(formErrors).some((key) => {formErrors[key as FormErrorKeys]
-        console.log("formerrors arrays", formErrors)
-        return formErrors[key as FormErrorKeys]
-        
-      })
-    )
-    {
-      return false;
-    }
-    if (
-      !country ||
-      !city ||
-      !duration ||
-      !startDate ||
-      !endDate ||
-      !participants
-    ) {
-      return false;
-    }
-  
-    if (getHotel === "yes" && (!shareRoom || !hotel)) {
-      return false;
-    }
-  
-    return true;
-  };
+  // errors messages start
+
+  const countryErrorMessage = errors?.country?.message
+  const cityErrorMessage = errors?.city?.message
+  const endDate = errors?.endDate?.message
+  const startDate = errors?.startDate?.message
+  const durationMessage = errors?.duration?.message
+  const participants = errors?.participants?.message
+  const shareRoom = errors?.shareRoom?.message
+  const hotelMessage = errors?.hotel?.message
+
+  // error message end
+
+
+
+
+// call to action function
+  const onSubmit = (value: any) => {
+    console.log(value)
+  }
 
   return (
     <div>
@@ -157,107 +71,139 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
         <DialogTitle>Create Your Desired Destination</DialogTitle>
         <DialogContent>
           <div>
-            <Dropdown
-              defaultOption={"Choose a desired country"}
-              styling={""}
-              options={[
+            <select {...register("country", { required: "Country is required" })}>
+              <option disabled selected value="">
+                Choose a desired country
+              </option>
+              {[
                 { value: "canada", label: "Canada" },
                 { value: "uk", label: "UK" },
-              ]}
-              onchange={(value) => setCountry(value)}
-              defaultValue={""}
-            />
+              ].map((item) => (
+                <option value={item.value}>{item.label}</option>
+              ))}
+            </select>
             <Gap v={1} />
-            <Dropdown
-              defaultOption={"Choose a desired city"}
-              styling={""}
-              options={[
+            <select {...register("city", { required: "City is required" })}>
+              <option disabled selected value="">
+                Choose a desired city
+              </option>
+              {[
                 { value: "canada", label: "Canada" },
                 { value: "uk", label: "UK" },
-              ]}
-              onchange={(value) => setCity(value)}
-              defaultValue={""}
-            />
+              ].map((item) => (
+                <option value={item.value}>{item.label}</option>
+              ))}
+            </select>
+
+
             <Gap v={1} />
 
-            <Input
-              placeholder={"Duration"}
-              type={"text"}
-              styling={""}
-              value={duration}
-              onChange={(e) => handleChange(e, "duration", setDuration)}
-              onBlur={() => handleBlur("duration")}
-              error={touched.duration ? formErrors.duration : ""}
+            <Controller
+              name="duration"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Input
+                  placeholder="Duration"
+                  styling=""
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={() => field.onBlur()} type={undefined}                />
+              )}
             />
+
+            <Gap v={1} />
+            <Controller
+              name='participants'
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Input
+                  placeholder="How many participants would you like?"
+                  styling=""
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={() => field.onBlur()} type={undefined}                />
+              )}
+            />
+
+            <Gap v={1} />
+            <Controller
+              name='startDate'
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Input
+                  placeholder="Start Date?"
+                  styling=""
+                  type="date"
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={() => field.onBlur()}
+                  error=""
+                />
+              )}
+            />
+
+            <Gap v={1} />
+            <Controller
+              name='endDate'
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Input
+                  placeholder="End Date"
+                  styling=""
+                  type="date"
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={() => field.onBlur()}
+                  error=""
+                />
+              )}
+            />
+
             <Gap v={1} />
 
-            <Input
-              placeholder={"How many participants would you like?"}
-              type={"text"}
-              styling={""}
-              value={participants}
-              onChange={(e) => handleChange(e, "participants", setParticipants)}
-              onBlur={() => handleBlur("participants")}
-              error={touched.participants ? formErrors.participants : ""}
-            />
-            <Gap v={1} /> 
-
-            <Input
-              placeholder={"Start Date"}
-              type={"date"}
-              styling={""}
-              value={startDate}
-              onChange={(e) => handleChange(e, "startDate", setStartDate)}
-              onBlur={() => handleBlur("startDate")}
-              error={touched.startDate ? formErrors.startDate : ""}
-            />
-            <Gap v={1} />
-            <Input
-              placeholder={"End Date"}
-              type={"date"}
-              styling={""}
-              value={endDate}
-              onChange={(e) => handleChange(e, "endDate", setEndDate)}
-              onBlur={() => handleBlur("endDate")}
-              error={touched.endDate ? formErrors.endDate : ""}
-            />
-            <Gap v={1} />
-
-            <Dropdown
-              defaultOption={"Do you want to get an hotel with us?"}
-              styling={""}
-              options={[
+            <select {...register('getHotel', { required: "your must select a response" })}>
+              <option disabled selected value="">
+                Do you want to get an hotel with us?
+              </option>
+              {[
                 { value: "yes", label: "Yes" },
                 { value: "no", label: "No" },
-              ]}
-              onchange={(value) => setGetHotel(value)}
-              defaultValue={""}
-            />
+              ].map((item) => (
+                <option value={item.value}>{item.label}</option>
+              ))}
+            </select>
+
             <Gap v={1} />
-            {hotelQuestions ? (
+            {getHotelValue && getHotelValue == 'yes' ? (
               <>
-                <Dropdown
-                  defaultOption={"Choose from our list of hotels?"}
-                  styling={""}
-                  options={[
+                <select {...register('hotel')}>
+                  <option disabled selected value="">
+                    Choose from our list of hotels?
+                  </option>
+                  {[
                     { value: "canada", label: "Canada" },
                     { value: "uk", label: "UK" },
-                  ]}
-                  onchange={(value) => setHotel(value)}
-                  defaultValue={""}
-                />
-                <Gap v={1} />
+                  ].map((item) => (
+                    <option value={item.value}>{item.label}</option>
+                  ))}
+                </select>
 
-                <Dropdown
-                  defaultOption={"Do you want to share your hotel room?"}
-                  styling={""}
-                  options={[
+                <Gap v={1} />
+                <select {...register('shareRoom')}>
+                  <option disabled selected value="">
+                    Do you want to share your hotel room?
+                  </option>
+                  {[
                     { value: "yes", label: "Yes" },
                     { value: "no", label: "No" },
-                  ]}
-                  onchange={(value) => setShareRoom(value)}
-                  defaultValue={""}
-                />
+                  ].map((item) => (
+                    <option value={item.value}>{item.label}</option>
+                  ))}
+                </select>
               </>
             ) : null}
           </div>
@@ -266,7 +212,8 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
           <Button
             children={"Create trip"}
-            disabled={!isFormValid()}
+            onClick={handleSubmit(onSubmit)}
+            disabled={!isValid}
             className="button_bg text-white font-bold lg:ml-20 ml-12 w-2/3 text-center"
           />
 

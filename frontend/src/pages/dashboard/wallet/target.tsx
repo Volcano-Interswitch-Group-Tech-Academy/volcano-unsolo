@@ -66,7 +66,7 @@ const Target = () => {
                 <td className={td_style}>
                   {elem.currentAmt ? `₦${elem.currentAmt}` : null}
                 </td>
-                <td className={`${td_style} font-medium text-lg text-black`}>{elem.blank}</td>
+                <td className={`${td_style} text-3xl font-extrabold  text-black`}>{elem.blank}</td>
               </tr>
             ))}
           </tbody>
