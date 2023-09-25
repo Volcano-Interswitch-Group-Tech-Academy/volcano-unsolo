@@ -1,5 +1,6 @@
 package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 
+//import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
 import com.interswitch.volcano.Unsolo.dtos.TripBookByUserDto;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.dtos.CreateYourTripDto;
@@ -35,6 +36,8 @@ import java.util.stream.Collectors;
 public class CreateYourTripServiceImpl implements CreateYourTripService {
 
     private final CreateYourTripRepo createYourTripRepo;
+    private final UserRepository userRepository;
+    private final CurrentDestinationsRepo currentDestinationsRepo;
 
     @Override
     public TripBookByUserDto updateNotApprovedTrip(Long userId, Long tripId, UpdateTripRequest updateTripRequest) throws Exception {
@@ -72,10 +75,18 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
             return tripBookByUserDto;
         }).collect(Collectors.toList());
 
-    private CreateYourTripRepo createYourTripRepo;
-    private final UserRepository userRepository;
-    private final CurrentDestinationsRepo currentDestinationsRepo;
-    
+    }
+
+
+//        @Override
+//        public TotalUsersResponse getTotalUsersByTripId(Long tripId) {
+//            return createYourTripRepo.getTotalUsersByTripId(tripId);
+//        }
+
+
+    //private CreateYourTripRepo createYourTripRepo;
+
+
     @Override
     public ApiCustomResponse<CreateYourTripDto> toCreateYourTrip(CreateYourTripDto createYourTripDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

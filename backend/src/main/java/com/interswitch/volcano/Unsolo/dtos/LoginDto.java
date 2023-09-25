@@ -17,7 +17,5 @@ public class LoginDto {
     private String email;
 
     @NotNull(message = "Password is a required field")
-    @Size(min = 8, max=25, message="Password must be equal to or greater than 8 character and less than 25 characters")
-    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$")
     private String password;
 }
