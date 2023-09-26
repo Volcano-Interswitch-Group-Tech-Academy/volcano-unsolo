@@ -1,6 +1,7 @@
 package com.interswitch.volcano.Unsolo.services;
 
 //import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
+import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
 import com.interswitch.volcano.Unsolo.dtos.TripBookByUserDto;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
@@ -23,7 +24,6 @@ public interface CreateYourTripService {
 
     void deleteATripCreatedByUser(Long tripId);
 
-//    List<CreateYourTrip> getAllTripWithApprovalStatusOfPending();
 
     CreateYourTrip getTripByDestNameWithApprovalStatusOfPending(String destName);
 
@@ -33,6 +33,6 @@ public interface CreateYourTripService {
 
     List<TripBookByUserDto> getTripByUserIdAndDestinationName(Long userId, String destination);
 
-//    TotalUsersResponse getTotalUsersByTripId(Long tripId);
+    TotalUsersResponse getTotalNumberOfUsersByTripId(Long tripId);
 
 }

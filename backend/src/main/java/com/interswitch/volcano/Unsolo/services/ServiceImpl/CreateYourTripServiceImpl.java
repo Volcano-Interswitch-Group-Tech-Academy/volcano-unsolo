@@ -1,6 +1,7 @@
 package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 
 //import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
+import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
 import com.interswitch.volcano.Unsolo.dtos.TripBookByUserDto;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.dtos.CreateYourTripDto;
@@ -28,6 +29,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -78,13 +80,18 @@ public class CreateYourTripServiceImpl implements CreateYourTripService {
     }
 
 
-//        @Override
-//        public TotalUsersResponse getTotalUsersByTripId(Long tripId) {
-//            return createYourTripRepo.getTotalUsersByTripId(tripId);
-//        }
-
-
-    //private CreateYourTripRepo createYourTripRepo;
+        @Override
+        public TotalUsersResponse getTotalNumberOfUsersByTripId(Long tripId) {
+            Optional<CreateYourTrip> createYourTrip =  createYourTripRepo.findById(tripId);
+            if (createYourTrip.isEmpty()){
+                throw new UserNotFoundException("User not found for tripId: " + tripId);
+            }
+            else {
+                TotalUsersResponse totalUsersResponse = new TotalUsersResponse();
+                totalUsersResponse.setTotalUsers(createYourTrip.get().getMaxNoOfPersons());
+                return totalUsersResponse;
+            }
+        }
 
 
     @Override

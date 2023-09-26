@@ -1,6 +1,8 @@
 package com.interswitch.volcano.Unsolo.repository;
 
 //import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
+import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
+import com.interswitch.volcano.Unsolo.dtos.TripBookByUserDto;
 import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
@@ -14,11 +16,10 @@ public interface CreateYourTripRepo extends JpaRepository<CreateYourTrip, Long> 
 
     CreateYourTrip findByIdAndUserId(Long tripId, Long userId);
 
-    List<CreateYourTrip> findByUserId(long userId);
+    List<CreateYourTrip> findByUserId(Long userId);
 
     List<CreateYourTrip> findByUserIdAndDestinationNameIgnoreCase(Long userId, String destinationName);
 
-//    TotalUsersResponse getTotalUsersByTripId(Long tripId);
 
     CreateYourTrip findByDestinationName(String destinationName);
     boolean existsByDestinationName(String destinationName);
