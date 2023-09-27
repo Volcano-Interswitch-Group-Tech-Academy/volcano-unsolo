@@ -311,3 +311,8 @@ main {
 .z-negative {
   z-index: -1;
 }
+
+.ad-shadow{
+  box-shadow: 5px 5px 15px rgb(160, 158, 158);
+  
+}

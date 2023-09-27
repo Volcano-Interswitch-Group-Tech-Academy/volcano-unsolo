@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useMediaQuery from "@/components/common/layout/useMediaQuey";
 import Navbar from "@/components/common/layout/Navbar";
 import MobileNav from "@/components/common/layout/MobileNav";
@@ -11,9 +11,19 @@ import author2 from "../../public/author2.png";
 import advertImg from "../../public/advert_img.png";
 import asideTwo from "../../public/blogImg_two.png";
 import Image from "next/image";
+import Slider from "react-slick";
 
 const explore = () => {
+  const [visible, setVisible] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 960px)");
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
   const blogContent = [
     {
       id: 1,
@@ -92,64 +102,144 @@ const explore = () => {
     },
   ];
 
-  const cardObj = [1, 2, 3, 4, 5, 6];
+  const ads = [
+    {
+      adImg: deola,
+      adText: {
+        title: "Taste of Heaven Dinning",
+        country: "Casablanca, Morocco",
+        street: "9, Jakeson street",
+        subTitle: "Book A reservation :",
+        contact: "0909090909090, tasteofheaven@gmail.com",
+      },
+    },
+    // {
+    //   adImg: advertImg,
+    //   adText: {
+    //     title: "Java Language",
+    //     country: "Casablanca, Morocco",
+    //     street: "9, Jakeson street",
+    //     subTitle: "Book A reservation :",
+    //     contact: "0909090909090, tasteofheaven@gmail.com",
+    //   },
+    // },
+    // {
+    //   adImg: asideTwo,
+    //   adText: {
+    //     title: "Just In Time",
+    //     country: "Casablanca, Morocco",
+    //     street: "9, Jakeson street",
+    //     subTitle: "Book A reservation :",
+    //     contact: "0909090909090, tasteofheaven@gmail.com",
+    //   },
+    // },
+  ];
+
+  const switchVisible = () => {
+    setVisible(() => !visible);
+  };
+
   return (
     <div className={` appLayout`}>
       {isDesktop ? <Navbar /> : <MobileNav />}
-      <div className="flex flex-col justify-center items-align w-full ">
+      <div className={`relative flex flex-col ${visible ? "mb-32" : "mb-5"} justify-center items-align w-full`}>
         {blogContent.map((blogObj, index) => (
-          <div className="md:flex bg-slate-100 p-8 md:p-0 border border-b-gray-400" key={blogObj.id}>
-            <Image
-              className="w-full h-28 md:hidden"
-              src={blogObj.blogPicture}
-              alt=""
-              width="384"
-              height="512"
-            />
-            <Image
-              className="w-24 h-24 rounded-full m-4 hidden md:block"
-              src={blogObj.authorImage}
-              alt=""
-              width="384"
-              height="512"
-            />
-            <div className="pt-6 p-2 md:p-8 md:pb-0 md:text-left space-y-4 border border-slate-300 md:border-none rounded-b-lg">
-              <div className="flex items-center justify-left">
-                <Image
-                  className="w-12 h-12 md:hidden md:h-auto rounded-full mr-4"
-                  src={blogObj.authorImage}
-                  alt=""
-                />
-                <div className="font-medium text-left md:grid md:grid-cols-3 ">
-                  <div className="text-black font-medium md:col-span-2">
-                    {blogObj.authorName}
+          <div
+            className={`border ${
+              index === blogContent.length - 1
+                ? "border-none"
+                : "border-b-slate-200"
+            }`}
+          >
+            <div
+              className="md:flex bg-white p-8 md:p-0 md:mx-10"
+              key={blogObj.id}
+            >
+              <Image
+                className="w-full h-28 md:hidden"
+                src={blogObj.blogPicture}
+                alt=""
+                width="384"
+                height="512"
+              />
+              <Image
+                className="w-24 h-24 rounded-full m-4 hidden md:block"
+                src={blogObj.authorImage}
+                alt=""
+                width="384"
+                height="512"
+              />
+              <div className="pt-6 p-2 md:p-8 md:pb-0 md:text-left space-y-4 border border-slate-300 md:border-none rounded-b-lg">
+                <div className="flex items-center justify-left">
+                  <Image
+                    className="w-12 h-12 md:hidden md:h-auto rounded-full mr-4"
+                    src={blogObj.authorImage}
+                    alt=""
+                  />
+                  <div className="font-medium text-left md:grid md:grid-cols-3 ">
+                    <div className="text-black font-medium md:col-span-2">
+                      {blogObj.authorName}
+                    </div>
+                    <div className="text-slate-500">{blogObj.publishDate}</div>
                   </div>
-                  <div className="text-slate-500">{blogObj.publishDate}</div>
+                </div>
+
+                <h1 className="font-bold text-lg">{blogObj.blogTitle}</h1>
+                <p className="text-lg font-medium">{blogObj.writeUp}</p>
+                <div className="flex items-center justify-between p-2 md:py-2 md:px-0">
+                  {imgObj.map(({ image, altText }, index) => (
+                    <Image
+                      src={image}
+                      alt={altText}
+                      className=" w-5 h-5 cursor-pointer"
+                      key={altText + index}
+                    />
+                  ))}
                 </div>
               </div>
-
-              <h1 className="font-bold text-lg">{blogObj.blogTitle}</h1>
-              <p className="text-lg font-medium">{blogObj.writeUp}</p>
-              <div className="flex items-center justify-between p-2 md:py-2 md:px-0">
-                {imgObj.map(({ image, altText }, index) => (
-                  <Image
-                    src={image}
-                    alt={altText}
-                    className=" w-5 h-5 cursor-pointer"
-                    key={altText + index}
-                  />
-                ))}
-              </div>
+              <Image
+                className="w-24 h-24 hidden md:block md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
+                src={blogObj.blogPicture}
+                alt=""
+                width="384"
+                height="512"
+              />
             </div>
-            <Image
-              className="w-24 h-24 hidden md:block md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
-              src={blogObj.blogPicture}
-              alt=""
-              width="384"
-              height="512"
-            />
           </div>
         ))}
+
+        {/* <Slider {...sliderSettings} className="z-50"> */}
+        {visible && (
+          <div className="fixed bottom-0 right-0 left-0">
+            <div className="text-right" onClick={switchVisible}>
+              <button className="rounded-xl h-5 w-5 hover:bg-black hover:text-white flex items-center justify-center  border ">
+                &times;
+              </button>
+            </div>
+            {ads?.map(({ adImg, adText }, index) => (
+              <div className=" w-full bg-white  flex justify-between py-4 px-2 md:p-4 ad-shadow">
+                <div className=" h-20 text-xs overflow-auto">
+                  <h3 className="font-bold">{adText.title}</h3>
+                  <p>{adText.country}</p>
+                  <p>{adText.street}</p>
+                  <p>{adText.subTitle}</p>
+                  <p>{adText.contact}</p>
+                </div>
+
+                <div className="flex items-center">
+                  <div key={index}>
+                    <Image
+                      src={adImg}
+                      alt={`slide-${index}`}
+                      className="w-72 md:w-80 h-20"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+            {/* </Slider> */}
+          </div>
+        )}
       </div>
     </div>
   );
