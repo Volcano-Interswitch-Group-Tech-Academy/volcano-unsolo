@@ -1,110 +1,116 @@
 import * as React from "react";
 import { JoinDestinationModalProps } from "@/helpers/types/ui";
-import Dropdown from "../ui/DropDown";
-import Button from "../ui/Button";
-import { useState, useEffect } from "react";
-import { validateJoinDestinationForm } from "@/helpers/constants/validators";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import { ModalProps } from "@/helpers/types/ui";
 import Gap from "../common/Gap";
+import Input from "../ui/input";
+import Button from "../ui/Button";
+import { useForm, Controller } from "react-hook-form";
+import DatePicker from "react-datepicker";
+import { useState } from "react";
 
-const CreateDestinationModal: React.FC<JoinDestinationModalProps> = ({
+const defaultValues = {
+  shareRoom: "",
+  hotel: "",
+  getHotel: "",
+};
+
+const JoinDestinationModal: React.FC<JoinDestinationModalProps> = ({
   onOpen,
   close,
 }) => {
-  const [getHotel, setGetHotel] = useState("");
-  const [shareRoom, setShareRoom] = useState("");
-  const [hotel, setHotel] = useState("");
-  const [hotelQuestions, setHotelQuestions] = useState(false);
+  const {
+    handleSubmit,
+    control,
+    register,
+    watch,
+    formState: { errors, isValid },
+  } = useForm({
+    defaultValues,
+  });
 
-  useEffect(() => {
-    if (getHotel === "yes") {
-      setHotelQuestions(true);
-    } else {
-      setHotelQuestions(false);
-    }
-  }, [getHotel]);
+  const values = watch();
+  const getHotelValue = values.getHotel;
+  const shareRoom = errors?.shareRoom?.message;
+  const hotelMessage = errors?.hotel?.message;
+  const getHotelMessage = errors?.getHotel?.message;
 
-  const [formErrors, setFormErrors] = useState<{
-    getHotel?: string;
-    shareRoom?: string;
-    hotel?: string;
-  }>({});
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const formData = {
-      getHotel,
-      ...(hotelQuestions && {
-        shareRoom,
-        hotel,
-      }),
-    };
-
-    const errors = validateJoinDestinationForm(formData);
-    setFormErrors(errors);
-
-    // Only check form validity after setting errors
-    if (Object.keys(errors).length === 0) {
-      console.log("Form is valid! Do your submit logic here.");
-    }
+  const onSubmit = (value: any) => {
+    console.log(value);
   };
 
-  const isFormValid = () => {
-    if (hotelQuestions && (!shareRoom || !hotel)) {
-      return false;
-    }
-
-    return getHotel && !Object.values(formErrors).some(Boolean);
-};
   return (
     <div>
       <Dialog open={onOpen} onClose={close}>
-        <DialogTitle>Creeat Your Desired Desitnation</DialogTitle>
+        <p className="text-center font-bold text-2xl mt-5">Join Destination</p>
         <DialogContent>
           <div className="p-5">
-            <Dropdown
-              defaultOption={"Do you want to get an hotel with us?"}
-              styling={""}
-              options={[
+            <select
+              {...register("getHotel", {
+                required: "your must select a response",
+              })}
+              className="input"
+              required
+            >
+              <option disabled selected value="">
+                Do you want to get an hotel with us?
+              </option>
+              {[
                 { value: "yes", label: "Yes" },
                 { value: "no", label: "No" },
-              ]}
-              onchange={(value) => setGetHotel(value)}
-              defaultValue={""}
-            />
+              ].map((item) => (
+                <option value={item.value}>{item.label}</option>
+              ))}
+            </select>
             <Gap v={1} />
-            {hotelQuestions ? (
-              <>
-                <Dropdown
-                  defaultOption={"Choose from our list of hotels?"}
-                  styling={""}
-                  options={[
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                  ]}
-                  onchange={(value) => setHotel(value)}
-                  defaultValue={""}
-                />
-                <Gap v={1} />
 
-                <Dropdown
-                  defaultOption={"Do you want to share your hotel room?"}
-                  styling={""}
-                  options={[
+            {getHotelMessage && (
+              <p className="text-red-500 text-sm">{getHotelMessage}</p>
+            )}
+            {getHotelValue && getHotelValue == "yes" ? (
+              <>
+                <select
+                  {...register("hotel", {
+                    required: "your must select a response",
+                  })}
+                  className="input"
+                >
+                  <option disabled selected value="">
+                    Choose from our list of hotels?
+                  </option>
+                  {[
                     { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                    { value: "canada", label: "Canada" },
-                  ]}
-                  onchange={(value) => setShareRoom(value)}
-                  defaultValue={""}
-                />
+                    { value: "uk", label: "UK" },
+                  ].map((item) => (
+                    <option value={item.value}>{item.label}</option>
+                  ))}
+                </select>
+                {hotelMessage && (
+                  <p className="text-red-500 text-sm">{hotelMessage}</p>
+                )}
+
+                <Gap v={1} />
+                <select
+                  {...register("shareRoom", {
+                    required: "your must select a response",
+                  })}
+                  className="input"
+                >
+                  <option disabled selected value="">
+                    Do you want to share your hotel room?
+                  </option>
+                  {[
+                    { value: "yes", label: "Yes" },
+                    { value: "no", label: "No" },
+                  ].map((item) => (
+                    <option value={item.value}>{item.label}</option>
+                  ))}
+                </select>
+                {shareRoom && (
+                  <p className="text-red-500 text-sm">{shareRoom}</p>
+                )}
               </>
             ) : null}
           </div>
@@ -113,8 +119,9 @@ const CreateDestinationModal: React.FC<JoinDestinationModalProps> = ({
 
           <Button
             children={"Join Destination"}
-            disabled={!isFormValid}
-            className="button_bg text-white font-bold lg:ml-16 ml-12 w-2/3 text-center"
+            onClick={handleSubmit(onSubmit)}
+            disabled={!isValid}
+            className="button_bg text-white font-bold lg:ml-12 ml-12 w-2/3 text-center"
           />
 
           <Gap v={1} />
@@ -124,4 +131,4 @@ const CreateDestinationModal: React.FC<JoinDestinationModalProps> = ({
   );
 };
 
-export default CreateDestinationModal;
+export default JoinDestinationModal;

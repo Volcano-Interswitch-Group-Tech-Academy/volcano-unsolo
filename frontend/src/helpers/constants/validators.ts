@@ -52,7 +52,7 @@ export const validateLoginForm = (data: any) => {
 };
 
 
-type FormErrorKeys = "country" | "city" | "duration" | "startDate" | "endDate" | "participants" | "getHotel" | "shareRoom" | "hotel";
+export type FormErrorKeys = "country" | "city" | "duration" | "startDate" | "endDate" | "participants" | "getHotel" | "shareRoom" | "hotel";
 export const validateCreateDestinationForm = (data: {
   country: string;
   city: string;

@@ -224,6 +224,8 @@ body::-webkit-scrollbar-thumb {
 .input::placeholder {
   font-weight: lighter;
   font-size: small;
+  color: rgba(32, 31, 31, 0.361); 
+
 }
 .input:focus {
   outline: none;
@@ -319,4 +321,35 @@ select.light-font {
   font-weight: lighter;
   font-size: small;
   color: #a09e9e;
+}
+
+
+/* Change the background color of the header */
+.react-datepicker__header {
+  background-color: #f0f0f0;
+}
+
+/* Change the color of the selected date */
+.react-datepicker__day--selected {
+  background-color: red;
+}
+
+/* Change the color of days in the current month */
+.react-datepicker__day--in-selecting-month {
+  color: green;
+}
+
+/* select.input > option:first-of-type {
+  color: grey;  /* Example: Make the default option grey */
+  /* font-style: italic; Example: Italicize the default option */
+/*  */
+
+select.input:invalid {
+  color: rgba(32, 31, 31, 0.361); 
+  font-weight: lighter;
+  font-size: small;
+}
+
+.my-editor .ql-container {
+  height: 200px;  
 }
