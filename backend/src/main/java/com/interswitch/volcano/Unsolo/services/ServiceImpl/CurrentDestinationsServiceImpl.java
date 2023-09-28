@@ -61,6 +61,7 @@ public class CurrentDestinationsServiceImpl implements CurrentDestinationsServic
         currentDestinations.setCountry(currentDestinationsDto.getCountry());
         currentDestinations.setCity(currentDestinationsDto.getCity());
         currentDestinations.setCost(currentDestinationsDto.getCost());
+        currentDestinations.setNoOfRegisterPersons(currentDestinationsDto.getNoOfRegisterPersons());
         currentDestinations.setSlotAvailable(currentDestinationsDto.getSlotAvailable());
         currentDestinations.setTripDescription(currentDestinationsDto.getTripDescription());
         currentDestinations.setStartDate(currentDestinationsDto.getStartDate());
