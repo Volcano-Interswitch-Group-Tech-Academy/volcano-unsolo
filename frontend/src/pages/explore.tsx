@@ -12,6 +12,7 @@ import advertImg from "../../public/advert_img.png";
 import asideTwo from "../../public/blogImg_two.png";
 import Image from "next/image";
 import Slider from "react-slick";
+import AppLayout from "@/components/common/layout/AppLayout";
 
 const explore = () => {
   const [visible, setVisible] = useState(true);
@@ -140,8 +141,7 @@ const explore = () => {
   };
 
   return (
-    <div className={` appLayout`}>
-      {isDesktop ? <Navbar /> : <MobileNav />}
+    <AppLayout  className={""}>
       <div className={`relative flex flex-col ${visible ? "mb-32" : "mb-5"} justify-center items-align w-full`}>
         {blogContent.map((blogObj, index) => (
           <div
@@ -241,7 +241,7 @@ const explore = () => {
           </div>
         )}
       </div>
-    </div>
+    </AppLayout>
   );
 };
 
