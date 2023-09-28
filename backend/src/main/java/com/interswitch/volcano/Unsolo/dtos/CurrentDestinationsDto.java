@@ -20,6 +20,10 @@ public class CurrentDestinationsDto {
     @NotNull(message = "City cannot be missing or empty")
     private String city;
 
+    @Column(nullable = false, length = 100)
+    @NotNull(message = "Destination cannot be missing or empty")
+    private String destinationName;
+
     @Column(nullable = false, length = 1000)
     @NotNull(message = "Trip description cannot be missing or empty")
     private String tripDescription;

@@ -353,3 +353,9 @@ select.input:invalid {
 .my-editor .ql-container {
   height: 200px;  
 }
+
+
+.ad-shadow{
+  box-shadow: 5px 5px 15px rgb(160, 158, 158);
+  
+}
