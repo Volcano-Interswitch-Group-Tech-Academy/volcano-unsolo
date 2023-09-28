@@ -3,8 +3,12 @@ import { NavItemProp } from "@/helpers/types/modules/dashboard";
 import Link from "next/link";
 
 const NavItem: React.FC<NavItemProp> = ({ href, label, currentPath, setActiveLabel }) => {
-    const isActive = href === currentPath;
-    const Icon = getIcon(label);
+  const isDirectMatch = href === currentPath;
+  const isPartialMatch = currentPath.startsWith(href + "/");
+  
+  const isActive = href === '/dashboard' ? isDirectMatch : (isDirectMatch || isPartialMatch);
+  
+  const Icon = getIcon(label);
     if (isActive) {
         setActiveLabel(label);
       }
