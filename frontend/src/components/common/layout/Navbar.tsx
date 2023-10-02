@@ -3,6 +3,7 @@ import router, { useRouter } from "next/router";
 import React, { useState } from "react";
 import Container from "./Container";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter();
@@ -12,16 +13,18 @@ const Navbar = () => {
       <div>
         <div className="flex flex-row  py-3 justify-between ">
         
-         <Image
-            onClick={() => {
-              router.push("/");
-            }}
-            src="/Unsolo-logo-black-01.png" 
-            alt="Unsolo Logo" 
-            width={120}
-            height={30} 
-            className="cursor-pointer"
-          />
+          <Link href="/">
+            <Image
+              onClick={() => {
+                router.push("/");
+              }}
+              src="/Unsolo-logo-black-01.png" 
+              alt="Unsolo Logo" 
+              width={120}
+              height={30} 
+              className="cursor-pointer"
+            />
+          </Link>
           <div className={`sm:block ${showNav ? "hidden" : " mt-4"}`}>
             <ul className="flex flex-row gap-7">
               {/* <li
@@ -54,7 +57,7 @@ const Navbar = () => {
               <li
                 onClick={() => {
                   setShowNav(false);
-                  router.push("");
+                  router.push("/explore");
                 }}
                 className="cursor-pointer "
               >

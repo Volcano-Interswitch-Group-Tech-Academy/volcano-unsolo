@@ -350,8 +350,8 @@ select.input:invalid {
   font-size: small;
 }
 
-.my-editor .ql-container {
-  height: 200px;  
+.my-editor {
+  height: 200px;
 }
 
 

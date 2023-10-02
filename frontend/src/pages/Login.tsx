@@ -11,7 +11,7 @@ const Login: NextPage = () => {
   <PageHead title="Login" description="Login Page" />;
   return (
     <>
-      <AppLayout className={"primary_bg"}>
+      <AppLayout className={"bg-white"}>
         <div className="authentication-glass mt-12">
           <div className="app-inner">
             <LoginForm />

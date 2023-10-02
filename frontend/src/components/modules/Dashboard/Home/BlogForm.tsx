@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import UploadWidget from "../UploadWidget";
 import Input from "@/components/ui/input";
 import { useForm, Controller } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Button from "@/components/ui/Button";
-
 
 const defaultValues = {
   blogName: "",
@@ -16,20 +15,23 @@ const defaultValues = {
 const BlogForm = () => {
   const [editorContent, setEditorContent] = useState("");
 
-  const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+  // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-
-  const modules = {
-    toolbar: [
-      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
-      [{size: []}],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, 
-       {'indent': '-1'}, {'indent': '+1'}],
-      ['link'],
-      ['clean']                                         
-    ],
-  }
+  // const modules = {
+  //   toolbar: [
+  //     [{ header: "1" }, { header: "2" }, { font: [] }],
+  //     [{ size: [] }],
+  //     ["bold", "italic", "underline", "strike", "blockquote"],
+  //     [
+  //       { list: "ordered" },
+  //       { list: "bullet" },
+  //       { indent: "-1" },
+  //       { indent: "+1" },
+  //     ],
+  //     ["link"],
+  //     ["clean"],
+  //   ],
+  // };
 
   const {
     handleSubmit,
@@ -68,16 +70,25 @@ const BlogForm = () => {
         </div>
       </div>
       <div>
-        <ReactQuill
-          value={editorContent}
-          onChange={setEditorContent}
-          modules={modules}
-          className="my-editor"
-        />
+      <Controller
+                    name="blogPost"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                        <textarea
+                            {...field}
+                            style={{ width: '100%', height: '200px', padding: '10px' }}
+                            className = "input"
+                        ></textarea>
+                    )}
+                />
       </div>
 
       <div className="flex flex-end">
-        <Button children={"Upload to Blog"} className="button_bg text-white font-bold mt-5"/>
+        <Button
+          children={"Upload to Blog"}
+          className="button_bg text-white font-bold mt-5"
+        />
       </div>
     </>
   );
