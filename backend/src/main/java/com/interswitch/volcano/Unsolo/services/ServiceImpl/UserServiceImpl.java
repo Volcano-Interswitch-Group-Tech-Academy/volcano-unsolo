@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
                 "Hi " + user.getFirstName() + " " + user.getLastName() + ",  Welcome to UNSOLO!." +
                         " We have received a registration request with your email. " +
                         "To complete your registration, kindly click on the link to verify your email address \n" + "http://" +
-                        request.getServerName() + ":8060" + "/api/users/verifyRegistration?token=" + registrationToken);
+                        request.getServerName() + ":3000"+ "/activation?token=" + registrationToken);
     }
 
     private String generateAndSaveToken(Long userId, String userEmail) {
@@ -77,7 +77,6 @@ public class UserServiceImpl implements UserService {
         return registrationToken;
     }
 
-    // token verification
 
     @Override
     public ApiCustomResponse<String> verifyRegistration(String token) {
