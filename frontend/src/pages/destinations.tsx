@@ -10,7 +10,6 @@ import React from "react";
 import JoinDestinationModal from './../components/modals/JoinDestinationModal';
 
 const Destination: NextPage = () => {
-  const handlesearch = () => {};
   <PageHead title="Destinations" description="List of destinations" />;
 
   const [open, setOpen] = React.useState(false);
@@ -19,6 +18,7 @@ const Destination: NextPage = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const handlesearch = () => {};
 
   const handlOpenJoinClick = () => {
     setOpenJoin(true);

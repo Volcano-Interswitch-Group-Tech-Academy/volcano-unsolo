@@ -14,44 +14,52 @@ export default function SideNav({
     <div className="w-64  bg-white  shadow-md relative overflow-hidden">
       <div className="fixed w-64 h-full overflow-y-auto no-scrollbar">
         {" "}
-        <NavHeader />
-        <div className="p-5">
-          <NavItem
-            href="/dashboard"
-            label="Dashboard"
-            currentPath={router.pathname}
-            setActiveLabel={setActiveLabel}
-          />
-          <NavItem
-            href="/dashboard/pools"
-            label="Pools"
-            currentPath={router.pathname}
-            setActiveLabel={setActiveLabel}
-          />
-          <NavItem
-            href="/dashboard/history"
-            label="Trip History"
-            currentPath={router.pathname}
-            setActiveLabel={setActiveLabel}
-          />
-          <NavItem
-            href="/destinations"
-            label="Destinations"
-            currentPath={router.pathname}
-            setActiveLabel={setActiveLabel}
-          />
-          <NavItem
-            href="/explore"
-            label="Explore / Blog"
-            currentPath={router.pathname}
-            setActiveLabel={setActiveLabel}
-          />
-          <NavItem
-            href="/dashboard/wallet"
-            label="Wallet"
-            currentPath={router.pathname}
-            setActiveLabel={setActiveLabel}
-          />
+        <div
+          style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+          <div style={{ flexShrink: 0 }}>
+            <NavHeader />
+          </div>
+          <div
+            className="p-5 no-scrollbar"
+            style={{ flexGrow: 1, overflowY: "auto" }}
+          >
+            <NavItem
+              href="/dashboard"
+              label="Dashboard"
+              currentPath={router.pathname}
+              setActiveLabel={setActiveLabel}
+            />
+            <NavItem
+              href="/dashboard/pools"
+              label="Pools"
+              currentPath={router.pathname}
+              setActiveLabel={setActiveLabel}
+            />
+            <NavItem
+              href="/dashboard/history"
+              label="Trip History"
+              currentPath={router.pathname}
+              setActiveLabel={setActiveLabel}
+            />
+            <NavItem
+              href="/destinations"
+              label="Destinations"
+              currentPath={router.pathname}
+              setActiveLabel={setActiveLabel}
+            />
+            <NavItem
+              href="/explore"
+              label="Explore / Blog"
+              currentPath={router.pathname}
+              setActiveLabel={setActiveLabel}
+            />
+            <NavItem
+              href="/dashboard/wallet"
+              label="Wallet"
+              currentPath={router.pathname}
+              setActiveLabel={setActiveLabel}
+            />
+          </div>
         </div>
       </div>
     </div>

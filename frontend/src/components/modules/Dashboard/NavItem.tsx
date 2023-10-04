@@ -6,7 +6,7 @@ const NavItem: React.FC<NavItemProp> = ({ href, label, currentPath, setActiveLab
   const isDirectMatch = href === currentPath;
   const isPartialMatch = currentPath.startsWith(href + "/");
   
-  const isActive = href === '/dashboard' ? isDirectMatch : (isDirectMatch || isPartialMatch);
+  const isActive = href === '/dashboard' || 'admin' ? isDirectMatch : (isDirectMatch || isPartialMatch);
   
   const Icon = getIcon(label);
     if (isActive) {

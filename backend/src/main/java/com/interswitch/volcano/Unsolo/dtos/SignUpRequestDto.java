@@ -36,7 +36,6 @@ public class SignUpRequestDto {
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private Gender gender;
 
     @Column(length = 50)

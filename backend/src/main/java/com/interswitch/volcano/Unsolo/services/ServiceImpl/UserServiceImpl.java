@@ -24,9 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
 
-import static com.interswitch.volcano.Unsolo.enums.TokenStatus.ACTIVE;
 import static com.interswitch.volcano.Unsolo.enums.TokenStatus.EXPIRED;
 
 @Service
@@ -45,8 +43,12 @@ public class UserServiceImpl implements UserService {
         boolean existsByEmail = userRepository.existsByEmail(signUpRequestDto.getEmail());
         if (existsByEmail)
             throw new UserAlreadyExistException("User with this email already exists");
-        User newUser= new User();
-        BeanUtils.copyProperties(signUpRequestDto,newUser);
+
+        if (userRepository.existsByPhoneNumber(signUpRequestDto.getPhoneNumber()))
+            throw new UserAlreadyExistException("User with this phoneNumber already exists");
+
+        User newUser = new User();
+        BeanUtils.copyProperties(signUpRequestDto, newUser);
         newUser.setRole(Role.USER);
         newUser.setVerificationStatus(false);
         newUser.setPassword(passwordEncoder.encode(signUpRequestDto.getPassword()));
@@ -54,7 +56,7 @@ public class UserServiceImpl implements UserService {
         String registrationToken = generateAndSaveToken(newUser.getId(), newUser.getEmail());
         sendMail(signUpRequestDto.getEmail(), newUser, registrationToken);
         SignUpResponseDto signUpResponseDto = new SignUpResponseDto();
-        BeanUtils.copyProperties(newUser,signUpResponseDto);
+        BeanUtils.copyProperties(newUser, signUpResponseDto);
         return signUpResponseDto;
     }
 
@@ -64,7 +66,7 @@ public class UserServiceImpl implements UserService {
                 "Hi " + user.getFirstName() + " " + user.getLastName() + ",  Welcome to UNSOLO!." +
                         " We have received a registration request with your email. " +
                         "To complete your registration, kindly click on the link to verify your email address \n" + "http://" +
-                        request.getServerName() + ":3000"+ "/activation?token=" + registrationToken);
+                        request.getServerName() + ":3000" + "/activation?token=" + registrationToken);
     }
 
     private String generateAndSaveToken(Long userId, String userEmail) {
@@ -82,9 +84,9 @@ public class UserServiceImpl implements UserService {
     public ApiCustomResponse<String> verifyRegistration(String token) {
         Token verifyToken = tokenRepository.findByToken(token).orElseThrow(()
                 -> new InvalidTokenException("Token Not Found"));
-        if(verifyToken.getTokenStatus().equals(EXPIRED))
+        if (verifyToken.getTokenStatus().equals(EXPIRED))
             throw new InvalidTokenException("Token expired or already used");
-        User user = userRepository.findById(verifyToken.getUserId()).orElseThrow(()->
+        User user = userRepository.findById(verifyToken.getUserId()).orElseThrow(() ->
                 new UserNotFoundException("This user does not exists"));
         user.setVerificationStatus(true);
         verifyToken.setTokenStatus(EXPIRED);
