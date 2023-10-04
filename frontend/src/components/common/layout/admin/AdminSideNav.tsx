@@ -1,9 +1,8 @@
+import NavHeader from "@/components/modules/Dashboard/NavHeader";
+import NavItem from "@/components/modules/Dashboard/NavItem";
 import { useRouter } from "next/router";
-import NavItem from "./NavItem";
-import { HomeIcon, PoolsIcon } from "./../../../../public/svgs/icons";
-import NavHeader from "./NavHeader";
 
-export default function SideNav({
+export default function AdminSideNav({
   setActiveLabel,
 }: {
   setActiveLabel: (label: string) => void;
@@ -15,39 +14,37 @@ export default function SideNav({
       <div className="fixed w-64 h-full overflow-y-auto no-scrollbar">
         {" "}
         <div
-          style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+          style={{ display: "flex", flexDirection: "column", height: "100vh" }}
+        >
           <div style={{ flexShrink: 0 }}>
             <NavHeader />
           </div>
-          <div
-            className="p-5 no-scrollbar"
-            style={{ flexGrow: 1, overflowY: "auto" }}
-          >
+          <div className="p-5 no-scrollbar" style={{ flexGrow: 1, overflowY: "auto" }}>
             <NavItem
-              href="/dashboard"
+              href="/admin"
               label="Dashboard"
               currentPath={router.pathname}
               setActiveLabel={setActiveLabel}
             />
-            <NavItem
-              href="/dashboard/pools"
-              label="Pools"
+            {/* <NavItem
+              href="/dashboard/users"
+              label="Users"
               currentPath={router.pathname}
               setActiveLabel={setActiveLabel}
-            />
-            <NavItem
+            /> */}
+            {/* <NavItem
               href="/dashboard/history"
-              label="Trip History"
+              label="Destination History"
               currentPath={router.pathname}
               setActiveLabel={setActiveLabel}
-            />
+            /> */}
             <NavItem
-              href="/destinations"
+              href="/admin/destinations"
               label="Destinations"
               currentPath={router.pathname}
               setActiveLabel={setActiveLabel}
             />
-            <NavItem
+            {/* <NavItem
               href="/explore"
               label="Explore / Blog"
               currentPath={router.pathname}
@@ -58,7 +55,7 @@ export default function SideNav({
               label="Wallet"
               currentPath={router.pathname}
               setActiveLabel={setActiveLabel}
-            />
+            /> */}
           </div>
         </div>
       </div>

@@ -5,10 +5,13 @@ import Input from "@/components/ui/input";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { validateLoginForm } from "@/helpers/constants/validators";
+import { getSession, signIn } from "next-auth/react";
+import { notification } from "antd";
 
 const LoginForm = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState<{
     email?: string;
@@ -41,16 +44,42 @@ const LoginForm = () => {
     setFormErrors(errors);
   };
 
-  const isFormValid = Object.keys(formErrors).length === 0 && email && password;
+  const isFormValid =
+    !Object.values(formErrors).some((error) => error) && email && password;
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const errors = validateLoginForm({
       email,
       password,
     });
     if (Object.keys(errors).length === 0) {
-      console.log("Form is valid! Do your submit logic here.");
+      setLoading(true);
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+      if (res?.ok) {
+        const session = await getSession();
+
+        setLoading(false);
+        notification.success({
+          message: "Successfully Logged in",
+          description: "Welcome back to Unsolo.",
+        });
+        if (session?.user?.roles === "USER") {
+          router.push("/dashboard");
+        } else {
+          router.push("/admin");
+        }
+      } else {
+        setLoading(false);
+        notification.error({
+          message: "Login Failed",
+          description: "Please check your credentials.",
+        });
+      }
     }
   };
 
@@ -91,6 +120,7 @@ const LoginForm = () => {
               className="button_bg text-white font-semibold p-3 w-1/2 border-radius"
               onClick={handleSubmit}
               disabled={!isFormValid}
+              isLoading={loading}
             />
             <Gap v={2} />
             <p>

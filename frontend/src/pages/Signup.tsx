@@ -9,7 +9,7 @@ const Signup: NextPage = () => {
 
   return (
     <>
-      <AppLayout className={"primary_bg"}>
+      <AppLayout className={"bg-white"}>
         <div className="authentication-glass">
           <div className="app-inner">
             <SignupForm />

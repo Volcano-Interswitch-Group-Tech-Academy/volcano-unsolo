@@ -1,5 +1,5 @@
 import React from "react";
-import WalletCard from "@/components/card/WalletCard";
+import WalletCard from "@/components/modules/Dashboard/Wallet/WalletCard";
 import DashboardLayout from "@/components/common/layout/DashboardLayout";
 import OutlineHistory from "../../../../public/outline_history.png";
 import Image from "next/image";

@@ -72,7 +72,7 @@ const Navbar = () => {
                 <li
                   onClick={() => {
                     setShowNav(false);
-                    router.push("");
+                    router.push("/explore");
                   }}
                   className="orange-border-bottom cursor-pointer "
                 >
