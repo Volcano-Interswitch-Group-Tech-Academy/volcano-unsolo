@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-232.8660.185">
-    <data-source name="UnsoloDB@localhost" uuid="d6f7a9d0-5161-4765-8e49-533067dc0268">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" exact-version="0" />
+  <component name="dataSourceStorageLocal" created-in="IU-232.9921.47">
+    <data-source name="unsoloDB@localhost" uuid="32abc696-27f0-4c83-ab6d-ae9747bf11c6">
+      <database-info product="PostgreSQL" version="16.0" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="16.0" exact-driver-version="42.6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <auth-provider>ms-sso</auth-provider>
-      <schema-mapping />
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>

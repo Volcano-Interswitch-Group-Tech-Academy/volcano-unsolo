@@ -32,6 +32,7 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+
 class CreateYourTripServiceImplTest {
     @Mock
     CreateYourTripRepo createYourTripRepo;
@@ -56,7 +57,7 @@ class CreateYourTripServiceImplTest {
         newCreateYourTrip = new CreateYourTrip(1L, "Nigeria", "Abeokuta", "Olumorock", "mountaintops",
                 10, "12/03/2022", "19/03/2022", "7 days", ONE_PER_ROOM, 2L, PENDING);
         createYourTripDto = new CreateYourTripDto("Nigeria", "Abeokuta", "Olumorock", "mountaintops",
-                10, "12/03/2022", "19/03/2022", "7 days", ONE_PER_ROOM, PENDING);
+                10, "12/03/2022", "19/03/2022", "7 days", ONE_PER_ROOM);
         adminUser = new User();
         adminUser.setRole(Role.ADMIN);
         adminUser.setEmail("admin@example.com");
@@ -85,7 +86,7 @@ class CreateYourTripServiceImplTest {
         when(authentication.getName()).thenReturn("anonymousUser");
         SecurityContextHolder.getContext().setAuthentication(authentication);
         CreateYourTripDto createYourTripDto1 = new CreateYourTripDto("Nigeria", "Abeokuta", "Olumorock", "mountaintops",
-                10, "12/03/2022", "19/03/2022", "7 days", ONE_PER_ROOM, PENDING);
+                10, "12/03/2022", "19/03/2022", "7 days", ONE_PER_ROOM);
         UserNotFoundException exception = assertThrows(UserNotFoundException.class, () -> {
             createYourTripService.toCreateYourTrip(createYourTripDto);});
         assertEquals("Please Login", exception.getMessage());

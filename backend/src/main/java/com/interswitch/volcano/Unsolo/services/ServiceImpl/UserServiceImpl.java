@@ -1,12 +1,13 @@
 package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 
 import com.interswitch.volcano.Unsolo.configurations.token.TokenService;
+import com.interswitch.volcano.Unsolo.dtos.UserDto;
 import com.interswitch.volcano.Unsolo.enums.Role;
 import com.interswitch.volcano.Unsolo.enums.TokenStatus;
 import com.interswitch.volcano.Unsolo.exceptions.InvalidTokenException;
+import com.interswitch.volcano.Unsolo.exceptions.ResourceNotFoundException;
 import com.interswitch.volcano.Unsolo.exceptions.UserAlreadyExistException;
 import com.interswitch.volcano.Unsolo.exceptions.UserNotFoundException;
-import com.interswitch.volcano.Unsolo.model.CurrentDestinations;
 import com.interswitch.volcano.Unsolo.model.Token;
 import com.interswitch.volcano.Unsolo.repository.TokenRepository;
 import com.interswitch.volcano.Unsolo.services.MailService;
@@ -94,5 +95,18 @@ public class UserServiceImpl implements UserService {
         return new ApiCustomResponse<String>("Congratulations!, your Account has been successfully verified", null, HttpStatus.OK);
     }
 
+    @Override
+    public UserDto getAsingleUser(Long user_id) {
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("this User does not exist"));
+        return UserDto.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .gender(user.getGender())
+                .userName(user.getUserName())
+                .dateOfBirth(user.getDateOfBirth())
+                .build();
+
+    }
 
 }
