@@ -1,5 +1,5 @@
 import axiosInstance from "@/services/api/axios"
-import endpoints from "@/services/api/endpoints"
+import endpoints from "@/services/api/endPoints"
 import { NextAuthOptions, User } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { UserAuth, UserToken } from "../../../../types/types";
