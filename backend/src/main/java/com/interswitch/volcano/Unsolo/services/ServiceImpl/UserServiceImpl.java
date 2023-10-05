@@ -1,12 +1,13 @@
 package com.interswitch.volcano.Unsolo.services.ServiceImpl;
 
 import com.interswitch.volcano.Unsolo.configurations.token.TokenService;
+import com.interswitch.volcano.Unsolo.dtos.UserDto;
 import com.interswitch.volcano.Unsolo.enums.Role;
 import com.interswitch.volcano.Unsolo.enums.TokenStatus;
 import com.interswitch.volcano.Unsolo.exceptions.InvalidTokenException;
+import com.interswitch.volcano.Unsolo.exceptions.ResourceNotFoundException;
 import com.interswitch.volcano.Unsolo.exceptions.UserAlreadyExistException;
 import com.interswitch.volcano.Unsolo.exceptions.UserNotFoundException;
-import com.interswitch.volcano.Unsolo.model.CurrentDestinations;
 import com.interswitch.volcano.Unsolo.model.Token;
 import com.interswitch.volcano.Unsolo.repository.TokenRepository;
 import com.interswitch.volcano.Unsolo.services.MailService;
@@ -24,9 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
 
-import static com.interswitch.volcano.Unsolo.enums.TokenStatus.ACTIVE;
 import static com.interswitch.volcano.Unsolo.enums.TokenStatus.EXPIRED;
 
 @Service
@@ -83,9 +82,9 @@ public class UserServiceImpl implements UserService {
     public ApiCustomResponse<String> verifyRegistration(String token) {
         Token verifyToken = tokenRepository.findByToken(token).orElseThrow(()
                 -> new InvalidTokenException("Token Not Found"));
-        if(verifyToken.getTokenStatus().equals(EXPIRED))
+        if (verifyToken.getTokenStatus().equals(EXPIRED))
             throw new InvalidTokenException("Token expired or already used");
-        User user = userRepository.findById(verifyToken.getUserId()).orElseThrow(()->
+        User user = userRepository.findById(verifyToken.getUserId()).orElseThrow(() ->
                 new UserNotFoundException("This user does not exists"));
         user.setVerificationStatus(true);
         verifyToken.setTokenStatus(EXPIRED);
@@ -93,5 +92,18 @@ public class UserServiceImpl implements UserService {
         return new ApiCustomResponse<String>("Congratulations!, your Account has been successfully verified", null, HttpStatus.OK);
     }
 
+    @Override
+    public UserDto getAsingleUser(Long user_id) {
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("this User does not exist"));
+        return UserDto.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .gender(user.getGender())
+                .userName(user.getUserName())
+                .dateOfBirth(user.getDateOfBirth())
+                .build();
+
+    }
 
 }

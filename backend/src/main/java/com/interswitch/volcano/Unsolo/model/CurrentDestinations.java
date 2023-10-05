@@ -28,5 +28,4 @@ public class CurrentDestinations {
     private String endDate;
     private String duration;
     private TripStatus tripStatus;
-
 }
