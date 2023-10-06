@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="UnsoloDB@localhost" uuid="d6f7a9d0-5161-4765-8e49-533067dc0268">
-      <driver-ref>sqlserver.ms</driver-ref>
+    <data-source source="LOCAL" name="unsoloDB@localhost" uuid="32abc696-27f0-4c83-ab6d-ae9747bf11c6">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://localhost:1433;database=UnsoloDB</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/unsoloDB</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

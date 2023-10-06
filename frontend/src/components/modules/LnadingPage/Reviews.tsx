@@ -13,25 +13,25 @@ const Reviews = () => {
     {
       customer: "Sogo",
       description:
-      " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+      "Unsolo has completely transformed the way I travel. Meeting incredible people and sharing unforgettable adventures has become a norm, thanks to this platform. It's not just a website; it's a passport to a world of connections and memories.",
       image: "/woman.jpg",
     },
     {
       customer: "Tolani",
       description:
-      " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+      "Unsolo is a game-changer for solo travelers like me. The community is fantastic, and I've made friends for life. Every trip is a new adventure, and I couldn't imagine traveling without it anymore.",
       image: "/man.jpg",
     },
     {
       customer: "Olubunmi",
       description:
-      " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+      "I can't express how grateful I am for Unsolo. It's more than just a travel website; it's a family of passionate explorers. The connections I've made here have added depth and joy to my journeys. Truly a fantastic platform!",
       image: "/woman2.jpg",
     },
     {
       customer: "Deola",
       description:
-      " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+      "Unsolo is pure magic! I've experienced breathtaking landscapes and cultures with fellow Unsolo travelers. The sense of camaraderie and shared experiences make every trip extraordinary. It's the best thing that's happened to my travels!",
       image: "/unnamed.jpg",
     },
   ];

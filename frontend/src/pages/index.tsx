@@ -14,14 +14,14 @@ const Home: NextPage = () => {
     {
       packageName: "Unsolo for Individuals",
       packageDescription:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "Unsolo celebrates the traveler's spirit. With Unsolo for Individuals, embark on your personal journey and craft your unforgettable story. Discover new places, meet like-minded explorers, and embrace the beauty of not traveling alone.",
       buttonText: "Join Destination",
     },
     {
       packageName: "Unsolo for Groups",
       packageDescription:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
-      buttonText: "Crete Trip",
+        " Discover the magic of group travel with Unsolo for Groups. Whether you're planning a family adventure, a friends' getaway, or a team-building retreat, Unsolo brings you closer to the world and each other. Explore, bond, and create unforgettable memories together.",
+      buttonText: "Create Trip",
     },
   ];
 
