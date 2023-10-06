@@ -28,11 +28,7 @@ const TravelPoint = () => {
               desires as you.
             </p>
             <p className="light-black-font mt-3 ">
-              Es un hecho establecido hace demasiado tiempo que un lector se
-              distraerá con el contenido del texto de un sitio mientras que mira
-              su diseño.Es un hecho establecido hace demasiado tiempo que un
-              lector se distraerá con el contenido del texto de un sitio
-              mientras que mira su diseño.
+            We're your bridge to fellow travelers who share your wanderlust and desires. Explore the world with those who understand your passion. Join us in connecting kindred adventurers from across the globe.
             </p>
           </div>
           <Button

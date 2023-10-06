@@ -8,34 +8,34 @@ const FAQ = () => {
 
   const newQuestions = [
     {
-      question: "How do i make payment",
+      question: "How do I make payment?",
       answer:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "Making a payment on Unsolo is easy! Once you've selected your travel experience or booking, simply follow the secure payment process. We accept various payment methods, including credit and debit cards, PayPal, and more, to ensure your convenience.",
     },
     {
-      question: "Why did my Payment get cancelled",
+      question: "Why did my Payment get cancelled?",
       answer:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "Payments may be canceled for various reasons, such as insufficient funds, payment processor issues, or security concerns. If your payment was canceled, please double-check your payment details and ensure you have sufficient funds. If the issue persists, reach out to our customer support team for assistance.",
     },
     {
-      question: "Do you offer 24/7 customer care duting my trip",
+      question: "Do you offer 24/7 customer care during my trip?",
       answer:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "Absolutely! Your peace of mind is our priority. We provide 24/7 customer support throughout your trip. Whether you need assistance with travel arrangements, have questions, or encounter unexpected situations, our dedicated support team is just a call or message away, ready to help.",
     },
     {
-      question: "How do i get a refund",
+      question: "How do I get a refund?",
       answer:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "We understand that plans can change. To request a refund, simply log in to your Unsolo account, go to the 'My Bookings' section, and follow the refund request process for your specific booking. Refund eligibility and policies may vary depending on your booking details, so please review them carefully.",
     },
     {
-      question: "Do you have hotel recommendations",
+      question: "Do you have hotel recommendations?",
       answer:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "Yes, we do! Unsolo offers a selection of curated hotel recommendations in various destinations. Whether you're looking for luxury accommodations, boutique stays, or budget-friendly options, our recommendations cater to diverse preferences. Explore our hotel listings to find the perfect place to stay during your adventure.",
     },
     {
-      question: "How safe is my desired destination",
+      question: "How safe is my desired destination?",
       answer:
-        " Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.",
+        "Your safety is our priority. Unsolo provides destination-specific safety information and travel advisories to help you make informed decisions. We recommend checking government travel advisories, local guidelines, and user reviews for up-to-date safety insights before your trip.",
     },
   ];
   return (
