@@ -32,7 +32,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
     control,
     register,
     watch,
-    formState: { errors, isValid },
+    formState: { errors, isValid, dirtyFields },
   } = useForm({
     defaultValues,
   });
@@ -57,15 +57,16 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
   return (
     <div>
       <Dialog open={open} onClose={onClose}>
-        <p className="text-center font-bold text-2xl mt-5">Create Your Desired Destination</p>
+        <p className="text-center font-bold text-2xl mt-5">
+          Create Your Desired Destination
+        </p>
         <DialogContent>
-          
           <div>
             <select
               {...register("country", { required: "Country is required" })}
               className="input"
               required
-
+              key="country"
             >
               <option disabled selected value="">
                 Choose a desired country
@@ -78,7 +79,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               ))}
             </select>
 
-            {countryErrorMessage && (
+            {dirtyFields.country && countryErrorMessage && (
               <p className="text-red-500 text-sm">{countryErrorMessage}</p>
             )}
 
@@ -87,6 +88,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               {...register("city", { required: "City is required" })}
               className="input"
               required
+              key="city"
             >
               <option disabled selected value="">
                 Choose a desired city
@@ -99,13 +101,14 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               ))}
             </select>
 
-            {cityErrorMessage && (
+            {dirtyFields.city && cityErrorMessage && (
               <p className="text-red-500 text-sm">{cityErrorMessage}</p>
             )}
 
             <Gap v={1} />
 
             <Controller
+              key="duration"
               name="duration"
               control={control}
               defaultValue=""
@@ -116,17 +119,18 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   value={field.value}
                   onChange={field.onChange}
                   onBlur={() => field.onBlur()}
-                  type={undefined}
+                  type="text"
                   error="kindly state your duration"
                 />
               )}
             />
-            {durationMessage && (
+            {dirtyFields.duration && durationMessage && (
               <p className="text-red-500 text-sm">{durationMessage}</p>
             )}
 
             <Gap v={1} />
             <Controller
+              key="participants"
               name="participants"
               control={control}
               defaultValue=""
@@ -137,18 +141,19 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   value={field.value}
                   onChange={field.onChange}
                   onBlur={() => field.onBlur()}
-                  type={undefined}
+                  type="text"
                   error="kindly state the number of participants"
                 />
               )}
             />
-            {participants && (
+            {dirtyFields.participants && participants && (
               <p className="text-red-500 text-sm">{participants}</p>
             )}
 
             <Gap v={1} />
             <div className="flex flex-row">
               <Controller
+                key="startDate"
                 name="startDate"
                 control={control}
                 defaultValue=""
@@ -169,6 +174,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               <Gap h={5} />
 
               <Controller
+                key="endDate"
                 name="endDate"
                 control={control}
                 defaultValue=""
@@ -200,6 +206,8 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               })}
               className="input"
               required
+              key = "getHotel"
+
             >
               <option disabled selected value="">
                 Do you want to get an hotel with us?
@@ -218,7 +226,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
             <Gap v={1} />
             {getHotelValue && getHotelValue == "yes" ? (
               <>
-                <select {...register("hotel")}>
+                <select {...register("hotel")} className="input" required key="hotel">
                   <option disabled selected value="">
                     Choose from our list of hotels?
                   </option>
@@ -234,7 +242,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 )}
 
                 <Gap v={1} />
-                <select {...register("shareRoom")}>
+                <select {...register("shareRoom")} className="input" required key="shareRoom">
                   <option disabled selected value="">
                     Do you want to share your hotel room?
                   </option>

@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import DashboardLayout from "@/components/common/layout/DashboardLayout";
 import Image from "next/image";
-import EllipsisBtn from "../../../../public/ellipsis-vertical-svgrepo-com.svg";
 import Link from "next/link";
+import { requireAuth } from "@/utils/auth";
+import { GetServerSidePropsContext } from "next/types";
+
 
 const Target = () => {
   const td_style = "text-center h-5 py-5 light-font";
@@ -132,3 +134,8 @@ const Target = () => {
 };
 
 export default Target;
+
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return await requireAuth(context);
+}

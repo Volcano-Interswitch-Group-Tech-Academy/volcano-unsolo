@@ -4,10 +4,13 @@ import CreateDestinationModal from "@/components/modals/CreateDestinationModal";
 import Card from "@/components/modules/Destination/Card";
 import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/Searchbar";
-import { useMediaQuery } from "@mui/material";
 import { NextPage } from "next/types";
 import React from "react";
-import JoinDestinationModal from './../components/modals/JoinDestinationModal';
+import JoinDestinationModal from "./../components/modals/JoinDestinationModal";
+import { useUser } from "@/store/context";
+import { notification } from "antd";
+import { getSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const Destination: NextPage = () => {
   <PageHead title="Destinations" description="List of destinations" />;
@@ -15,9 +18,24 @@ const Destination: NextPage = () => {
   const [open, setOpen] = React.useState(false);
   const [openJoin, setOpenJoin] = React.useState(false);
 
+  const { data: session } = useSession();
+
+  console.log(session, "session");
+
+  const { isLoggedIn } = useUser();
+
   const handleClickOpen = () => {
-    setOpen(true);
+    console.log("Is user logged in:", isLoggedIn);
+    if (isLoggedIn) {
+      setOpen(true);
+    } else {
+      notification.error({
+        message: "Unable to open",
+        description: "Please login to create a destination.",
+      });
+    }
   };
+
   const handlesearch = () => {};
 
   const handlOpenJoinClick = () => {
@@ -28,7 +46,6 @@ const Destination: NextPage = () => {
     setOpen(false);
   };
 
-  
   const handleCloseJoin = () => {
     setOpenJoin(false);
   };
@@ -171,11 +188,19 @@ const Destination: NextPage = () => {
             // </Link>
           ))}
         </div>
-        <CreateDestinationModal open={open} onClose={handleClose} />
-        <JoinDestinationModal onOpen = {openJoin} close={handleCloseJoin}/>
+        {isLoggedIn ? (
+          <CreateDestinationModal open={open} onClose={handleClose} />
+        ) : null}
+        <JoinDestinationModal onOpen={openJoin} close={handleCloseJoin} />
       </div>
     </AppLayout>
   );
 };
 
 export default Destination;
+
+// export async function getServerSideProps(context:any) {
+//   const session = await getSession(context);
+//   console.log(session);
+//   return { props: {} };
+// }

@@ -3,6 +3,8 @@ import WalletCard from "@/components/modules/Dashboard/Wallet/WalletCard";
 import DashboardLayout from "@/components/common/layout/DashboardLayout";
 import OutlineHistory from "../../../../public/outline_history.png";
 import Image from "next/image";
+import { requireAuth } from "@/utils/auth";
+import { GetServerSidePropsContext } from "next/types";
 
 const wallet = () => {
   const transaction = [
@@ -68,3 +70,8 @@ const wallet = () => {
 };
 
 export default wallet;
+
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return await requireAuth(context);
+}

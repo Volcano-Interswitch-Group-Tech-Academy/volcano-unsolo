@@ -1,8 +1,17 @@
 import Logo from "@/components/common/layout/Logo";
 import React from "react";
-import Image from "next/image";
+import Image from "next/image";import { signOut } from "next-auth/react";
+import { useUser } from "@/store/context";
+
+
 
 const NavHeader = () => {
+  const { isLoggedIn, setIsLoggedIn } = useUser();
+  function handleLogout() {
+    signOut({ callbackUrl: '/' });
+    setIsLoggedIn(false)
+}
+
   return (
     <div>
       <div className="border-b">
@@ -44,6 +53,9 @@ const NavHeader = () => {
               width={20}
               src="/Logout.svg"
               alt="logout"
+              onClick={() => handleLogout()
+              }
+
             />
           </div>
         </div>

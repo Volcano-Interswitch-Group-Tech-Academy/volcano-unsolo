@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import Container from "./Container";
 import Image from "next/image";
 import Link from "next/link";
+import { getSession } from "next-auth/react";
 
 const Navbar = () => {
   const router = useRouter();
   const [showNav, setShowNav] = useState(false);
+  
+
   return (
     <Container>
       <div>
