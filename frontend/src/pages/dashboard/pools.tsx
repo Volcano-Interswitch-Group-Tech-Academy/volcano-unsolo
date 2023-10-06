@@ -11,7 +11,7 @@ const pools = () => {
       city: "Geneva",
       dob: "12/10/23",
       price: 2_700_000,
-      days: "5",
+      days: "7",
       blank: "View details",
     },
     {
