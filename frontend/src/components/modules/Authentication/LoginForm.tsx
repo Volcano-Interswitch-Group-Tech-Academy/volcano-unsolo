@@ -2,16 +2,18 @@ import Container from "@/components/common/layout/Container";
 import Gap from "@/components/common/Gap";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/input";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { validateLoginForm } from "@/helpers/constants/validators";
 import { getSession, signIn } from "next-auth/react";
 import { notification } from "antd";
+import { usePostData } from "@/helpers/hooks/useMutationtHook";
+import { setLocalStorage } from "@/utils/localStorage";
 
 const LoginForm = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState<{
     email?: string;
@@ -23,6 +25,20 @@ const LoginForm = () => {
     phoneNumber?: string;
     password?: string;
   }>({});
+
+  type LoginProps = {
+    email: string;
+    password: string;
+  }
+
+  type ReturnedProps = {
+    status: string;
+    object: any;
+    message: string;
+
+  }
+
+  const {mutate:loginUser,isLoading,data,isError,isSuccess,error} = usePostData<LoginProps,ReturnedProps>('auth/login',)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -47,6 +63,7 @@ const LoginForm = () => {
   const isFormValid =
     !Object.values(formErrors).some((error) => error) && email && password;
 
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const errors = validateLoginForm({
@@ -54,34 +71,51 @@ const LoginForm = () => {
       password,
     });
     if (Object.keys(errors).length === 0) {
-      setLoading(true);
-      const res = await signIn("credentials", {
+      loginUser({
         email,
-        password,
-        redirect: false,
-      });
-      if (res?.ok) {
-        const session = await getSession();
-
-        setLoading(false);
-        notification.success({
-          message: "Successfully Logged in",
-          description: "Welcome back to Unsolo.",
-        });
-        if (session?.user?.roles === "USER") {
-          router.push("/dashboard");
-        } else {
-          router.push("/admin");
-        }
-      } else {
-        setLoading(false);
-        notification.error({
-          message: "Login Failed",
-          description: "Please check your credentials.",
-        });
-      }
+        password
+      })
     }
   };
+
+
+  const handleSuccessCallback = () => {
+    if(data?.status === 'OK'){
+           notification.success({
+           message: "Successfully Logged in",
+           description: "Welcome back to Unsolo.",
+      })
+     
+      
+       setTimeout(()=>{
+         const [header, payload, signature] = data?.object?.split('.');
+
+         const decodedPayload = JSON.parse(atob(payload)) as {roles:string,sub:string};
+        if(decodedPayload.roles === 'USER'){
+           router.push("/dashboard");
+        }else {
+           router.push("/admin");
+        }
+       },1000)
+       setLocalStorage('token',data?.object)
+       
+     } 
+       if(data?.status === 'UNAUTHORIZED'){
+           notification.error({
+           message: data?.message,
+           description: "Email and Password not correct.",
+       });
+      }
+    }
+
+
+  useEffect(()=>{
+   
+    if(isSuccess){
+     handleSuccessCallback()
+    }
+  },[isSuccess,data])
+
 
   return (
     <Container>
@@ -120,7 +154,7 @@ const LoginForm = () => {
               className="button_bg text-white font-semibold p-3 w-1/2 border-radius"
               onClick={handleSubmit}
               disabled={!isFormValid}
-              isLoading={loading}
+              isLoading={isLoading}
             />
             <Gap v={2} />
             <p>
@@ -141,4 +175,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginForm

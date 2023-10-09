@@ -1,6 +1,7 @@
 import SideNav from "@/components/modules/Dashboard/SideNav";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useRouter } from "next/router";
+import { getLocalStorage } from "@/utils/localStorage";
 
 
 interface DashboardLayoutProps {
@@ -26,11 +27,20 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       return "Target";
     }
    
-    return "Overview"; // Default case
+    return "Overview"; 
   };
   
   
   const labelForHeader = getLabelFromPath(router.pathname);
+
+  const token =  getLocalStorage('token');
+ 
+  useEffect(()=>{
+    if(!token){
+       router.push('/login')
+    }
+  },[token])
+
   return (
     <div className="flex">
       <SideNav setActiveLabel={setActiveLabel} />{" "}

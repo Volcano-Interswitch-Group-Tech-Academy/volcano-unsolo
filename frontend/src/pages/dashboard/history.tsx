@@ -71,6 +71,6 @@ const history = () => {
 
 export default history;
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return await requireAuth(context);
-}
+// export async function getServerSideProps(context: GetServerSidePropsContext) {
+//   return await requireAuth(context);
+// }

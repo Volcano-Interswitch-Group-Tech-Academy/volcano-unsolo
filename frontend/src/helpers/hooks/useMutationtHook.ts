@@ -4,19 +4,20 @@ interface MutationInput {
     endpoint: string;
     data: any; 
   }
+const BaseUrl = 'http://localhost:8060/api'
 
-export function usePostData() {
-    return useMutation(async (data) => {
-      const res = await fetch('YOUR_ENDPOINT_HERE', {
+export function usePostData<T,TR>(url:string,token?:string) {
+    return useMutation(async (data:T) => {
+      const res = await fetch(`${ BaseUrl}/${url}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer YOUR_ACCESS_TOKEN`,
+          'Authorization': token ? `Bearer ${token}` : "",
         },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error(res.statusText);
-      return res.json();
+      return res.json() as TR;
     });
   }
 

@@ -6,14 +6,14 @@ export async function requireAuth(
 ) {
   const session = await getSession(context);
 
-  if (!session?.user) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
+  // if (!session?.user) {
+  //   return {
+  //     redirect: {
+  //       destination: "/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return {
     props: {},

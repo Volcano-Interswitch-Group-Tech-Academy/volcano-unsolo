@@ -1,16 +1,29 @@
 import Logo from "@/components/common/layout/Logo";
-import React from "react";
+import React,{useEffect} from "react";
+import {useRouter} from 'next/router';
 import Image from "next/image";import { signOut } from "next-auth/react";
 import { useUser } from "@/store/context";
+import { removeLocalStorage,getLocalStorage } from "@/utils/localStorage";
 
 
 
 const NavHeader = () => {
   const { isLoggedIn, setIsLoggedIn } = useUser();
+    const token = getLocalStorage('token');
+  const router = useRouter();
+
+
   function handleLogout() {
-    signOut({ callbackUrl: '/' });
+    removeLocalStorage('token');
     setIsLoggedIn(false)
+    router.push('/login')
 }
+
+useEffect(()=>{
+  if(token){
+    setIsLoggedIn(true)
+  }
+},[token])
 
   return (
     <div>

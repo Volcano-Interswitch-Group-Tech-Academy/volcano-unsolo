@@ -33,19 +33,19 @@ const BlogForm = () => {
   //   ],
   // };
 
-  const {
-    handleSubmit,
-    control,
-    register,
-    watch,
-    formState: { errors, isValid },
-  } = useForm({
-    defaultValues,
-  });
+  // const {
+  //   handleSubmit,
+  //   control,
+  //   register,
+  //   watch,
+  //   formState: { errors, isValid },
+  // } = useForm({
+  //   defaultValues,
+  // });
 
   return (
     <>
-      <div className=" flex flex-row justify-between mt-5">
+      {/* <div className=" flex flex-row justify-between mt-5">
         <div>
           <Controller
             name="blogName"
@@ -89,7 +89,7 @@ const BlogForm = () => {
           children={"Upload to Blog"}
           className="button_bg text-white font-bold mt-5"
         />
-      </div>
+      </div> */}
     </>
   );
 };

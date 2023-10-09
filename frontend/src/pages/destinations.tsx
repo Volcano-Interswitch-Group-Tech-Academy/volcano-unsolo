@@ -5,24 +5,25 @@ import Card from "@/components/modules/Destination/Card";
 import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/Searchbar";
 import { NextPage } from "next/types";
-import React from "react";
+import React,{useEffect} from "react";
 import JoinDestinationModal from "./../components/modals/JoinDestinationModal";
 import { useUser } from "@/store/context";
 import { notification } from "antd";
-import { getSession } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { getLocalStorage } from "@/utils/localStorage";
 
 const Destination: NextPage = () => {
   <PageHead title="Destinations" description="List of destinations" />;
 
   const [open, setOpen] = React.useState(false);
   const [openJoin, setOpenJoin] = React.useState(false);
-
+  const [isLoggedIn,setisLoggedIn] = React.useState(false);
+  const token = getLocalStorage('token')
   const { data: session } = useSession();
 
   console.log(session, "session");
 
-  const { isLoggedIn } = useUser();
+  // const { isLoggedIn } = useUser();
 
   const handleClickOpen = () => {
     console.log("Is user logged in:", isLoggedIn);
@@ -49,6 +50,14 @@ const Destination: NextPage = () => {
   const handleCloseJoin = () => {
     setOpenJoin(false);
   };
+
+  useEffect(()=>{
+    if( token){
+      setisLoggedIn(true)
+    }else {
+
+    }
+  },[token])
 
   const destinations = [
     {
