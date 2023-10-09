@@ -13,4 +13,6 @@ public interface UserService {
     SignUpResponseDto registerUser(SignUpRequestDto signUpRequestDto) throws IOException;
     public ApiCustomResponse<String> verifyRegistration(String token);
     UserDto getAsingleUser( Long user_id);
+
+    UserDto getUserDetails(String name);
 }

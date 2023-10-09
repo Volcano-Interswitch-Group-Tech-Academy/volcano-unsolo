@@ -109,4 +109,16 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    /**
+     * @param name
+     * @return
+     */
+    @Override
+    public UserDto getUserDetails(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("user does not exist"));
+        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(user, userDto);
+        return userDto;
+    }
+
 }
