@@ -64,7 +64,7 @@ public class CurrentDestinationsServiceImpl implements CurrentDestinationsServic
     @Override
     public CurrentDestinationsDto approveDestinationCreatedByUser(Long destinationId) {
         CurrentDestinations currentDestinations = currentDestinationsRepo.findById(destinationId).orElseThrow(() -> new ResourceNotFoundException("Destination does not exist"));
-        currentDestinations.setDestinationStatus(DestinationStatus.AVAILABLE);
+        currentDestinations.setDestinationStatus(DestinationStatus.AVAILABLE.AVAILABLE);
         currentDestinations = currentDestinationsRepo.save(currentDestinations);
         CurrentDestinationsDto currentDestinationsDto = new CurrentDestinationsDto();
         BeanUtils.copyProperties(currentDestinations, currentDestinationsDto);
