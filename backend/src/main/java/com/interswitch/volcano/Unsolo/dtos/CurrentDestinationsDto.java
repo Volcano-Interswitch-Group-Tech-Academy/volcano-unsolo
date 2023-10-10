@@ -16,8 +16,8 @@ public class CurrentDestinationsDto {
     @NotNull(message = "City cannot be missing or empty")
     private String city;
 
-    @NotNull(message = "Destination cannot be missing or empty")
-    private String destinationName;
+//    @NotNull(message = "Destination cannot be missing or empty")
+//    private String destinationName;
 
     @NotNull(message = "Trip description cannot be missing or empty")
     private String tripDescription;
@@ -25,9 +25,9 @@ public class CurrentDestinationsDto {
     private int maxNoOfPersons;
 
 
-    private int noOfRegisterPersons;
+//    private int noOfRegisterPersons;
 
-    private int slotAvailable;
+//    private int slotAvailable;
 
     private double cost;
 
