@@ -15,4 +15,5 @@ public class UserDto {
     private Gender gender;
     private String userName;
     private String dateOfBirth;
+    private long  id;
 }

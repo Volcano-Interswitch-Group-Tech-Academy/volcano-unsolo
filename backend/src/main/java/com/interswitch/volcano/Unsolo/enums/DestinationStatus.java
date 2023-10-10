@@ -1,6 +1,6 @@
 package com.interswitch.volcano.Unsolo.enums;
 
-public enum TripStatus {
+public enum DestinationStatus {
     AVAILABLE,
     FILLED
 }
