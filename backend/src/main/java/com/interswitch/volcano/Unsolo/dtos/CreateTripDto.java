@@ -6,7 +6,8 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class UpdateTripRequest {
+public class CreateTripDto {
     private String duration;
+    private String destinationName;
     private RoomType roomType;
 }
