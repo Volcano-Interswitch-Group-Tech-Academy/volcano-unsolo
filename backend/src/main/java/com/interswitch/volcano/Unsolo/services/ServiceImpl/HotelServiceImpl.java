@@ -16,24 +16,20 @@ public class HotelServiceImpl implements HotelService {
     private final HotelRepository hotelRepository;
 
     @Override
-    public ApiCustomResponse<List<Hotel>> getAllHotels(String country, String city) {
-    List<Hotel> allHotels = hotelRepository.findByCountryAndCity(country,city);
+    public ApiCustomResponse<List<Hotel>> getAllHotels() {
+    List<Hotel> allHotels = hotelRepository.findAll();
     return (ApiCustomResponse<List<Hotel>>) allHotels;
     }
 
     @Override
-    public HotelDto createHotel(long destinationId, String country, String city) {
-        Hotel hotel = (Hotel) hotelRepository.findByCountryAndCity(country, city);
-        if (country != null && city != null) {
-            throw new ResourceNotFoundException("there is no hotel available in this city and city");
-        }
-        hotelRepository.findByCountryAndCity(country, city);
+    public HotelDto createHotel(HotelDto hotelDto) {
         Hotel newHotel = new Hotel();
-        newHotel.setHotelName(hotel.getHotelName());
-        newHotel.setId(hotel.getId());
-        newHotel.setCountry(hotel.getCountry());
-        newHotel.setCity(hotel.getCity());
-        return new HotelDto();
+        newHotel.setHotelName(hotelDto.getHotelName());
+        newHotel.setCountry(hotelDto.getCountry());
+        newHotel.setCity(hotelDto.getCity());
+        hotelRepository.save(newHotel);
+
+        return hotelDto;
     }
 
 

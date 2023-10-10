@@ -1,10 +1,52 @@
 package com.interswitch.volcano.Unsolo.service;
 
+import org.mockito.Mock;
+
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class CreateYourTripServiceImplTest {
+    //@Mock
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    @Mock
 //    CreateTripRepo createTripRepo;
 //    @Mock
