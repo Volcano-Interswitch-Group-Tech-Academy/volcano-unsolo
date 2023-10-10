@@ -19,9 +19,10 @@ import java.util.List;
 @RequestMapping("/api/hotel")
 public class HotelController {
     private final HotelService hotelService;
-    @GetMapping("/{}")
-    public ResponseEntity<?> getAllHotels(@PathVariable String country, @PathVariable String city)throws Exception{
-        return new ResponseEntity<>(hotelService.getAllHotels(), org.springframework.http.HttpStatus.OK);
+    @GetMapping("/view-all")
+    public ResponseEntity<List<HotelDto>> getAllHotels(){
+        List<HotelDto> hotelDtoList = hotelService.getAllHotels();
+        return ResponseEntity.ok(hotelDtoList);
     }
 
     @PostMapping("/create")

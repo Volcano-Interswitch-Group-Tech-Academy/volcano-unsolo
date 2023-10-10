@@ -8,7 +8,8 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface HotelService {
-    ApiCustomResponse<List<Hotel>> getAllHotels();
+    List<HotelDto> getAllHotels();
 
     HotelDto createHotel(HotelDto hotelDto);
+
 }
