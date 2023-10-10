@@ -16,7 +16,7 @@ public class TripBookByUserDto {
     private String tripDescription;
     private int maxNoOfPersons;
     private int noOfRegisterPersons;
-    private int slotAvailable;
+   // private int slotAvailable;
     private double cost;
     private String startDate;
     private String endDate;
