@@ -31,13 +31,12 @@ const UploadWidget = () => {
   return (
     <div>
       <Button
-        children={"Add Photoss"}
-        icon={<UplaodIcon />}
+        icon={<UplaodIcon/>}
         iconPosition="end"
         onClick={openWidget}
-        className="input text-black flex flex-row justify-center items-center font-bold gap-5 "
-
-      />
+        className="border-grey"
+      >
+      </Button>
     </div>
   );
 };

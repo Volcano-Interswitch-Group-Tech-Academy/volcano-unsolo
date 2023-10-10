@@ -4,6 +4,7 @@ export const setLocalStorage = (key: string, value: string) => {
   }
 };
 
+
 export const removeLocalStorage = async (key: string) => {
   if (typeof window !== 'undefined') {
     window.localStorage.setItem(key, '');

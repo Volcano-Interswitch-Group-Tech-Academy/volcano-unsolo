@@ -1,8 +1,7 @@
 import DashboardLayout from "@/components/common/layout/DashboardLayout";
 import Table from "@/components/table/Table";
 import { TableProps } from "@/helpers/types/table";
-import { requireAuth } from "@/utils/auth";
-import { GetServerSidePropsContext } from "next/types";
+
 
 const pools = () => {
   const THEAD = ["Country", "City", "D.O.D", "Price", "No of Days", ""];
@@ -76,6 +75,3 @@ const pools = () => {
 
 export default pools;
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return await requireAuth(context);
-}

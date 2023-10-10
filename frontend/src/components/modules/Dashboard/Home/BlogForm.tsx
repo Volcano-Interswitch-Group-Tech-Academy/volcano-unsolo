@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import UploadWidget from "../UploadWidget";
 import Input from "@/components/ui/input";
 import { useForm, Controller } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
 import Button from "@/components/ui/Button";
 
 const defaultValues = {
@@ -15,42 +14,30 @@ const defaultValues = {
 const BlogForm = () => {
   const [editorContent, setEditorContent] = useState("");
 
-  // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+  const {
+    handleSubmit,
+    control,
+    register,
+    watch,
+    formState: { errors, isValid },
+  } = useForm({
+    defaultValues,
+    mode: "all"
+  });
 
-  // const modules = {
-  //   toolbar: [
-  //     [{ header: "1" }, { header: "2" }, { font: [] }],
-  //     [{ size: [] }],
-  //     ["bold", "italic", "underline", "strike", "blockquote"],
-  //     [
-  //       { list: "ordered" },
-  //       { list: "bullet" },
-  //       { indent: "-1" },
-  //       { indent: "+1" },
-  //     ],
-  //     ["link"],
-  //     ["clean"],
-  //   ],
-  // };
+  const  blogName = errors?.blogName?.message
+  const values = watch();
 
-  // const {
-  //   handleSubmit,
-  //   control,
-  //   register,
-  //   watch,
-  //   formState: { errors, isValid },
-  // } = useForm({
-  //   defaultValues,
-  // });
 
   return (
     <>
-      {/* <div className=" flex flex-row justify-between mt-5">
+      <div className=" flex flex-row justify-between my-5">
         <div>
           <Controller
             name="blogName"
             control={control}
             defaultValue=""
+            rules={{ required: "Blog name is required is required" }}
             render={({ field }) => (
               <Input
                 placeholder="Blog Name"
@@ -58,30 +45,30 @@ const BlogForm = () => {
                 value={field.value}
                 onChange={field.onChange}
                 onBlur={() => field.onBlur()}
-                type={undefined}
-                error="kindly give a blog name"
+                type= "text"
+                error= {blogName}
               />
             )}
           />
         </div>
 
-        <div>
+        <div className="border border-gray-300">
           <UploadWidget />
         </div>
       </div>
       <div>
-      <Controller
-                    name="blogPost"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => (
-                        <textarea
-                            {...field}
-                            style={{ width: '100%', height: '200px', padding: '10px' }}
-                            className = "input"
-                        ></textarea>
-                    )}
-                />
+        <Controller
+          name="blogPost"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <textarea
+              {...field}
+              style={{ width: "100%", height: "200px", padding: "10px" }}
+              className="input"
+            ></textarea>
+          )}
+        />
       </div>
 
       <div className="flex flex-end">
@@ -89,7 +76,7 @@ const BlogForm = () => {
           children={"Upload to Blog"}
           className="button_bg text-white font-bold mt-5"
         />
-      </div> */}
+      </div>
     </>
   );
 };

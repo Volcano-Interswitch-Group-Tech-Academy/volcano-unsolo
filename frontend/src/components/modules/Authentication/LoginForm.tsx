@@ -5,7 +5,6 @@ import Input from "@/components/ui/input";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { validateLoginForm } from "@/helpers/constants/validators";
-import { getSession, signIn } from "next-auth/react";
 import { notification } from "antd";
 import { usePostData } from "@/helpers/hooks/useMutationtHook";
 import { setLocalStorage } from "@/utils/localStorage";
@@ -13,7 +12,6 @@ import { setLocalStorage } from "@/utils/localStorage";
 const LoginForm = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
-  // const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState<{
     email?: string;
@@ -97,7 +95,7 @@ const LoginForm = () => {
            router.push("/admin");
         }
        },1000)
-       setLocalStorage('token',data?.object)
+       setLocalStorage('token', data?.object)
        
      } 
        if(data?.status === 'UNAUTHORIZED'){

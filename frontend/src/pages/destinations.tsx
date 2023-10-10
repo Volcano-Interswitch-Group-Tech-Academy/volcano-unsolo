@@ -19,11 +19,8 @@ const Destination: NextPage = () => {
   const [openJoin, setOpenJoin] = React.useState(false);
   const [isLoggedIn,setisLoggedIn] = React.useState(false);
   const token = getLocalStorage('token')
-  const { data: session } = useSession();
 
-  console.log(session, "session");
 
-  // const { isLoggedIn } = useUser();
 
   const handleClickOpen = () => {
     console.log("Is user logged in:", isLoggedIn);
@@ -175,7 +172,6 @@ const Destination: NextPage = () => {
         </div>
         <div className="flex lg:flex-row flex-col flex-wrap mt-10">
           {destinations.map((data, index) => (
-            // <Link to={data.route} key={index}>
             <div className="mt-10">
               {" "}
               <Card
@@ -194,7 +190,6 @@ const Destination: NextPage = () => {
               />
             </div>
 
-            // </Link>
           ))}
         </div>
         {isLoggedIn ? (

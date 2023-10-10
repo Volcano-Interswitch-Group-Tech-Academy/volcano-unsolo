@@ -2,8 +2,7 @@ import DashboardLayout from "@/components/common/layout/DashboardLayout";
 import Table from "@/components/table/Table";
 import { TableProps } from "@/helpers/types/table";
 import React from "react";
-import { requireAuth } from "@/utils/auth";
-import { GetServerSidePropsContext } from "next/types";
+
 
 const history = () => {
   const caption = "Go down memory lane";
@@ -70,7 +69,3 @@ const history = () => {
 };
 
 export default history;
-
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   return await requireAuth(context);
-// }
