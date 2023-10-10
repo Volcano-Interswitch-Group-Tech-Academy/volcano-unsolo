@@ -17,8 +17,8 @@ const Blogs = ({
   };
   return (
     <Container>
-      <div className="p-5">
-        <div className="flex flex-row gap-6">
+      <div className="p-5  ">
+        <div className="flex flex-row gap-6 p-3 border border-b-gray-300">
           <Image
             src={user}
             width={70}

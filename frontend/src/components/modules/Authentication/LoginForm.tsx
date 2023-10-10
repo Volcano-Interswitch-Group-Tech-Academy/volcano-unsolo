@@ -7,7 +7,9 @@ import { useRouter } from "next/router";
 import { validateLoginForm } from "@/helpers/constants/validators";
 import { notification } from "antd";
 import { usePostData } from "@/helpers/hooks/useMutationtHook";
-import { setLocalStorage } from "@/utils/localStorage";
+import { getLocalStorage, setLocalStorage } from "@/utils/localStorage";
+import { useGetData } from "@/helpers/hooks/useQueryHooks";
+import { UserDataProps } from "@/helpers/types/auth";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -37,6 +39,10 @@ const LoginForm = () => {
   }
 
   const {mutate:loginUser,isLoading,data,isError,isSuccess,error} = usePostData<LoginProps,ReturnedProps>('auth/login',)
+  
+  
+
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -83,6 +89,8 @@ const LoginForm = () => {
            message: "Successfully Logged in",
            description: "Welcome back to Unsolo.",
       })
+
+      
      
       
        setTimeout(()=>{
@@ -96,6 +104,7 @@ const LoginForm = () => {
         }
        },1000)
        setLocalStorage('token', data?.object)
+
        
      } 
        if(data?.status === 'UNAUTHORIZED'){
@@ -111,6 +120,8 @@ const LoginForm = () => {
    
     if(isSuccess){
      handleSuccessCallback()
+     
+
     }
   },[isSuccess,data])
 
