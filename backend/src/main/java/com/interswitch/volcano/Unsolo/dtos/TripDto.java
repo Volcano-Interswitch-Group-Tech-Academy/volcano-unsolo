@@ -1,6 +1,7 @@
 package com.interswitch.volcano.Unsolo.dtos;
 
 import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
+import com.interswitch.volcano.Unsolo.enums.RoomType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,6 @@ public class TripDto {
     private String duration;
     private ApprovalStatus approvalStatus;
     private long userId;
+
+    private RoomType roomType;
 }
