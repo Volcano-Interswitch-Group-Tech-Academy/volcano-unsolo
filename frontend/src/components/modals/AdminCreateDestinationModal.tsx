@@ -18,6 +18,7 @@ const defaultValues = {
   participants: "",
   hotel: "",
   description: "",
+  cost: "",
 };
 
 const AdminCreateDestinationModal: React.FC<ModalProps> = ({
@@ -50,6 +51,7 @@ const AdminCreateDestinationModal: React.FC<ModalProps> = ({
   const participants = errors?.participants?.message;
   const hotelMessage = errors?.hotel?.message;
   const descriptionMessage = errors?.description?.message;
+  const cost = errors?.cost?.message;
 
   console.log(errors);
 
@@ -61,7 +63,7 @@ const AdminCreateDestinationModal: React.FC<ModalProps> = ({
     <div>
       <Dialog open={open} onClose={onClose}>
         <p className="text-center font-bold text-2xl mt-5">
-          Create  Destination
+          Create Destination
         </p>
         <DialogContent>
           <div>
@@ -154,6 +156,26 @@ const AdminCreateDestinationModal: React.FC<ModalProps> = ({
             {participants && (
               <p className="text-red-500 text-sm">{participants}</p>
             )}
+
+            <Gap v={1} />
+            <Controller
+              key="cost"
+              name="cost"
+              control={control}
+              defaultValue=""
+              rules={{ required: "Cost is required" }}
+              render={({ field }) => (
+                <Input
+                  placeholder="Cost"
+                  styling=""
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={() => field.onBlur()}
+                  type="text"
+                  error={cost}
+                />
+              )}
+            />
 
             <Gap v={1} />
             <div className="flex flex-row">
@@ -252,8 +274,6 @@ const AdminCreateDestinationModal: React.FC<ModalProps> = ({
             />
 
             <Gap v={1} />
-
-            
           </div>
         </DialogContent>
       </Dialog>

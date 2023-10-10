@@ -2,14 +2,9 @@ import * as React from "react";
 import { JoinDestinationModalProps } from "@/helpers/types/ui";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import { ModalProps } from "@/helpers/types/ui";
 import Gap from "../common/Gap";
-import Input from "../ui/input";
 import Button from "../ui/Button";
 import { useForm, Controller } from "react-hook-form";
-import DatePicker from "react-datepicker";
-import { useState } from "react";
 
 const defaultValues = {
   shareRoom: "",

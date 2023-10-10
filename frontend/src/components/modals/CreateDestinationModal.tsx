@@ -8,11 +8,16 @@ import Button from "../ui/Button";
 import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
+import { getLocalStorage } from "@/utils/localStorage";
+import { useGetData } from "@/helpers/hooks/useQueryHooks";
+import { UserDataProps } from "@/helpers/types/auth";
+import { usePostData } from "@/helpers/hooks/useMutationtHook";
+import { CreateDestinationRequestType, CreateDestinationResponseType } from "@/helpers/types/modules/destination";
 
 const defaultValues = {
   country: "",
   city: "",
-  duration: "",
+  duration: "" ,
   startDate: "",
   endDate: "",
   participants: "",
@@ -20,7 +25,9 @@ const defaultValues = {
   hotel: "",
   getHotel: "",
   description: "",
+  cost: "",
 };
+
 
 const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const [startDatePickerDate, setStartDatePickerDate] = useState<Date | null>(
@@ -33,7 +40,7 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
     control,
     register,
     watch,
-    formState: { errors, isValid, },
+    formState: { errors, isValid },
   } = useForm({
     defaultValues,
     mode: "all",
@@ -49,20 +56,45 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const durationMessage = errors?.duration?.message;
   const participants = errors?.participants?.message;
   const shareRoom = errors?.shareRoom?.message;
-  const hotelMessage = errors?.hotel?.message;
-  const getHotelMessage = errors?.getHotel?.message;
   const descriptionMessage = errors?.description?.message;
-
 
   console.log(errors);
 
   const onSubmit = (value: any) => {
-    console.log(value);
-  };
+    const postData = {
+      country: value.country,
+      city: value.city,
+      duration: Number(value.duration), 
+      startDate: value.startDate,
+      endDate: value.endDate,
+      maxNoOfPersons: Number(value.participants), 
+      tripDescription: value.description,
+      cost: Number(value.cost),  
+      noOfRegisterPersons: Number(value.participants)}
+
+      console.log("postData: ", postData)
+
+    createDestinationMutation.mutate(postData, {
+      onSuccess: (data) => {
+      },
+      onError: (error) => {
+      }
+    });
+};
+
+
+  const token = getLocalStorage("token")!;
+  const { data: userData } = useGetData<UserDataProps>(
+    "http://localhost:8060/api/users",
+    token
+  );
+  const isUserLoggedIn = userData && userData.id; 
+
+  const createDestinationMutation = usePostData<CreateDestinationRequestType, CreateDestinationResponseType>(`destinations/newDest/${isUserLoggedIn? userData.id : null}`, token);
 
   return (
     <div>
-      <Dialog open={open} onClose={onClose}>
+      <Dialog open={open} onClose={onClose}> 
         <p className="text-center font-bold text-2xl mt-5">
           Create Your Desired Destination
         </p>
@@ -154,6 +186,8 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 />
               )}
             />
+
+            
             {/* {participants && (
               <p className="text-red-500 text-sm">{participants}</p>
             )} */}
@@ -220,7 +254,6 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   placeholder="Trip description"
                   style={{ width: "100%", height: "100px", padding: "10px" }}
                   className="input"
-
                 ></textarea>
               )}
             />
@@ -245,55 +278,8 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 <option value={item.value}>{item.label}</option>
               ))}
             </select>
-            {getHotelMessage && (
-              <p className="text-red-500 text-sm">{getHotelMessage}</p>
-            )}
 
             <Gap v={1} />
-            {getHotelValue && getHotelValue == "yes" ? (
-              <>
-                <select
-                  {...register("hotel")}
-                  className="input"
-                  required
-                  key="hotel"
-                >
-                  <option disabled selected value="">
-                    Choose from our list of hotels?
-                  </option>
-                  {[
-                    { value: "canada", label: "Canada" },
-                    { value: "uk", label: "UK" },
-                  ].map((item) => (
-                    <option value={item.value}>{item.label}</option>
-                  ))}
-                </select>
-                {hotelMessage && (
-                  <p className="text-red-500 text-sm">{hotelMessage}</p>
-                )}
-
-                <Gap v={1} />
-                <select
-                  {...register("shareRoom")}
-                  className="input"
-                  required
-                  key="shareRoom"
-                >
-                  <option disabled selected value="">
-                    Do you want to share your hotel room?
-                  </option>
-                  {[
-                    { value: "yes", label: "Yes" },
-                    { value: "no", label: "No" },
-                  ].map((item) => (
-                    <option value={item.value}>{item.label}</option>
-                  ))}
-                </select>
-                {shareRoom && (
-                  <p className="text-red-500 text-sm">{shareRoom}</p>
-                )}
-              </>
-            ) : null}
           </div>
 
           <Gap v={1} />
