@@ -1,6 +1,6 @@
 package com.interswitch.volcano.Unsolo.model;
 
-import com.interswitch.volcano.Unsolo.enums.TripStatus;
+import com.interswitch.volcano.Unsolo.enums.DestinationStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +27,6 @@ public class CurrentDestinations {
     private String startDate;
     private String endDate;
     private String duration;
-    private TripStatus tripStatus;
-
+    private DestinationStatus destinationStatus;
+    private long userId;
 }

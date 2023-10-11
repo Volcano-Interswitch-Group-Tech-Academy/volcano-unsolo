@@ -1,8 +1,19 @@
-import '../styles/globals.css';
-import "slick-carousel/slick/slick.css"; 
+import "../styles/globals.css";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import type { AppProps } from 'next/app'
+import "react-datepicker/dist/react-datepicker.css";
+import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const queryClient = new QueryClient();
+
+export default function App({ Component, pageProps: {session, ...pageProps} }: AppProps) {
+  return (
+    <SessionProvider session={session}>
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
+    </SessionProvider>
+  );
 }

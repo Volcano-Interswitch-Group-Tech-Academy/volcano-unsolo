@@ -12,13 +12,14 @@ export const getIcon = (label: string) => {
   switch (label.toLowerCase()) {
     case "dashboard":
       return HomeIcon;
+      
     case "pools":
       return PoolsIcon;
 
     case "wallet":
       return WalletIcon;
 
-    case "trip history":
+    case "trip history" || "destination history":
       return HistoryIcon;
 
     case "destinations":

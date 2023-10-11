@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export type CardProps = {
     images?: string[];
     countryName:string;
@@ -10,5 +12,7 @@ export type CardProps = {
     availableSlots:string | number;
     price: string;
     description:string;
+   onClick?: MouseEventHandler<HTMLButtonElement>;
+
 
 }
