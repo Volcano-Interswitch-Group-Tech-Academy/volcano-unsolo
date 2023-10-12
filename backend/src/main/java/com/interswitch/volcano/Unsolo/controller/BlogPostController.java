@@ -21,7 +21,9 @@ public class BlogPostController {
     @PostMapping("/createBlogPost")
     public ResponseEntity<String> createBlogPost(@RequestBody BlogPostDto blogPostDto) {
         String createBlogPost = blogPostService.createBlogPost(blogPostDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createBlogPost);
+        ResponseEntity<String> post = new ResponseEntity<>(createBlogPost, HttpStatus.CREATED);
+                return post;
+
     }
 
 
@@ -32,17 +34,21 @@ public class BlogPostController {
         return post;
     }
 
+
     @DeleteMapping("/delete/{id}/{userId}")
     public ResponseEntity<String> deleteBlogPostByIdAndUserId(@PathVariable Long id, @PathVariable Long userId) {
-
         blogPostService.deleteByIdAndUserId(id, userId);
-        return ResponseEntity.ok("Blog post deleted successfully");
+        String pst = "successfully deleted post";
+        ResponseEntity<String> post = new ResponseEntity<>(pst, HttpStatus.OK);
+        return post;
     }
+
 
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<String> deleteBlogPostById(@PathVariable Long userId) {
         blogPostService.deleteById(userId);
-        return ResponseEntity.ok("Blog post deleted successfully");
+        ResponseEntity<String> post = new ResponseEntity<>("Blog post deleted successfully", HttpStatus.OK);
+        return post;
     }
 
 
@@ -52,20 +58,23 @@ public class BlogPostController {
             @RequestBody BlogPostDto updatedBlogPostDto) {
 
         String updateResponse = blogPostService.updateBlogPost(userId, updatedBlogPostDto);
-        return ResponseEntity.ok(updateResponse);
+        ResponseEntity<String> post = new ResponseEntity<>(updateResponse, HttpStatus.OK);
+        return post;
     }
 
 
     @GetMapping("/getBlogPost/{userId}")
     public ResponseEntity<List<BlogPostDto>> getBlogPostByUserId(@PathVariable Long userId) {
-        List<BlogPostDto> post = blogPostService.getBlogPostByUserId(userId);
-        return ResponseEntity.ok(post);
+        List<BlogPostDto> pst = blogPostService.getBlogPostByUserId(userId);
+        ResponseEntity<List<BlogPostDto>> post = new ResponseEntity<>(pst, HttpStatus.OK);
+        return post;
     }
 
     @GetMapping("/getBlogPost/{id}")
     public ResponseEntity<BlogPostDto> getBlogPostById(@PathVariable Long id) {
-        BlogPostDto post = blogPostService.getBlogPostById(id);
-        return ResponseEntity.ok(post);
+        BlogPostDto pst = blogPostService.getBlogPostById(id);
+        ResponseEntity<BlogPostDto> post = new ResponseEntity<>(pst, HttpStatus.OK);
+        return post;
     }
 
 }

@@ -1,26 +1,21 @@
 package com.interswitch.volcano.Unsolo.controller;
 
 import com.interswitch.volcano.Unsolo.dtos.CreateTripDto;
-import com.interswitch.volcano.Unsolo.dtos.TripDto;
+import com.interswitch.volcano.Unsolo.dtos.CreateYourTripDto;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
 import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
 import com.interswitch.volcano.Unsolo.enums.RoomType;
-import com.interswitch.volcano.Unsolo.model.Trip;
+import com.interswitch.volcano.Unsolo.model.CreateYourTrip;
+import com.interswitch.volcano.Unsolo.repository.CreateYourTripRepository;
 import com.interswitch.volcano.Unsolo.repository.CurrentDestinationsRepo;
-import com.interswitch.volcano.Unsolo.repository.TripRepository;
 import com.interswitch.volcano.Unsolo.repository.UserRepository;
-import com.interswitch.volcano.Unsolo.services.ServiceImpl.TripServiceImpl;
-import com.interswitch.volcano.Unsolo.services.TripService;
-import com.interswitch.volcano.Unsolo.utils.BeanUtilsWithNullHandler;
-import org.apache.commons.beanutils.BeanUtils;
-import org.aspectj.lang.annotation.Before;
+import com.interswitch.volcano.Unsolo.services.CreateYourTripService;
+import com.interswitch.volcano.Unsolo.services.ServiceImpl.CreateYourTripServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
@@ -29,21 +24,21 @@ import static org.mockito.Mockito.when;
 class TripControllerTest {
 
 
-    private final TripRepository tripRepository = mock(TripRepository.class);
+    private final CreateYourTripRepository tripRepository = mock(CreateYourTripRepository.class);
 
     private final CurrentDestinationsRepo currentDestinationsRepo = mock(CurrentDestinationsRepo.class);
 
     private final UserRepository userRepository = mock(UserRepository.class);
 
-    private final TripService tripService = new TripServiceImpl(tripRepository, currentDestinationsRepo, userRepository);
+    private final CreateYourTripService tripService = new CreateYourTripServiceImpl(tripRepository, currentDestinationsRepo, userRepository);
 
-    private final TripController tripController = new TripController(tripService);
+    private final CreateYourTripController tripController = new CreateYourTripController(tripService);
 
-    Trip trip;
+    CreateYourTrip trip;
 
     @BeforeEach
     public void setUp() {
-        Trip trip = new Trip();
+        CreateYourTrip trip = new CreateYourTrip();
         trip.setApprovalStatus(ApprovalStatus.PENDING);
         trip.setRoomType(RoomType.ONE_PER_ROOM);
         trip.setDuration("2 weeks");
@@ -57,10 +52,10 @@ class TripControllerTest {
         UpdateTripRequest updateTripRequest = new UpdateTripRequest();
         updateTripRequest.setRoomType(RoomType.TWO_PER_ROOM);
         when(tripRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(trip);
-        when(tripRepository.save(isA(Trip.class))).thenReturn(trip);
+        when(tripRepository.save(isA(CreateYourTrip.class))).thenReturn(trip);
 
         ResponseEntity<?> responseEntity = tripController.updateTrip(1l, 1l, updateTripRequest);
-        TripDto tripDto = (TripDto) responseEntity.getBody();
+        CreateYourTripDto tripDto = (CreateYourTripDto) responseEntity.getBody();
         assertEquals(RoomType.TWO_PER_ROOM, tripDto.getRoomType());
     }
 
@@ -77,10 +72,10 @@ class TripControllerTest {
 
         when(tripRepository.findByDestinationIdAndUserId(anyLong(), anyLong())).thenReturn(null);
         when(currentDestinationsRepo.existsById(anyLong())).thenReturn(true);
-        when(tripRepository.save(isA(Trip.class))).thenReturn(trip);
+        when(tripRepository.save(isA(CreateYourTrip.class))).thenReturn(trip);
 
         ResponseEntity<?> responseEntity = tripController.createTrip(1L, 1L, createTripDto);
-        TripDto tripDto = (TripDto) responseEntity.getBody();
+        CreateYourTripDto tripDto = (CreateYourTripDto) responseEntity.getBody();
 
         assertEquals(ApprovalStatus.PENDING, tripDto.getApprovalStatus());
     }
