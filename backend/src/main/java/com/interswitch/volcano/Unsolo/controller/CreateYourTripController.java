@@ -1,9 +1,10 @@
 package com.interswitch.volcano.Unsolo.controller;
 
+
 import com.interswitch.volcano.Unsolo.dtos.CreateTripDto;
 import com.interswitch.volcano.Unsolo.dtos.TotalUsersResponse;
 import com.interswitch.volcano.Unsolo.dtos.UpdateTripRequest;
-import com.interswitch.volcano.Unsolo.services.TripService;
+import com.interswitch.volcano.Unsolo.services.CreateYourTripService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/trips")
-public class TripController {
-    private final TripService tripService;
+public class CreateYourTripController {
+    private final CreateYourTripService tripService;
 
     @PutMapping("/update/{userId}/{tripId}")
     public ResponseEntity<?> updateTrip(@PathVariable Long userId, @PathVariable Long tripId, @RequestBody UpdateTripRequest updateTripRequest) throws Exception {

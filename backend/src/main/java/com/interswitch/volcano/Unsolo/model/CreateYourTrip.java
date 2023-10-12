@@ -3,14 +3,14 @@ package com.interswitch.volcano.Unsolo.model;
 import com.interswitch.volcano.Unsolo.enums.ApprovalStatus;
 import com.interswitch.volcano.Unsolo.enums.RoomType;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "trips")
-public class Trip {
+public class CreateYourTrip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -18,8 +18,8 @@ public class Trip {
     private String duration;
     @Enumerated(EnumType.STRING)
     private ApprovalStatus approvalStatus;
-    private long userId;
-    private long destinationId;
+    private Long userId;
+    private Long destinationId;
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
