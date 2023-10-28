@@ -104,9 +104,7 @@ const FAQ = () => {
           <Button
             onClick={() =>
               window.open(
-                "https://getdropp.notion.site/Homemade-Help-Center-f8653ff874e544c385113e3622daf64e",
-                "_blank"
-              )
+"                https://www.notion.so/Unsolo-Help-Center-0395ded6941242e2854101a3ce46f9fb?pvs=4"              )
             }
             children={"Chat with us"}
             icon={<ArrowLeftIcon />}

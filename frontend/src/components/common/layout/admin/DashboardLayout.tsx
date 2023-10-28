@@ -1,7 +1,8 @@
 import SideNav from "@/components/modules/Dashboard/SideNav";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import AdminSideNav from "./AdminSideNav";
+import { getLocalStorage } from "@/utils/localStorage";
 
 
 interface DashboardLayoutProps {
@@ -30,6 +31,14 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     return "Overview";
   };
   
+  const token =  getLocalStorage('token');
+ 
+  useEffect(()=>{
+    if(!token){
+       router.push('/login')
+    }
+  },[token])
+
   
   const labelForHeader = getLabelFromPath(router.pathname);
   return (

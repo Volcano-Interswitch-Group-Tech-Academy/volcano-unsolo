@@ -53,8 +53,8 @@ useEffect(()=>{
         />
 
         <div className="mt-2">
-          <h1 className="text-center "> {isUserLoggedIn? userData.userName : "nill"}</h1>
-          <p className="text-center light-font">{isUserLoggedIn? userData.email : "nill"}</p>
+          <h1 className="text-center "> {isUserLoggedIn? userData.userName : "Super Admin"}</h1>
+          <p className="text-center light-font">{isUserLoggedIn? userData.email : "superadmin@gmail.com"}</p>
           <div className = "flex gap-2 justify-center items-center mt-2">
             <Image
               height={20}

@@ -36,5 +36,7 @@ export type CreateDestinationResponseType = {
     maxNoOfPersons: number;
     tripDescription: "string";
     cost?: number
+    status: string
+    message: string
   };
   

@@ -13,6 +13,8 @@ import { useGetData } from "@/helpers/hooks/useQueryHooks";
 import { UserDataProps } from "@/helpers/types/auth";
 import { usePostData } from "@/helpers/hooks/useMutationtHook";
 import { CreateDestinationRequestType, CreateDestinationResponseType } from "@/helpers/types/modules/destination";
+import { notification } from 'antd';
+
 
 const defaultValues = {
   country: "",
@@ -64,20 +66,45 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
     const postData = {
       country: value.country,
       city: value.city,
-      duration: Number(value.duration), 
+      duration: Number(value.duration),
       startDate: value.startDate,
       endDate: value.endDate,
-      maxNoOfPersons: Number(value.participants), 
+      maxNoOfPersons: Number(value.participants),
       tripDescription: value.description,
-      cost: Number(value.cost),  
-      noOfRegisterPersons: Number(value.participants)}
+      cost: Number(value.cost),
+      noOfRegisterPersons: Number(value.participants)
+    };
 
-      console.log("postData: ", postData)
+    console.log("postData: ", postData)
 
     createDestinationMutation.mutate(postData, {
       onSuccess: (data) => {
+        // Check the status of the response
+        if(data.status === "CREATED") {
+          // Show a success notification
+          notification.success({
+            message: 'Success',
+            description: data.message
+          });
+
+          // Close the modal
+          onClose();
+        } else {
+          // For non-success statuses, display an info or error notification as appropriate
+          notification.error({
+            message: 'Something went wrong',
+            description: data.message
+          });
+        }
       },
       onError: (error) => {
+        // Display a notification for the error
+        onClose();
+
+        notification.error({
+          message: 'Error',
+          description: 'An error occurred while creating the destination'
+        });
       }
     });
 };
@@ -109,9 +136,17 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
               <option disabled selected value="">
                 Choose a desired country
               </option>
+              
               {[
-                { value: "canada", label: "Canada" },
-                { value: "uk", label: "UK" },
+                { value: "United States", label: "United States" },
+                { value: "United Kingdom", label: "United Kingdom" },
+                { value: "France", label: "France" },
+                { value: "Japan", label: "Japan" },
+                { value: "China", label: "China" },
+                { value: "Nigeria", label: "South Africa" },
+                { value: "Kenya", label: "Kenya" },
+                { value: "Ethiopia", label: "Ethiopia" },
+                { value: "Morocco", label: "Morocco" },
               ].map((item) => (
                 <option value={item.value}>{item.label}</option>
               ))}
@@ -132,11 +167,19 @@ const CreateDestinationModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 Choose a desired city
               </option>
               {[
-                { value: "canada", label: "Canada" },
-                { value: "uk", label: "UK" },
+                { value: "New York City", label: "New York City" },
+                { value: "London", label: "London" },
+                { value: "Paris", label: "Paris" },
+                { value: "Tokyo", label: "Tokyo" },
+                { value: "Beijing", label: "Beijing" },
+                { value: "Lagos", label: "Lagos" },
+                { value: "Nairobi", label: "Nairobi" },
+                { value: "Addis Ababa", label: "Addis Ababa" },
+                { value: "Casablanca", label: "Casablanca" },
               ].map((item) => (
                 <option value={item.value}>{item.label}</option>
               ))}
+              
             </select>
 
             {cityErrorMessage && (
